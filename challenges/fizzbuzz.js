@@ -29,7 +29,7 @@ function fizzbuzz(num) {
     } else if (numArr[i] % 5 === 0) {
       numArr[i] = "buzz"
     }
-  }
+  } 
   return numArr;
 }
 
