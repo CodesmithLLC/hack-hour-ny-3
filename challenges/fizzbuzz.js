@@ -24,6 +24,7 @@ function fizzbuzz(num) {
     else if (i % 5 === 0){results.push('buzz')}
     else {results.push(i)}
   }
+  
   return results;
 }
 
