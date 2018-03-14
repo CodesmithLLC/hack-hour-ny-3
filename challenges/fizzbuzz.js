@@ -30,6 +30,7 @@ function fizzbuzz(num) {
       fizzArr.push(i);
     }
   }
+  return fizzArr;
 }
-
+console.log(fizzbuzz(16));
 module.exports = fizzbuzz;
