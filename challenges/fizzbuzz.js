@@ -18,7 +18,7 @@
 
 function fizzbuzz(num) {
   var numArr = []
-  for (var i = 0; i <= num; i++) {
+  for (var i = 1; i <= num; i++) {
     numArr.push(i);
   }
   for (let i = 0; i < numArr.length; i++) {
