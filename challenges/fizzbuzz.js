@@ -16,8 +16,18 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {  
-
+function fizzbuzz(num) {
+  var numArr = num
+  for (let i = 0; i < numArr.length; i++) {
+    if ((numArr[i] % 3 === 0) && (numArr[i] % 5 === 0)) {
+      numArr[i] = "fizzbuzz"
+    } else if (numArr[i] % 3 === 0) {
+      numArr[i] = "fizz"
+    } else if (numArr[i] % 5 === 0) {
+      numArr[i] = "buzz"
+    }
+  }
+  return numArr
 }
 
 module.exports = fizzbuzz;
