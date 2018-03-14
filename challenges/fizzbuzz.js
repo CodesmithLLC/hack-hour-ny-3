@@ -26,7 +26,4 @@ function fizzbuzz(num) {
   }
   return array;
 }
-
-
-console.log(fizzbuzz(16))
 module.exports = fizzbuzz;
