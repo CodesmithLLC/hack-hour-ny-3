@@ -16,8 +16,31 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {
+function fizzbuzz(num) { 
+    return Array(num).fill('').reduce(function(res, curr, i){
+        i++;
+        curr = i % 3 === 0 ? curr += 'fizz' : curr;
+        curr = i % 5 === 0 ? curr += 'buzz' : curr;
 
+        return res.push(curr || i) ? res : 0;
+    },[]);
 }
+
+// function fizzbuzz(num) { 
+//     const result = [];
+//         for(let i = 1; i <= num; i++){
+//             let target = '';
+//             if (i % 3 === 0) {
+//                 target += `fizz`;
+//             }
+//             if (i % 5 === 0) {
+//                 target += 'buzz'
+//             }
+//             result.push(target || i);
+//         }
+//     return result;
+// }
+
+console.log(fizzbuzz(16));
 
 module.exports = fizzbuzz;
