@@ -3,7 +3,7 @@
 //                     2,
 //                     'fizz',
 //                     4,
-//                     'buzz',
+//                     'buzz',s
 //                     'fizz',
 //                     7,
 //                     8,
@@ -16,8 +16,20 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {  
-
+function fizzbuzz(num) {
+  // num -> Array
+  var fizzArr = [];
+  for (var i = 1; i <= num; i++) {
+    if (num % 3 === 0 && num % 5 !== 0) {
+      fizzArr.push('fizz');
+    } else if (num % 5 === 0 && num % 3 !== 0) {
+      fizzArr.push('buzz');
+    } else if (num % 3 === 0 && num % 5 === 0) {
+      fizzArr.push('fizzbuzz');
+    } else {
+      fizzArr.push(i);
+    }
+  }
 }
 
 module.exports = fizzbuzz;
