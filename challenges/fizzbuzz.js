@@ -20,11 +20,11 @@ function fizzbuzz(num) {
   // num -> Array
   var fizzArr = [];
   for (var i = 1; i <= num; i++) {
-    if (num % 3 === 0 && num % 5 !== 0) {
+    if (i % 3 === 0 && i % 5 !== 0) {
       fizzArr.push('fizz');
-    } else if (num % 5 === 0 && num % 3 !== 0) {
+    } else if (i % 5 === 0 && i % 3 !== 0) {
       fizzArr.push('buzz');
-    } else if (num % 3 === 0 && num % 5 === 0) {
+    } else if (i % 3 === 0 && i % 5 === 0) {
       fizzArr.push('fizzbuzz');
     } else {
       fizzArr.push(i);
