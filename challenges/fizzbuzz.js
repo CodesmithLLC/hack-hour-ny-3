@@ -29,7 +29,7 @@ function fizzbuzz(num) {
             newArr.push(i);
         }
     }
-    return newArr
+    return newArr;
 }
 
 module.exports = fizzbuzz;
