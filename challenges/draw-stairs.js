@@ -43,6 +43,5 @@ function addStars(n) {
 
   return result;
 }
-console.log(drawStairs(6));
 
 module.exports = drawStairs;
