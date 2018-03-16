@@ -15,33 +15,13 @@
 
 function drawStairs(n) {
   // number (max stars) right to left -> stars up from 1
-  let recurseStairs = function() {
-    let stairs = '';
+  let line = Array(n).fill(' ');
 
-    if (n === 1) {
-      return '*';
-    }
-
-    for (var i = n - 1; i >= 0; i--) {
-      stairs += '*';
-    }
-
-    stairs += '\n';
-
-    return stairs += drawStairs(n - 1);
+  for (var i = n - 1; i >= 0; i--) {
+    line[i] = '*';
+    console.log(line.join(''));
   }
-
-  var smallToBig = recurseStairs(6).split('\n').reverse();
-  // return smallToBig.join('\n');
-  var finalStr = '';
-
-  for (var i = 0; i < smallToBig.length; i++) {
-    var layer = smallToBig[i];
-    
-  }
-
-  return finalStr;
 }
 
-console.log(drawStairs(6));
+drawStairs(6);
 module.exports = drawStairs;
