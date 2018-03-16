@@ -14,8 +14,13 @@
 */
 
 function drawStairs(n) {
-
+    return Array(n).fill(' ').map(function(newLine, i){
+        i++;
+        newLine = newLine.repeat(n); //fill to n
+        newLine = newLine.slice(0, -i); //remove last
+        return newLine += '*'.repeat(i)+'\n'; //return result + line break
+    }).join('').slice(0,-1);
 }
 
-
+console.log(drawStairs(6));
 module.exports = drawStairs;
