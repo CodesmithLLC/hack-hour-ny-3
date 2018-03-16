@@ -15,10 +15,15 @@
 
 function drawStairs(n) {
     let stairs = new Array(n).fill(' ');
+    let returnString = '';
     for (let i = n-1; i >= 0; i -= 1) {
         stairs[i] = '*';
-        console.log(stairs.join(''));
+        returnString += stairs.join('');
+        if (i !== 0) {
+          returnString += '\n';
+        }
     }
+    console.log(returnString);
 }
 
 module.exports = drawStairs;
