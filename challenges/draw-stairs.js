@@ -19,20 +19,9 @@ drawStairs(6) ->
 
 
 function drawStairs(n){
-  output = "";
-  function numToStars(n){
-  translated = ""
-    for(let i = 1; i <= n; i+=1){
-      translated += "*"
+let output = "";
+  for (let j = 1; j <= n; j+=1 ){
+    output += ' '.repeat(n-j) + '*'.repeat(j) + "\n"
   }
-  return translated
+  return output.slice(0,-1);
 }
-  for (let j = 1; j <= n; j+=1){
-    output += numToStars(j)
-    if(j<n){
-      output += "\n"
-    }
-  }
-  return output;
-}
-module.exports = drawStairs;
