@@ -42,8 +42,6 @@ function modemean(array) {
         }
     }
 
-    console.log(mean, mostFreq)
-
     if (mostFreq == mean){
         return true;
     } else {
