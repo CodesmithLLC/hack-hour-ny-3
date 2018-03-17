@@ -18,7 +18,7 @@ function modemean(array) {
         return a+=v;
     }) / array.length);
 
-    return Math.max([...modes]) === mean; 
+    return Math.max(...modes) === mean; 
 }
 
 // function mode (array) {
