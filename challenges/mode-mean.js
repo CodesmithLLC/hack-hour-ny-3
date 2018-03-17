@@ -21,12 +21,15 @@ function modemean(array) {
     return acc;
   }, {});
   let highest = null;
+  let highestFreq = null;
   for (let key in mode) {
-    if (highest === null || mode[key] >= highest) {
-      highest = mode[key];
+    if (highestFreq === null || mode[key] >= highestFreq) {
+      highestFreq = mode[key];
+      highest = Number(key);
     }
   }
   return highest === avg;
 }
+
 
 module.exports = modemean;
