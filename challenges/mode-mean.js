@@ -17,20 +17,22 @@ function modemean(array) {
         if(array.includes(v, i+1)) modes.push(v);
         return a+=v;
     }) / array.length);
+
+    function mode (array) {
+        let target = array.reduce(function(a,v,i,arr){
+            if(arr.includes(v, i+1)) a.push(v);
+            return a;
+        }, []);
+        
+        if(target.length > 2) target = mode(target);
+        return target;
+    }
     
+    if(modes.length > 2) modes = mode(array);
+
     return Math.max(...modes) === Math.floor(mean);
 }
-console.log(modemean([1,2,3,4,5,5]))
-// function mode (array) {
-//     let target = array.reduce(function(a,v,i,arr){
-//         if(arr.includes(v, i+1)) a.push(v);
-//         return a;
-//     }, []);
-    
-//     if(target.length > 1) target = mode(target);
-//     return target;
-// }
+console.log(modemean([8,10,8,5,4,7,5,10,8]))
 
-// if(modes.length > 1) modes = mode(array);
 
 module.exports = modemean;
