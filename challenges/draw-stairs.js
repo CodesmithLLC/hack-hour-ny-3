@@ -26,8 +26,6 @@ function drawStairs(n) {
         return;
     }
 
-    console.log(stairs)
-
     return drawStairs(n - 1);
 }
 
