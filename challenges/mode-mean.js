@@ -11,7 +11,7 @@
 
 
 function modemean(array) {
-    const mean = array.reduce((acc, cur) => acc + cur)/array.length;
+    const mean = Math.floor(array.reduce((acc, cur) => acc + cur)/array.length);
     const modes = array.reduce((counts, cur) => {
         if (cur in counts) {
             counts[cur] += 1;
