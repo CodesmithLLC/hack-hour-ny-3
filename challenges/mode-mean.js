@@ -17,10 +17,10 @@ function modemean(array) {
         if(array.includes(v, i+1)) modes.push(v);
         return a+=v;
     }) / array.length);
-
-    return Math.max(...modes) === mean; 
+    
+    return Math.max(...modes) === Math.floor(mean);
 }
-
+console.log(modemean([1,2,3,4,5,5]))
 // function mode (array) {
 //     let target = array.reduce(function(a,v,i,arr){
 //         if(arr.includes(v, i+1)) a.push(v);
