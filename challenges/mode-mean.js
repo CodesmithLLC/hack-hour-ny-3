@@ -52,6 +52,6 @@ function modemean(array) {
 
 }
 
-console.log(modemean([1,1,1,1,7,7,7,7,7,7,7,7,7]));
+//console.log(modemean([1,1,1,1,7,7,7,7,7,7,7,7,7]));
 
 module.exports = modemean;
