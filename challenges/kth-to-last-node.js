@@ -33,11 +33,11 @@ function kthToLastNode(k, head) {
 
   //reset head and go down to specified element 
   currentNode = head;
-  for(let i = 1; i < listLength; i++){
-    currentNode = currentNode.next;
+  for(let i = 0; i <= listLength; i++){ 
     if(listLength - (k) === i){
       return currentNode.value;
     }
+    currentNode = currentNode.next;
   } return undefined;
 
 }
@@ -56,7 +56,7 @@ function kthToLastNode(k, head) {
 // d.next = e;
 // e.next = ef;
 
-// console.log(kthToLastNode(3, a));
+// console.log(kthToLastNode(6, a));
 
 
 
