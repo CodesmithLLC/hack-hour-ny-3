@@ -9,9 +9,21 @@
  *
  */
 
-
-function modemean(array) {
-
+function modemean (array) {
+  const mean = Math.floor (
+    array.reduce ((accumulator, currentValue) => accumulator + currentValue) / array.length
+  );
+  var mode = 
+  const modeObj = {};
+  for (let i = 0; i < array.length; i++) {
+    if (!modeObj[array[i]]) {
+      modeObj[array[i]] = 1;
+    } else {
+      modeObj[array[i]]++;
+    }
+  }
+}, 0);
+  return mean === mode;
 }
 
 module.exports = modemean;
