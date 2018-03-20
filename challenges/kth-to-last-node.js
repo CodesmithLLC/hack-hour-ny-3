@@ -29,7 +29,6 @@ function kthToLastNode(k, head) {
     values.push(current.value);
     current = current.next;
   }
-  console.log(values);
   return values[values.length - k];
 }
 
