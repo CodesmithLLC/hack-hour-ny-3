@@ -31,12 +31,13 @@ function kthToLastNode(k, head) {
     }
   }
   recursion(head)
+  if (k > count) {
+    return undefined
+  }
   while (count >= k) {
     if (v.next) {
       count--
       v = v.next
-    } else {
-      return undefined
     }
   }
   return v.value
