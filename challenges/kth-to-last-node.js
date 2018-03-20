@@ -23,10 +23,17 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
   let v = head
-  let i = k
-  while (i >= 0) {
+  let count = 0
+  function recursion(v) {
     if (v.next) {
-      i--
+    count++
+    recursion(v.next)
+    }
+  }
+  recursion(head)
+  while (count >= k) {
+    if (v.next) {
+      count--
       v = v.next
     } else {
       return undefined
