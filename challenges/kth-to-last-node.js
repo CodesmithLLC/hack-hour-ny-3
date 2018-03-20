@@ -44,19 +44,19 @@ function kthToLastNode(k, head) {
 
 
 //testing here
-const a = new Node('A');
-const b = new Node('B');
-const c = new Node('C');
-const d = new Node('D');
-const e = new Node('E');
-const ef = new Node('Ef');
-a.next = b;
-b.next = c;
-c.next = d;
-d.next = e;
-e.next = ef;
+// const a = new Node('A');
+// const b = new Node('B');
+// const c = new Node('C');
+// const d = new Node('D');
+// const e = new Node('E');
+// const ef = new Node('Ef');
+// a.next = b;
+// b.next = c;
+// c.next = d;
+// d.next = e;
+// e.next = ef;
 
-console.log(kthToLastNode(3, a));
+// console.log(kthToLastNode(3, a));
 
 
 
