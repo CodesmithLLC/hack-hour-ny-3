@@ -19,17 +19,14 @@ function drawStairs(n) {
     //I think I could have solved this with a for loop and counter
     //but I wanted to see if I could understand solving this recursively 
     //to get some practice but couldn't quite get there 
-    var start = 1;
-    var stairs = "";
 
-    if(n === 0){
-        return;
+    //trying to solve here with for loop and .repeat function
+    for (let i = 1; i <= n; i++){
+        console.log('*'.repeat(i))
     }
-
-    return drawStairs(n - 1);
 }
 
-drawStairs(3)
+//drawStairs(3)
 
 
 module.exports = drawStairs;
