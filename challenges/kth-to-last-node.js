@@ -38,7 +38,8 @@ function kthToLastNode(k, head) {
     if(listLength - (k) === i){
       return currentNode.value;
     }
-  }
+  } return undefined;
+
 }
 
 
@@ -48,12 +49,14 @@ function kthToLastNode(k, head) {
 // const c = new Node('C');
 // const d = new Node('D');
 // const e = new Node('E');
+// const ef = new Node('Ef');
 // a.next = b;
 // b.next = c;
 // c.next = d;
 // d.next = e;
+// e.next = ef;
 
-// console.log(kthToLastNode(2, a));
+// console.log(kthToLastNode(3, a));
 
 
 
