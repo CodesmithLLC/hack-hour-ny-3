@@ -29,10 +29,8 @@ function modemean(array) {
     }
     
     if(modes.length > 2) modes = mode(array);
-
+    console.log(modes, mean)
     return Math.max(...modes) === Math.floor(mean);
 }
-console.log(modemean([8,10,8,5,4,7,5,10,8]))
-
 
 module.exports = modemean;
