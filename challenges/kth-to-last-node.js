@@ -20,6 +20,11 @@ function Node(val) {
   this.next = null;
 }
 
+function Node(val) {
+  this.value = val;
+  this.next = null;
+}
+
 function kthToLastNode(k, head) {
   let length = 0;
   let goal= 0;
@@ -39,10 +44,12 @@ function kthToLastNode(k, head) {
       goalCount(node.next)
     }else {result = node}
   }
-  goalCount(head);
 
-  console.log(length,goal,result.value);
-  return (result.value)
+  if (k > length){return undefined}
+  else{
+  goalCount(head);
+  return result.value;
+  }
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
