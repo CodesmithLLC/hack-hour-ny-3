@@ -29,7 +29,7 @@ function kthToLastNode(k, head) {
       i--
       v = v.next
     } else {
-      v.next = undefined
+      return undefined
     }
   }
   return v.value
