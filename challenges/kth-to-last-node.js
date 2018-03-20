@@ -33,7 +33,7 @@ function kthToLastNode(k, head) {
     }
   }
   recursion(head.next);
-  return valueStorage[valueStorage.length-2]
+  return valueStorage[valueStorage.length-k]
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
