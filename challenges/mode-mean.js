@@ -11,7 +11,7 @@
 
 
 function modemean(array) {
-  return getMean(array) ===  getMode(array);
+  return getMean(array) === getMode(array);
 }
 
 function getMean(array) {
@@ -43,7 +43,7 @@ function getMode(array) {
   return Math.max(...maxArr);
 }
 
-let nums = [1,4,6,7,7,7,8,4,4,10,10,10,9,9,9];
+// let nums = [3, 4, 5, 5, 8];
 // console.log(getMean(nums));
 // console.log(getMode(nums));
 console.log(modemean(nums));

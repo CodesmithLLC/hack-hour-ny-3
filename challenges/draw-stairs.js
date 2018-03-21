@@ -15,13 +15,8 @@
 
 function drawStairs(n) {
   // number (max stars) right to left -> stars up from 1
-  let line = Array(n).fill(' ');
 
-  for (var i = n - 1; i >= 0; i--) {
-    line[i] = '*';
-    console.log(line.join(''));
-  }
 }
 
-drawStairs(6);
+console.log(drawStairs(6));
 module.exports = drawStairs;
