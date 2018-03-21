@@ -17,13 +17,12 @@
 //                     16 ]
 
 function fizzbuzz(num) { 
-    return Array(num).fill('').reduce(function(res, curr, i){
+    return Array(num).fill('').map(function(v, i){
         i++;
-        curr = i % 3 === 0 ? curr += 'fizz' : curr;
-        curr = i % 5 === 0 ? curr += 'buzz' : curr;
-
-        return res.push(curr || i) ? res : 0;
-    },[]);
+        if (i % 3 === 0) v += 'fizz';
+        if (i % 5 === 0) v += 'buzz';
+        return (v || i);
+    });
 }
 
 // function fizzbuzz(num) { 
