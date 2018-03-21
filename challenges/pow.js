@@ -3,7 +3,13 @@
  */
 
 function pow(base, power) {
+    if(power <= 1){
+        return base * 1;
+    }
 
+    return Math.abs(base * pow(base, power-1));
 }
+
+// console.log(pow(-8, 2));
 
 module.exports = pow;
