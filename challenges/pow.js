@@ -3,6 +3,17 @@
  */
 
 function pow(base, power) {
+    return helper(base, power)
+    function helper(base, power, accumulator = base){
+        if(power === 1) return accumulator;
+        if(power === 0) return 1
+        if(power > 1){
+            return power % 2 === 0 ?
+                helper(base, power / 2, accumulator * accumulator)
+                : helper(base, power - 1, accumulator * base)
+        }
+        if(power < 0) return 1 / helper(base, Math.abs(power)) 
+    }
 
 }
 
