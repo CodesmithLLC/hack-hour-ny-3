@@ -16,10 +16,10 @@ function pow(base, power) {
 // console.log(pow(-2, 3))
 // console.log(pow(-12, 2))
 // console.log(12*12)
-console.log(pow(-100, 2))
-// console.log(100*100)
-console.log(pow(230, 0))
+// console.log(pow(-100, 2))
+// // console.log(100*100)
+// console.log(pow(230, 0))
 
-console.log(pow(-2, 0))
+// console.log(pow(-2, 0))
 
 module.exports = pow;
