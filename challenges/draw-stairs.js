@@ -13,9 +13,11 @@
 
 */
 
-function drawStairs(n) {
-
+function drawStairs (n) {
+  var result = '';
+  for (var i = 1; i <= n && n <= 100; i++) {
+    result += ' '.repeat (n - i) + '*'.repeat (i) + '/n';
+  }
+  return result;
 }
-
-
 module.exports = drawStairs;
