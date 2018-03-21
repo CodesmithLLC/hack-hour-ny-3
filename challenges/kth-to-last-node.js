@@ -23,21 +23,15 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
   var current = head;
-  // console.log('current', current)
 
-  while (current.next) {
+  while (current) {
+    var innerCurrent = current;
+    let count = 1;
 
-    var innerCurrent = current.next;
-    // console.log('inner current', innerCurrent);
-
-    let count = 0;
-    // console.log(count);
-
-    while (innerCurrent.next) {
+    while (innerCurrent) {
       if (innerCurrent.next === null && count === k) {
         return current.value;
       }
-
       count += 1;
       innerCurrent = innerCurrent.next;
     }
@@ -47,7 +41,5 @@ function kthToLastNode(k, head) {
 
   return undefined;
 }
-
-// console.log(kthToLastNode(2, a));
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
