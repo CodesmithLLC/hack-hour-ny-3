@@ -28,8 +28,9 @@ function modemean(array) {
       highest = Number(key);
     }
   }
+  console.log(highest, avg);
   return highest === avg;
 }
-
+console.log(modemean([1,2,3,4,5,5]));
 
 module.exports = modemean;
