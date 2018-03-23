@@ -14,7 +14,12 @@
  */
 
 function reverseInPlace(array) {
-
+    for (var i = array.length - 2; i >= 0; i --) {
+        array.push(array[i])
+        
+    }
+    array.splice(0, array.length/2)
+    return array;
 }
 
 module.exports = reverseInPlace;
