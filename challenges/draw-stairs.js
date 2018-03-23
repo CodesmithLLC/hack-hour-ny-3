@@ -15,33 +15,40 @@
 
 function drawStairs(n) {
   let result = '';
-  let spaces = '';
-  for (let i = 0; i < n; i++) {
-    spaces += ' ';
-  }
 
-  for (let j = 0; j < n; j++) {
-    result += spaces;
-    spaces = spaces.slice(1);
-    let stars = '';
-    stars = addStars(j + 1);
-    result += stars;
-    if (j !== n - 1) {
-      result += '\n';
-    }
+  for (let i = 1; i <= n; i++) {
+    result += ' '.repeat(n - i);
+    result += '*'.repeat(i);
+    console.log(result);
+    result = '';
   }
-
-  return result;
+  // let result = '';
+  // let spaces = '';
+  // for (let i = 0; i < n; i++) {
+  //   spaces += ' ';
+  // }
+  //
+  // for (let j = 0; j < n; j++) {
+  //   result += spaces;
+  //   spaces = spaces.slice(1);
+  //   let stars = '';
+  //   stars = addStars(j + 1);
+  //   result += stars;
+  //   if (j !== n - 1) {
+  //     result += '\n';
+  //   }
+  // }
+  //
+  // return result;
 }
 
-function addStars(n) {
-  let result = '';
-
-  for (let i = 0; i < n; i++) {
-    result += '*';
-  }
-
-  return result;
-}
-console.log(drawStairs(10));
+// function addStars(n) {
+//   let result = '';
+//
+//   for (let i = 0; i < n; i++) {
+//     result += '*';
+//   }
+//
+//   return result;
+// }
 module.exports = drawStairs;
