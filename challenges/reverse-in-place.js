@@ -13,28 +13,19 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function reverseInPlace(array) {
-    for (let i=0; i<array.length; i++){
-        array.splice(i,0,array.pop())
-    }
-    return array
-
-    // let current = 0;
-    // let opposite = array.length-1;
-    // let center = array.length / 2;
-
-    // while (current < center) {
-    //     let left = array[current];
-    //     let right = array[opposite];
-        
-    //     array[current] = right;
-    //     array[opposite] = left;
-        
-    //     current++;
-    //     opposite--;
-    // }
-
-    // return array;
+function reverseInPlace (array) {
+  if(array.length < 2) return array;
+  
+  let first = array[0];
+  let last = array[array.length-1];
+  
+  array[0] = last;
+  array[array.length-1] = first;
+  
+  let leftArr = array.slice(0, 1);
+  let rightArr = array.slice(-1);
+  
+  return [...leftArr, ...reverseInPlace(array.slice(1, -1)), ...rightArr];
 }
 
 module.exports = reverseInPlace;
