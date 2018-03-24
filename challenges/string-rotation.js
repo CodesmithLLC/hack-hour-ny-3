@@ -22,12 +22,9 @@ function stringRotation(s1, s2) {
   let current = s2.indexOf(s1[0]);
   let rotatedStr = '';
 
-  while (toRotate.length > 0 && current > -1) {
-    if(toRotate[current]) rotatedStr += toRotate.splice(current, 1)[0];
-    else current = 0;
-  }
+  while (toRotate[current]) rotatedStr += toRotate.splice(current, 1)[0];
   
-  return isSubstring(s1, rotatedStr);
+  return isSubstring(s1, rotatedStr+=toRotate.join(''));
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
