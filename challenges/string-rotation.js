@@ -17,8 +17,7 @@ function isSubstring(s1, s2) {
 
 function stringRotation(s1, s2) {
   if (s1.length !== s2.length) return false;
-  if (s1 === s2) return true
-  
+
   for (var i = 0; i < s1.length; i ++) {
     var save = s2.slice(0,i)
     if (s2.slice(i)+ save === s1) return true
