@@ -59,11 +59,18 @@ function balancedParens(input){
     console.log(areTheyBalanced(forwardIndexes, backwardIndexes))
 }
 
+
+//trouble shooting this, need to create more checks on the indexes 
+//across different brackets but this is the right direction
+
 function areTheyBalanced (forwardIndexes, backwardIndexes) {
-    for(var key in forwardIndexes){
+    for (var key in forwardIndexes){
+        //if uneven brackets exist, return false
+        if (forwardIndexes[key].length !== backwardIndexes[key].length) return false
+
         for (let i = 0; i < forwardIndexes[key].length; i+=1){
             console.log("Checking out of order: ", backwardIndexes[key][i], forwardIndexes[key][i])
-            if ()
+            
             if (forwardIndexes[key][i] > backwardIndexes[key][i]){
                 console.log("These are out of order: ", backwardIndexes[key][i], forwardIndexes[key][i])
                 return false;
