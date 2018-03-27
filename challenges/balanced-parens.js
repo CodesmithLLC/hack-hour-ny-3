@@ -26,29 +26,25 @@
 
 function balancedParens(input){
   var inputArr = input.split("");
-  var parens = inputArr.filter(x => x.match(/{|[|\(|]|}|\)/g))
-  var right = "{[(".split("")
-  var left = "}])".split("")
+  var parens = inputArr.filter(x => x.match(/{|\[|\(|\]|}|\)/g))
   var square = "[]"
   var round = "()"
   var curly = "{}"
-  if (!right.includes(parens[0])) return false
-  if (!left.includes(parens[parens.length - 1])) return false
-  
-  
+
   function recursion(i) {
-    if ((parens[i] + parens[i+1] === square || parens[i] + parens[i+1] === round || parens[i] + parens[i+1] === curly)) {
-      parens.splice(i, 2) 
-    } else {
-      recursion(i+1)
+    if (i < parens.length) {
+      if ((parens[i] + parens[i+1] === square || parens[i] + parens[i+1] === round || parens[i] + parens[i+1] === curly)) {
+        parens.splice(i, 2) 
+      } else {
+        recursion(i+1)
+      }
     }
   }
   
-  for (var i = 0; i < parens.length/2 -1; i++) {
-    recursion(i)
+  var len = parens.length
+  for (let z = 0; z < len / 2; z++) {
+    recursion(0)
   }
-
-  recursion(0)
 
   return parens.length > 0 ? false : true
 }
