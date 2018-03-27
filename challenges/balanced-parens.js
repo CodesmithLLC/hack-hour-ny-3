@@ -24,16 +24,6 @@
  *
  */
 
-function balancedParens(input) {
-    const chars = input.split('')
-    const parenCounter = new ParenCounter()
-    chars.forEach((char) => parenCounter.addChar(char))
-    return (
-        parenCounter.getTotalParenCount() === 0
-        && parenCounter.isBalanced === true
-    )
-
-}
 
 class ParenCounter {
     constructor() {
