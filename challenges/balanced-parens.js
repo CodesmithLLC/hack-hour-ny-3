@@ -33,8 +33,10 @@ function balancedParens(input){
   let closings = '}])';
   let openIdx = null;
   let openingsArr = [];
-  for (let i = 0; i < input.length && reg >= 0 && curly >= 0 && square >= 0; i++) {
-    let curr = input[i];
+  let sliced = input.split('').filter((char) =>'[{()}]'.includes(char) ? true : false).join('');
+  
+  for (let i = 0; i < sliced.length && reg >= 0 && curly >= 0 && square >= 0; i++) {
+    let curr = sliced[i];
     if (openings.includes(curr)) {
       openingsArr.push(curr);
       openIdx = openings.indexOf(openingsArr[openingsArr.length - 1]);
@@ -64,6 +66,5 @@ function balancedParens(input){
   }
   return reg === 0 && curly === 0 && square === 0;
 }
-
 
 module.exports = balancedParens;
