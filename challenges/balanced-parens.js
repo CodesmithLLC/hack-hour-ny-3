@@ -29,29 +29,17 @@ function balancedParens(input){
   for (var i = 0; i < input.length; i++) {
     if(input[i] === '(' || input[i] === '[' || input[i] === '{') {
       arr.push(input[i]);
-    } else if(input[i] === ')') {
-      if(arr.lastIndexOf('(') > -1) {
-        arr.splice(arr.lastIndexOf('('))
-      } else {
-        return false;
-      }
-    } else if(input[i] === ']') {
-      if(arr.lastIndexOf('[') > -1) {
-        arr.splice(arr.lastIndexOf('['))
-      } else {
-        return false;
-      }
-    } else if(input[i] === '}') {
-      if(arr.lastIndexOf('{') > -1) {
-        arr.splice(arr.lastIndexOf('{'))
-      } else {
-        return false;
-      }
     }
-
-
+    if(input[i] === '(' || input[i] === '[' || input[i] === '{') {
+      arr.push(input[i]);
+    }
   }
-  return arr[0] === undefined;
+  return arr.length % 2 === 0;
 }
+
+console.log(balancedParens('('));  // false
+console.log(balancedParens('()')); // true
+console.log(balancedParens(')('));  // false
+console.log(balancedParens('(())'));  // true
 
 module.exports = balancedParens;
