@@ -28,4 +28,6 @@ function reverseInPlace (array) {
   return [...leftArr, ...reverseInPlace(array.slice(1, -1)), ...rightArr];
 }
 
+console.log(reverseInPlace([1,2,3,4,5,6,7,8,9]))
+
 module.exports = reverseInPlace;
