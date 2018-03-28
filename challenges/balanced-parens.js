@@ -86,6 +86,6 @@ function areTheyBalanced (forwardIndexes, backwardIndexes) {
 // balancedParens('[](){}'); // true
 // balancedParens('[({})]');   // true
 // balancedParens('[  )(  ]  {  )   }'); // false
-balancedParens('()('); // false
+//balancedParens('()('); // false
 
 module.exports = balancedParens;
