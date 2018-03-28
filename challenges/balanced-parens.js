@@ -25,7 +25,22 @@
  */
 
 function balancedParens(input){
-
+    var bracket = '[](){}';
+    for (var i = 0; i < input.length; i++){
+        var char = input[i];
+        var firstBracket = bracket.indexOf(char)
+        while (firstBracket !== -1) { //first bracket exists
+            var secondBracket = bracket[firstBracket+1]
+            var indexOfSecond = input.indexOf(secondBracket)
+            if (indexOfSecond !== -1) { //matching bracket exists
+                input = input.slice(0, i) + input.slice(i+1, indexOfSecond) + input.slice(indexOfSecond+1) 
+            } else {
+                return false //first exists but not a matching pair
+            } 
+            var truthy = true
+        }
+    }
+    return truthy;
 }
 
 module.exports = balancedParens;
