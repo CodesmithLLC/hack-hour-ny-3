@@ -28,16 +28,29 @@ function romanNumeral(n) {
   if (n - 900  >= 0) {
     romanNum += romanBase[1000];
      n = n - 1000
+      while (n < 0){
+       romanNum = romanBase[100] + romanNum
+       n += 100
+     }
   }
   if (n - 400  >= 0) {
     romanNum += romanBase[500];
      n = n - 500
+      while (n < 0){
+       romanNum = romanBase[10] + romanNum
+       n += 10
+     }
   }
+
   if (n - 90 >= 0) {
     romanNum += romanBase[100];
      n = n - 100
+     while (n < 0){
+       romanNum += romanBase[10]
+       n += 10
+     }
   }
-  if (n - 40 >= 0) {
+  while (n - 40 >= 0) {
     romanNum += romanBase[50];
      n = n - 50
      if (n < 0){
@@ -50,11 +63,12 @@ function romanNumeral(n) {
     romanNum += romanBase[10];
      n = n - 10
   } 
+
   while (n - 4 >= 0) {
     romanNum += romanBase[5];
     n = n - 5
   } 
-  console.log(n)
+  
   while (n > 0) {
       n = n - 1
       romanNum += romanBase[1]
@@ -70,6 +84,5 @@ function romanNumeral(n) {
   }
   return romanNum
 }
-
 
 module.exports = romanNumeral;
