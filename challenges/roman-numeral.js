@@ -21,7 +21,7 @@ function romanNumeral(n) {
   var number = n;
   var romanNumerals = {
   1 : 'I',
-  4 : 'IV' ,
+  4 : 'IV',
   5: 'V',
   9: 'IX' ,
   10 : 'X',
@@ -41,7 +41,11 @@ function romanNumeral(n) {
       for (var i = 0; i < arr.length; i++) {
         var key = arr[i];
         var nextKey = arr[i + 1];
-        if ((number >= key && number < nextKey) || nextKey === undefined) {
+        // console.log(nextKey);
+        if (number >= key && number < nextKey && nextKey !== undefined) {
+          ans += romanNumerals[key];
+          number -= key;
+        } else if (number >= 1000 && nextKey === undefined){
           ans += romanNumerals[key];
           number -= key;
         }
