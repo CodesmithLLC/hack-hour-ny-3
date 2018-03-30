@@ -24,8 +24,25 @@
  *
  */
 
-function balancedParens(input){
+ function balancedParens(string) {
+   let parens = '[]{}()';
+   let stack = [];
 
-}
+   for (let i = 0; i < string.length; i++) {
+     let char = string[i];
+     let charIdx = parens.indexOf(char);
+     if (charIdx === -1) {
+       continue;
+     }
+
+     braceType = charIdx % 2 ? 'closed' : 'open';
+
+     if (braceType === 'closed') {
+
+     } else {
+
+     }
+   }
+ }
 
 module.exports = balancedParens;
