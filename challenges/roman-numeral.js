@@ -50,11 +50,11 @@ function romanNumeral(n) {
     console.log(romanArr)
 }
 
-// console.log(romanNumeral(1))
-// console.log(romanNumeral(3))
-console.log(romanNumeral(30))
-// console.log(romanNumeral(12))
-console.log(romanNumeral(15))
-// console.log(romanNumeral(18))
+// // console.log(romanNumeral(1))
+// // console.log(romanNumeral(3))
+// console.log(romanNumeral(30))
+// // console.log(romanNumeral(12))
+// console.log(romanNumeral(15))
+// // console.log(romanNumeral(18))
 
 module.exports = romanNumeral;
