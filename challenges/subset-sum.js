@@ -9,7 +9,38 @@
  */
 
 function subsetSum(array, target) {
+  function combine(arr) {
+    function recursion(a, remaining, combo, all) {
+      if (a === 0) {
+        if (combo.length > 0) {
+          all[all.length] = combo
+        }
+        return;
+      }
+      
+      for (let j = 0; j < remaining.length; j++) {
+        recursion(a-1, remaining.slice(j+1), combo.concat([remaining[j]]), all);
+      }
+      return;
+    }
+    let all = [];
+    for (let i = 2; i < arr.length; i++) {
+      recursion(i, arr, [], all);
+    }
+    all.push(arr);
+    return all
+    
+  }
 
+  var array2 = combine(array);
+  
+  for (let k = 0; k < array2.length; k++) {
+    if (array2[k].reduce((a, b) => a + b, 0) === target) {
+      return true
+    }
+  }
+  
+  return false
 }
 
 module.exports = subsetSum;
