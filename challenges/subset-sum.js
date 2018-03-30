@@ -9,7 +9,43 @@
  */
 
 function subsetSum(array, target) {
+    numbers = array.filter((value) => {
+        return value <= target;
+    });
 
+    numbers.sort((a, b) => {
+        return b - a;
+    });
+
+    // array with all the subsets
+    var result = [];
+
+    var i;
+    var sum = 0;
+    var addedIndices = [];
+
+    // go from the largest to the smallest number and
+    // add as many of them as long as the sum isn't above target
+    for (i = 0; i < numbers.length; i++) {
+        if (sum + numbers[i] <= target) {
+            sum += numbers[i];
+            addedIndices.push(i);
+        }
+    }
+
+    // remove the items we summed up from the numbers array, and store the items to result
+    var subset = [];
+    for (i = addedIndices.length - 1; i >= 0; i--) {
+        subset.unshift(numbers[addedIndices[i]]);
+        numbers.splice(addedIndices[i], 1);
+    }
+    result.push(subset);
+    
+    var newSum = result.reduce(function (acc, value) {
+        return acc.concat(value);
+    });
+
+    return (newSum.reduce((acc, value) => { return acc += value })) === target;
 }
 
 module.exports = subsetSum;
