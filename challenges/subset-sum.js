@@ -10,6 +10,9 @@
 
 function subsetSum(array, target) {
   var arr = [];
+  if(arr.length <= 1) {
+    return array[0] === target ? true : false;
+  }
     for (var i = 0; i < array.length; i++) {
         arr.push(array[i]);
       for (var j = i + 1; j < array.length; j++) {
