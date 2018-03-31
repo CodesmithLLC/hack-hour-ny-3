@@ -14,7 +14,24 @@
  */
 
 function binToDec(binary) {
+    let binArr = binary.split('');
+
+    let accumulator = 0;
+    for (let i = 0; i < binArr.length; i+=1){
+        console.log(accumulator, binArr[i])
+        accumulator = 2 * accumulator + Number(binArr[i]);
+    }
+
+    return accumulator;
+  
 
 }
+
+//passing all of these
+// binToDec('101');
+// binToDec('0101');
+// binToDec('100')
+// binToDec('11')
+// binToDec('0')
 
 module.exports = binToDec;
