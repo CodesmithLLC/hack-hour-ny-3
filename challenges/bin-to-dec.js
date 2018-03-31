@@ -14,7 +14,12 @@
  */
 
 function binToDec(binary) {
-
+    binary = binary.split('').map(num => Number.parseInt(num, 10)).reverse()
+    return binary.reduce(
+      (decimal, digit, index) => {
+        // console.log(digit)
+        return decimal + digit * Math.pow(2, index)
+      },
+    0)
 }
-
 module.exports = binToDec;
