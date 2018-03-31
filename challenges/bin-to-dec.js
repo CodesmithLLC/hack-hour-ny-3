@@ -14,7 +14,17 @@
  */
 
 function binToDec(binary) {
+  let dec = 0;
+  let arr = binary.split('');
+  let max = arr.length;
 
+  arr.forEach((el, i) => {
+    let add = el * Math.pow(2, max - 1);
+    dec += add;
+    max--;
+  })
+
+  return dec;
 }
 
 module.exports = binToDec;
