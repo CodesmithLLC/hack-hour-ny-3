@@ -22,7 +22,7 @@
    return array.some(function(ele, idx) {
      return subsetSum(array.slice(0, idx).concat(array.slice(idx+1))
    })
- }
+}
 
 
 module.exports = subsetSum;
