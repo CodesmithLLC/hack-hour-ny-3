@@ -14,7 +14,29 @@
  */
 
 function binToDec(binary) {
+    if (binary === '0') {
+        return 0;
+    }
 
+    if (binary === '1') {
+        return 1;
+    }
+    
+    var decimal = 0;
+    
+    var arr = binary.split('').reverse();
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] === '0') {
+            decimal += 0;
+        }
+        
+        if (arr[i] === '1') {
+            decimal += Math.pow(2, i);
+        }
+    }
+
+    return decimal;
 }
+
 
 module.exports = binToDec;
