@@ -10,31 +10,34 @@
 
 // Iterate through array while checking sliced off array.
 function subsetSum(array, target) {
-  let results = array.slice();
   let temp = array.slice();
+
   for (let i = 0; i < array.length; i++) {
-    results.push(checkSum(temp, temp.length - 1));
-    temp = temp.slice(1);
-  }
-  for (let i = 0; i < results.length; i++) {
-    if (results[i] === target) {
+    let num = array[i];
+    if (num === target) {
       return true;
+    }
+    while (temp.length > 2) {
+      let sum = temp.reduce((acc, curr) => {
+        acc += curr;
+        return acc;
+      }, 0);
+      if (sum === target) {
+        return true;
+      }
+      temp = temp.slice(0, temp.length - 1);
+    }
+    if (temp.length === 2) {
+      for (let i = 1; i < array.length; i++) {
+        let checker = array[i];
+        let sum = num + checker;
+        if (sum === target) {
+          return true;
+        }
+      }
     }
   }
   return false;
 }
 
-function checkSum(array, pairings) {
-  if (pairings === 1) {
-    return;
-  }
-  let sum = array[0];
-  let i = 0;
-  while (i < pairings) {
-    sum += array[i + 1];
-    i++;
-  }
-  return sum;
-}
-console.log(subsetSum([1,2,3], 4));
 module.exports = subsetSum;
