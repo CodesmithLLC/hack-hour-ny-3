@@ -13,7 +13,7 @@
 function matchWord(str) {
   const stack = [];
   let newStr = str.toLowerCase().match(/[a-z]+/g);
-  
+  if (newStr === null) return true
   for (let i = 0; i < newStr.length; i++) {
     if (stack.indexOf(newStr[i]) === -1) {
       stack.push(newStr[i])
@@ -25,4 +25,5 @@ function matchWord(str) {
   }
   return stack.length > 0 ? false : true
 }
+
 module.exports = matchWord;
