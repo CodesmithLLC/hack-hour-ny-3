@@ -11,7 +11,32 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  const lowerString = str.toLowerCase();
+  let index = 0;
+  const stack = [];
+  const seenWords = {};
+  
+  while (index < str.length) {
+    let word = [];
+    while (index < str.length && lowerString[index].match(/[a-z]/)) {
+      word.push(lowerString[index]);
+      index += 1;
+    }
+    if (word.length > 0) {
+      let reversedWord = word.slice().reverse().join('');
+      if (reversedWord in seenWords) {
+        let match = stack.pop();
+        if (match !== reversedWord) return false;
+      } else {
+        word = word.join('');
+        stack.push(word);
+        seenWords[word] = true;
+      }
+    }
+    index += 1;
+  }
+  if (stack.length !== 0) return false;
+  return true;
 }
 
 module.exports = matchWord;
