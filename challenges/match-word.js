@@ -15,15 +15,13 @@ function matchWord(str) {
   let newStr = str.toLowerCase().match(/[a-z]+/g);
   if (newStr === null) return true
   for (let i = 0; i < newStr.length; i++) {
-    if (stack.indexOf(newStr[i]) === -1) {
-      stack.push(newStr[i])
-    }
+    stack.push(newStr[i])
     if (stack[stack.length - 2] === newStr[i].split("").reverse().join("")) {
       stack.pop();
       stack.pop();
     }
   }
-  return stack.length > 0 ? false : true
+  return !stack.length
 }
 
 module.exports = matchWord;
