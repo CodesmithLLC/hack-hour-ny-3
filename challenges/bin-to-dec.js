@@ -44,4 +44,4 @@ function stripZeros(binary) {
 // console.log(binToDec('101'))
 // console.log(binToDec('0000100001'))
 // console.log(stripZeros('0101'));
-// module.exports = binToDec;
+module.exports = binToDec;
