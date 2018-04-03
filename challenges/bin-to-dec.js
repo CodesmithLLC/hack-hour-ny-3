@@ -15,12 +15,23 @@
 
 function binToDec(binary) {
     var num = 0;
-    for (var i = 0; i < binary.length; i++) {
-        if(binary[i] === '1') {
-            num += Math.pow(2, binary.slice(i).length - 1)
+    function bin(binary) {
+        if(binary === '') {
+            return num;
         }
-    }
-    return num;
+        if(binary[0] === '1') {
+            num += Math.pow(2, binary.length - 1);
+        }
+        return bin(binary.slice(1));
+    }   
+    
+    return bin(binary);
 }
+
+console.log(binToDec('0'))   //-> 0
+console.log(binToDec('11'))  //-> 3
+console.log(binToDec('100')) //-> 4
+console.log(binToDec('101')) //-> 5
+console.log(binToDec('0101')) //-> 5
 
 module.exports = binToDec;
