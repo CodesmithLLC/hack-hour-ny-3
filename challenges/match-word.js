@@ -36,16 +36,21 @@ function matchWord(str) {
 
     let stack = [];
 
-    for (let i = 0; i < cleanStr.length; i++) {
+    for (let i = 0; i < cleanStr[i]; i++) {
         let word = cleanStr[i];
-        let checkPos = cleanStr.indexOf(word);
+        let checkPos = checks.indexOf(word);
+        if (checkPos === -1) {
+            continue;
+        }
 
         if (checkPos % 2 === 0) {
-
+            stack.push(checkPos + 1);
+        } else if (stack.length === 0 || stack.pop() !== checkPos) {
+            return false;
         }
     }
-    // console.log(checks);
-    // console.log(cleanStr);
+
+    return stack.length === 0;
 }
 
 module.exports = matchWord;
