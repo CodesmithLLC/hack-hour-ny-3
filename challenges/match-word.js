@@ -10,8 +10,39 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-function matchWord(str) {
 
+
+function matchWord(str) {
+    words = getWordArray(str)
+    let wordStack = []
+    while(words.length > 0){
+      let word = words.shift()
+      if(!wordStack.length || reverse(word) !== wordStack[0])
+        wordStack.unshift(word)
+      else wordStack.shift()
+    }
+    return wordStack.length === 0
 }
+
+
+function getWordArray(string){
+    return string.toLowerCase()
+        .split('')
+        .map(replacePunctuationWithWhitespace)
+        .join('')
+        .split(' ')
+        .filter(char => char !== '')
+}
+
+function reverse(string){
+    return string.split('').reverse().join('')
+}
+
+function replacePunctuationWithWhitespace(char){
+    const letters = 'abcdefghijklmnopqrstuvwxyz'
+    return letters.includes(char) ? char : ' '
+}
+
+
 
 module.exports = matchWord;
