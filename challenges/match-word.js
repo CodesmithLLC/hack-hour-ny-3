@@ -11,7 +11,22 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+    if (str === ''){
+      return true;
+    }
+    
+    var regexp = /[A-Z]+/gi;
+    var words = str.match(regexp)
+      for (var i = 0; i < words.length -1; i++) {
+          let word = words[i].toLowerCase();
+          let revNext = words[i+1].split('').reverse().join('').toLowerCase();
+            if (word !== revNext) {
+              return false
+            }
+      }
+      return true
+  }
 
-}
+//   https://initjs.org/data-structure-stack-in-javascript-714f45dbf889
 
 module.exports = matchWord;
