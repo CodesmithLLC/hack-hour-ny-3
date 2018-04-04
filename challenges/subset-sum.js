@@ -9,7 +9,21 @@
  */
 
 function subsetSum(array, target) {
-
+    let counter = target
+    while(counter > 0){
+    }
+    for (let h = 0; h < array.length; h += 1) {
+        for (let i = 0; i < array.length; i += 1) {
+            if (array[h] + array[i] === target) {
+                return true
+            }
+        }
+    }
 }
+
+// console.log("expect false: " + subsetSum([13, 4, 5, 3], 7))
+// console.log("expect true: " + subsetSum([3, 7, 4, 2], 5))
+// console.log("expect true: " + subsetSum([3, 34, 4, 12, 5, 12], 32))
+// console.log("expect true: " + subsetSum([8, -2, 1, -3], 6))
 
 module.exports = subsetSum;
