@@ -16,11 +16,10 @@ function highestProduct(array) {
       return 0;
     }
   });
-  if (temp[0] > 0 && temp[1] > 0) {
+  if (temp[0] < 0 && temp[1] < 0) {
     return temp[0] * temp[1] * temp[temp.length - 1];
   }
-  return temp[temp.length - 1] * temp[tenp.length - 2] * temp[temp.length - 3];
+  return temp[temp.length - 1] * temp[temp.length - 2] * temp[temp.length - 3];
 }
-
 
 module.exports = highestProduct;
