@@ -3,13 +3,18 @@
  */
 
 function highestProduct(array) {
-
-    var newArr = array.sort();
-    console.log(newArr);
-    return newArr[newArr.length - 1] * newArr[newArr.length - 2] * newArr[newArr.length - 3];
+    var product = 0;
+    if (array.length < 2) return 0;
+    for (var i = 0; i < array.length; i++) {
+        for (var j = i + 1; j < array.length; j++) {
+            for (var k = j + 1; k < array.length; k++) {
+                if((array[i] * array[j] * array[k]) > product) {
+                    product = (array[i] * array[j] * array[k]);
+                }
+            }
+        }
+    }
+    return product;
 }
-
-
-console.log(highestProduct([4,2,10,9,2,4,8,6,]));
 
 module.exports = highestProduct;
