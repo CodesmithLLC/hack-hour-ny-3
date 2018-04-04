@@ -8,6 +8,7 @@ function highestProduct(array) {
   let leftProd = newArr[0] * newArr[1];
   let rightProd = newArr[newArr.length - 1] * newArr[newArr.length - 2];
   let rightInnerProd = newArr[newArr.length - 2] * newArr[newArr.length - 3];
+  if (leftProd === NaN || rightProd === NaN || rightInnerProd === NaN ) return 0 
   if (leftProd > rightProd || leftProd > rightInnerProd) {
     return leftProd * array[array.length - 1]
   } else {
