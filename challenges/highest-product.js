@@ -3,7 +3,8 @@
  */
 
 function highestProduct(array) {
-
+  let temp = array.sort();
+  return temp[temp.length - 1] * temp[temp.length - 2] * temp[temp.length - 3];
 }
 
 
