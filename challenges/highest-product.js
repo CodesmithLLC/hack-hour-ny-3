@@ -3,12 +3,12 @@
  */
 
 function highestProduct(array) {
-    var product = 0;
-    if (array.length < 2) return 0;
+    var product = null;
+    if (array.length < 3 || !Array.isArray(array)) return 0;
     for (var i = 0; i < array.length; i++) {
         for (var j = i + 1; j < array.length; j++) {
             for (var k = j + 1; k < array.length; k++) {
-                if((array[i] * array[j] * array[k]) > product) {
+                if(((array[i] * array[j] * array[k]) > product) || product === null) {
                     product = (array[i] * array[j] * array[k]);
                 }
             }
