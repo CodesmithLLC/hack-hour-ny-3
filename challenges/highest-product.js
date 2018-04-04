@@ -3,6 +3,9 @@
  */
 
 function highestProduct(array) {
+    if (array.length < 3) return 0;
+    if (!Array.isArray(array)) return 0;
+    
     array.sort((a,b) => {
         return a - b;
     }).reverse();
@@ -16,6 +19,8 @@ function highestProduct(array) {
     return accumulator;
 };
 
-// console.log(highestProduct([14,9,5,3,10]))
+console.log(highestProduct([14,9,5,3,10]))
+
+console.log(highestProduct([14,9,5,3,10]))
 
 module.exports = highestProduct;
