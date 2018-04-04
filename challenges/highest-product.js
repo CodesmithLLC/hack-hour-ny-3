@@ -3,14 +3,13 @@
  */
 
 highestProduct = (array, i = 3, product = 1) => {
-  if(array.length < 2) return 0;
-  array = array.map((v) => Math.abs(v));
-  
+  if(i === 3 && array.length < 2) return 0;
+  if(i === 3) array = array.map((v) => Math.abs(v));
+
   let max = Math.max(...array);
-  array.slice(array.indexOf(max), 1);
+  array.splice(array.indexOf(max), 1);
 
   product *= max, i--;
-
   return !i ? product : highestProduct(array, i, product)
 }
 
