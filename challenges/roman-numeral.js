@@ -46,8 +46,6 @@ function romanNumeral(n) {
   return roman;
 }
 
-console.log(romans);
-
 console.log(romanNumeral(0), ' should be \'\' ');
 console.log(romanNumeral(1), ' should be \'I\' ');
 console.log(romanNumeral(3), ' should be \'III\' ');
