@@ -25,7 +25,21 @@
  */
 
 function balancedParens(input){
-
+  var arr = [];
+  for (var i = 0; i < input.length; i++) {
+    if(input[i] === '(' || input[i] === '[' || input[i] === '{') {
+      arr.push(input[i]);
+    }
+    if(input[i] === '(' || input[i] === '[' || input[i] === '{') {
+      arr.push(input[i]);
+    }
+  }
+  return arr.length % 2 === 0;
 }
+
+console.log(balancedParens('('));  // false
+console.log(balancedParens('()')); // true
+console.log(balancedParens(')('));  // false
+console.log(balancedParens('(())'));  // true
 
 module.exports = balancedParens;
