@@ -11,10 +11,9 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  if(l1 && l2){
-    const next = l1.next
-    zip(l1.next = l2, next)
-  }
+  if(!l1 || !l2) return l1 || l2
+  l1.next = zip(l2, l1.next)
+  return l1
 }
 
 
