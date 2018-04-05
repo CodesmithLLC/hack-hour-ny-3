@@ -3,15 +3,14 @@
  */
 
 function highestProduct(array) {
+    if (!Array.isArray(array)) return 0
     array.sort(function(a, b) {
     return b - a;
-     });
-    var product = 1;
-    for (var i = 0; i < 3 && i < array.length; i ++) {
-      product *= array[i]
-    }
+  });
+    var product = array[0] * array[1] * array[2];
+    if (!product)return 0
     return product;
-}
+  }
 
 
 module.exports = highestProduct;
