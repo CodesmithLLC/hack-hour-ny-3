@@ -15,15 +15,10 @@ function highestProduct(array) {
 
   const multiplyAll = (arr) => arr.reduce((acc, curr) => acc * curr);
   let highest = -Infinity;
+  let highPos = -Infinity;
+  let highNeg = - Infinity;
   for (let i=0; i < array.length - 2; i += 1) {
-   for (let j = i + 1; j < array.length - 1; j += 1) {
-     for (let k = j + 1; k < array.length; k += 1) {
-       let product = array[i] * array[j] * array[k];
-        if (product > highest) {
-          highest = product;
-        }
-      }
-    } 
+    
   }
   return highest; //O(n^3) naive solution
 }
