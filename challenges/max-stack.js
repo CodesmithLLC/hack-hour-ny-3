@@ -18,7 +18,7 @@ Stack.prototype.pop = function (val) {
 
   let removedVal = this.stack[this.length - 1];
   delete this.stack[this.length];
-  this.count--;
+  this.length--;
   return removedVal;
 };
 
