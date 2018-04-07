@@ -4,6 +4,7 @@
 
 
 function highestProduct(array) {
+    if (array.length<3) return 0;
     let sorted = array.filter(num => num !== 0)
     sorted = sorted.sort()
     let pos1 = sorted[sorted.length-1]* sorted[sorted.length-2]*sorted[sorted.length-3]
