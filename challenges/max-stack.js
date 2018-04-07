@@ -28,9 +28,10 @@ Stack.prototype.pop = function() {
 }
 
 Stack.prototype.getMax = function() {
-  let maxValue = null;
+  let maxValue = undefined;
+
   for (var index in this.storage) {
-    if (this.storage[index] > maxValue || maxValue === null) {
+    if (this.storage[index] >= maxValue || maxValue === undefined) {
       maxValue = this.storage[index];
     }
   }
