@@ -3,6 +3,7 @@
  */
 
 function highestProduct(array) {
+  if (array.length < 3) return 
   let sortedArr = array.sort((a, b) => a - b);
   // console.log('sorted', sortedArr);
   let lastThree = sortedArr.slice(-3).reduce((a, b) => a * b);
