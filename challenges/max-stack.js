@@ -7,6 +7,7 @@
  */
 
 function Stack() {
+
   return {
     storage: [],
     index: 0,
@@ -27,5 +28,8 @@ function Stack() {
     }
   }
 }
+
+let stack = new Stack();
+console.log(stack.getValue())
 
 module.exports = Stack;
