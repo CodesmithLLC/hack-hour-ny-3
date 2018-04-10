@@ -17,7 +17,6 @@ function reverseLinkedList(head) {
     let currentNode = head
     let transit = []
     while (currentNode) {
-        console.log(currentNode.value)
         transit.push(currentNode)
         currentNode = currentNode.next
     }
@@ -26,5 +25,4 @@ function reverseLinkedList(head) {
     }
     return transit[transit.length - 1]
 }
-
 module.exports = { Node: Node, reverseLinkedList: reverseLinkedList };
