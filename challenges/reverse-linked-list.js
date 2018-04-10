@@ -26,7 +26,7 @@ function reverseLinkedList(head) {
 
     console.log(node);
 
-    return last;
+    return last || head;
 }
 
 // function reverseLinkedList(head, prev = null, tail = null) {
