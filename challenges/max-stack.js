@@ -33,6 +33,6 @@ Stack.prototype.getMax = function() {
     }
   }
   return max
-}
+}/
 
 module.exports = Stack;
