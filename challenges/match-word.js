@@ -10,8 +10,26 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-function matchWord(str) {
 
-}
+function matchWord(str) {
+    const spl = str.toLowerCase().split('');
+    let filtered = [];
+    const letters = /^[A-Za-z]+$/;
+    const spaces = /^[_\s]+$/;
+  
+    for (let i = 0; i < spl.length; i+=1){
+      if (spl[i].match(letters)){
+        filtered.push(spl[i]);
+        if (spl[i + 1] && spl[i + 1].match(spaces)){
+          filtered.push(spl[i + 1]);
+        }
+      }
+    }
+    
+    const wordArr = filtered.join('').split(/[\s_]+/)
+    
+    console.log(wordArr);
+  }
+  
 
 module.exports = matchWord;
