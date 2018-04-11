@@ -13,7 +13,18 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  if (!stock_prices_yesterday || !stock_prices_yesterday.length) return 0;
+  let highest, lowest;
 
+  stock_prices_yesterday.forEach((price, index) => {
+    if (!highest) lowest = highest = price;
+    if (price > highest) highest = price;
+    if (price < lowest) lowest = price;
+  });
+
+  let returnedProfit = highest - lowest
+  return returnedProfit > 0 ? returnedProfit : 0;
 }
 
 module.exports = bestProfit;
+
