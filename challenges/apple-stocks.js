@@ -13,7 +13,29 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+    let purchase;
+    let sale;
+    let possiblePairs = [];
+    let maxProfit = 0;
 
+    for (var i = 0; i < stock_prices_yesterday.length; i++) {
+        purchase = stock_prices_yesterday[i];
+        for (var j = i + 1; j < stock_prices_yesterday.length; j++) {
+            sale = stock_prices_yesterday[j];
+            if (purchase < sale) {
+                possiblePairs.push([purchase, sale]);
+            }
+        }
+    }
+  
+    console.log(possiblePairs)
+    for (let k = 0; k < possiblePairs.length; k++) {
+        if (possiblePairs[k][1] - possiblePairs[k][0] > maxProfit) {
+            maxProfit = possiblePairs[k][1] - possiblePairs[k][0];
+        }
+    }
+
+    return maxProfit;
 }
 
 module.exports = bestProfit;
