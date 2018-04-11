@@ -13,28 +13,27 @@ function Node(value) {
     this.next = null;
 }
 
-function reverseLinkedList(head) {
-    let node = head;
-    let last;
+// function reverseLinkedList(head) {
+//     let node = head;
+//     let last;
 
-    function rn(node, prev = null) {
-        if(node.next) rn(node.next, node);
-        else last = node;
-        node.next = prev;
+//     function rn(node, prev = null) {
+//         if(node.next) rn(node.next, node);
+//         else last = node;
+//         node.next = prev;
         
-    } rn(head);
+//     } rn(head);
 
-    console.log(node);
+//     console.log(node);
 
-    return last || head;
-}
-
-// function reverseLinkedList(head, prev = null, tail = null) {
-//     if(head.next) reverseLinkedList(head.next, head);
-//     if(!tail) tail = head;
-//     else if (!prev) return tail;
-//     else head.next = prev;
+//     return last || head;
 // }
+
+function reverseLinkedList(head, previous = null) {
+    if(head.next) reverseLinkedList(head.next, head);
+    else head.next = previous;
+    return head;
+}
 
 const a = new Node(1);
 const b = new Node(2);
