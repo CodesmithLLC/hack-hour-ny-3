@@ -14,10 +14,9 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {  
-    console.log('Starting ', head);
     let current = head;
-    let next = head.next;
-    let list;
+    let prev = null;
+    let tempNext;
 
     while (current){
         current.next = null;
