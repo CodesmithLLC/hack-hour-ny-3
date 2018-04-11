@@ -28,7 +28,6 @@ function bestProfit(stock_prices_yesterday) {
         }
     }
   
-    console.log(possiblePairs)
     for (let k = 0; k < possiblePairs.length; k++) {
         if (possiblePairs[k][1] - possiblePairs[k][0] > maxProfit) {
             maxProfit = possiblePairs[k][1] - possiblePairs[k][0];
