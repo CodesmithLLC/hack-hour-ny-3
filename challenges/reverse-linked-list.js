@@ -43,4 +43,10 @@ function reverseLinkedList(head) {
 }
 
 
+const list = [0,1,2,3,4,5,6].map(n => new Node(n));
+list.reduce((n1,n2) => n1.next = n2);
+
+reverseLinkedList(list[0]);
+console.log(list);
+
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
