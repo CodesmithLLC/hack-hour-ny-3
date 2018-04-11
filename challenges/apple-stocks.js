@@ -13,7 +13,7 @@
  */
 
 function bestProfit(prices) {
-  if (prices.length !== 390 || !Array.isArray(prices)) { return 0 }
+  if (!Array.isArray(prices)) { return 0 }
   let maxDiff = 0;
   let minEl = prices[0];
   for (let i = 0; i < prices.length; i += 1) {
