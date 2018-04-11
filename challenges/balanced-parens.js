@@ -24,8 +24,56 @@
  *
  */
 
-function balancedParens(input){
-
+function balancedParens(str) {
+    //for round parens
+    function balancedRound(str) {
+        if (!str.includes(')') && !str.includes('(')) {
+            true;
+        }
+        if (str.length === 0) {
+            return true;
+        }
+        if (str.indexOf('(') > str.lastIndexOf(')')) {
+            return false;
+        }
+        return balancedParens(
+            str.substring(str.indexOf('(') + 1, str.lastIndexOf(')'))
+        );
+    }
+    //for curved ones
+    function balancedCurved(str) {
+        if (!str.includes('{') && !str.includes('}')) {
+            true;
+        }
+        if (str.length === 0) {
+            return true;
+        }
+        if (str.indexOf('{') > str.lastIndexOf('}')) {
+            return false;
+        }
+        return balancedParens(
+            str.substring(str.indexOf('{') + 1, str.lastIndexOf('}'))
+        );
+    }
+    //for square parens
+    function balancedSquare(str) {
+        if (str.length === 0) {
+            return true;
+        }
+        if (!str.includes('[') && !str.includes(']')) {
+            true;
+        }
+        if (str.indexOf('[') > str.lastIndexOf(']')) {
+            return false;
+        }
+        return balancedParens(
+            str.substring(str.indexOf('[') + 1, str.lastIndexOf(']'))
+        );
+    }
+    if (balancedSquare(str) && balancedCurved(str) && balancedRound(str)) {
+        return true;
+    } else {
+        return false;
+    }
 }
-
 module.exports = balancedParens;
