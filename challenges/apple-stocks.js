@@ -13,7 +13,23 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+    if (!Array.isArray(stock_prices_yesterday)) return 0;
 
-}
+    let highestProfit = 0;
+
+    for (let i = 0; i < stock_prices_yesterday.length; i += 1){
+        //this is the buy loop
+        for (let j = i; j < stock_prices_yesterday.length; j += 1){
+            //this is the sell loop
+            let profit = stock_prices_yesterday[j] - stock_prices_yesterday[i];
+            if (profit > highestProfit) highestProfit = profit;
+        };
+    };
+
+    return highestProfit;
+};
+
+
+console.log(bestProfit([300, 200, 100, 10, 9]))
 
 module.exports = bestProfit;
