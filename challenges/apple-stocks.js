@@ -24,10 +24,4 @@ function bestProfit(prices) {
   return maxDiff;
 }
 
-
-
-
-
-
-
 module.exports = bestProfit;
