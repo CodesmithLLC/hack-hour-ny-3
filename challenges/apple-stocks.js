@@ -20,7 +20,7 @@ function bestProfit(stock_prices_yesterday) {
   stock_prices_yesterday.forEach(price => {
     if (max === null || price >= max) max = price;
     if (min === null || price <= min) min = price;
-  })
+  });
 
   return max - min;
 }
