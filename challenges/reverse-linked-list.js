@@ -13,24 +13,29 @@ function Node(value) {
     this.next = null;
 }
 
-function reverseLinkedList(head) {  
-    let current = head;
-    let prev = null;
-    let tempNext;
+function reverseLinkedList(head) {
+    var node = head;
+    var previous = null;
 
-    while (current){
-        current.next = null;
-        next.next = current;
-        current = head.next;    
+    while (node) {
+        // save next or you lose it!!!
+        var save = node.next;
+        // reverse pointer
+        node.next = previous;
+        // increment previous to current node
+        previous = node;
+        console.log("node \n:", node, "prev \n \n", previous)
+        // increment node to next node or null at end of list
+        node = save;
     }
-
-    console.log('Ending ', head);
+    return previous;
 }
 
 let link1 = new Node(1);
 link1.next = new Node(2);
 link1.next.next = new Node(3);
+link1.next.next.next = new Node(4);
 
 console.log(reverseLinkedList(link1));
 
-module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
+module.exports = { Node: Node, reverseLinkedList: reverseLinkedList };
