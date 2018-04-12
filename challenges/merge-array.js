@@ -18,15 +18,15 @@ function mergeArrays(arr1, arr2) {
   mergedArr = mergedArr.reduce((a, b) => {
     if (b[0] > b[1]) {
       if (b[1] < a[a.length -1]) {
-        a.splice(-1, 0, b[0]);
-        a.push(b[1])
+        a.splice(-1, 0, b[1]);
+        a.push(b[0]);
         return a
       }
       return a = a.concat([b[1], b[0]])
     } else {
       if (b[0] < a[a.length -1]) {
         a.splice(-1, 0, b[0]);
-        a.push(b[1])
+        a.push(b[1]);
         return a
       }
       return a = a.concat([b[0], b[1]])
