@@ -13,8 +13,15 @@
 
 */
 
-function drawStairs(n) {
 
+function drawStairs(n) {
+  var s = '';
+    for (var i = 1; i <= n; i++) {
+      s += ' '.repeat(n - i) + '*'.repeat(i)  + '\n';
+    }
+  s = s + '\n' + '*/'
+  console.log(s)
+  return s;
 }
 
 

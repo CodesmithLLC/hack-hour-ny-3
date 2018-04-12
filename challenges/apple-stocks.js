@@ -13,7 +13,12 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  if (!Array.isArray(stock_prices_yesterday) || stock_prices_yesterday.length < 2) return 0
+  let min = Number.POSITIVE_INFINITY
+  return stock_prices_yesterday.reduce(function(a, b) {
+    if (b < min) min = b;
+    return (b - min > a) ? (a = b - min) : a
+  }, 0)
 }
 
 module.exports = bestProfit;

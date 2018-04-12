@@ -3,7 +3,23 @@
  */
 
 function pow(base, power) {
-
+  function recursion(base, power) {
+    if (power === 0 ) {
+      return 1
+    } else {
+      return base * recursion (base, (power - 1))
+    }
+  }
+  
+  if (Math.floor(power) !== power) {
+    return "can't compute fractions yet"
+  }
+  
+  if (power < 0) {
+    return 1/(recursion(base, -power))
+  } else {
+    return recursion(base, power)
+  }
 }
 
 module.exports = pow;

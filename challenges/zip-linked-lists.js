@@ -11,6 +11,7 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  if (!l2 || !l2.value) return l1
 };
 
 module.exports = {Node: Node, zip: zip};
