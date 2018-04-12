@@ -13,15 +13,22 @@
  *
  */
 
-function mergeArrays(arr1, arr2) {
-  let mergedArray = [];
+// function mergeArrays(arr1, arr2) {
+//   let mergedArray = [];
 
-  while (arr1.length > 0 && arr2.length > 0) {
-    if (arr1[0] > arr2[0]) mergedArray.push(arr2.shift());
-    else mergedArray.push(arr1.shift());
-  }
-  
-  return [...mergedArray, ...arr1, ...arr2];
+//   while (arr1.length && arr2.length) {
+//     if (arr1[0] > arr2[0]) mergedArray.push(arr2.shift());
+//     else mergedArray.push(arr1.shift());
+//   }
+
+//   return [...mergedArray, ...arr1, ...arr2];
+// }
+
+function mergeArrays(a1, a2, a3 = []) {
+  if (!a1.length || !a2.length) return [...a3, ...a1, ...a2];
+  (a1[0] > a2[0]) ? a3.push(a2.shift()) : a3.push(a1.shift());
+
+  return mergeArrays(a1, a2, a3);
 }
 
 module.exports = mergeArrays;
