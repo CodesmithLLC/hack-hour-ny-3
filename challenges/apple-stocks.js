@@ -22,27 +22,21 @@ function bestProfit(stock_prices_yesterday) {
     // and getting the max difference
 
     // purchase comes first
+    let maxDiff = 0;
+    let currentLow = 0;
+    for (let i = 0; i < stock_prices_yesterday.length; i++) {
+        let price = stock_prices_yesterday[i];
 
-    let maxDiff = null;
-        
-    for (let i = 0; i < stock_prices_yesterday; i++) {
-        let maxPrice = null;
-        let minPrice = null;
-        let maxDiff = null;
-
-        // let minPriceId = null;
-
-        let currentPrice = stock_prices_yesterday[i];
-
-        if ((minPrice === null || currentPrice < minPrice)) {
-            minPrice = currentPrice;
+        if (price < currentLow) {
+            currentLow = price;
         }
 
-        if (maxPrice === null || currentPrice > maxPrice) {
-            maxPrice = currentPrice;
+        if (price - currentLow > maxDiff) {
+            maxDiff = price - currentLow;
         }
 
     }
+    return maxDiff;
 }
 
 module.exports = bestProfit;
