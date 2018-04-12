@@ -14,7 +14,34 @@
  */
 
 function mergeArrays(arr1, arr2) {
+    var newArray = [];
+    if (arr1.length > arr2.length) {
+        for (var i = 0; i < arr1.length; i++) {
+            if (arr1[i] > arr2[i] && arr2[i] !== undefined) {
+                newArray.push(arr2[i]);
+                newArray.push(arr1[i]);
+            } else {
+                newArray.push(arr1[i]);
+                if (arr2[i]) {
+                    newArray.push(arr2[i]);
+                }
+            }
+        }
+    } else {
+        for (var j = 0; j < arr2.length; j++) {
+            if (arr2[j] > arr1[j] && arr1[j] !== undefined) {
+                newArray.push(arr1[j]);
+                newArray.push(arr2[j]);
+            } else {
+                newArray.push(arr2[j]);
+                if (arr1[j]) {
+                    newArray.push(arr1[j]);
+                }
+            }
+        }
+    }
 
+    return newArray;
 }
 
 module.exports = mergeArrays;
