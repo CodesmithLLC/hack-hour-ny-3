@@ -13,7 +13,39 @@
  */
 
 function numToWords(num) {
+    let wordArr = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+    let teenArr = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+    let tenArr = ['Teens', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+    
+  
+    //teen special case
+    if (10 < num < 20) {
+        num = num - 10;
+        for (let i = 0; i < teenArr.length; i += 1){
+            if (num === i) return teenArr[i];
+        }
+    }
+
+    if (num < 10) {
+        for (let i = 0; i < wordArr.length; i += 1){
+            if (num === i) return wordArr[i];
+        }
+    }
+
+    if (num >= 20) {
+        for (let i = 1; i < tenArr.length; i += 1) {
+            let multiply = i + 1;
+            if ((10 * multiply) < num && num < 10 * (multiply + 1)){
+                console.log('number is between', tenArr[i], tenArr[i+1]);
+            }
+        } 
+    }
 
 }
+
+
+// console.log(numToWords(5));
+
+console.log(numToWords(35));
 
 module.exports = numToWords;
