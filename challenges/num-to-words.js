@@ -13,7 +13,18 @@
  */
 
 function numToWords(num) {
-
+    const scale = ['','Thousand','Million', 'Billion','Trillion', 'Quadrillion'];
+    const digit = ['Zero','One','Two','Three','Four', 'Five','Six','Seven','Eight','Nine'];
+    const tn = ['Ten','Eleven','Twelve','Thirteen', 'Fourteen','Fifteen','Sixteen', 'Seventeen','Eighteen','Nineteen'];
+    const tens = ['Twenty','Thirty','Forty','Fifty', 'Sixty','Seventy','Eighty','Ninety'];
+    
+    if (num < 10) return digit[num];
+    if (num >= 10 && num < 20) return tn[parseInt((num).toString().split("")[1])]
+    
+    const stringRep = num.toString();
+    let result = [];
+    return 'what the hell you guys'
+    
 }
 
 module.exports = numToWords;
