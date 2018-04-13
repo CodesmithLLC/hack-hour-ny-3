@@ -13,7 +13,25 @@
  */
 
 function numToWords(num) {
+  let numWords = [
+    'Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten',
+    'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+  let tens = ['Zero', 'Ten', 'Twenty', 'Thirty', 'Fourty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+  let mags = ['Hundred', 'Thousand', 'Million', 'Billion', 'Trillion'];
+  if (num < 20) return numWords[num];
+  if (num < 100) {
+    const lastDigit = num % 10;
+    if (lastDigit === 0) return tens[Math.floor(num/10)];
+    return tens[Math.floor(num/10)] + numWords[num % 10];
+  }
+  if (num < 1000) {
+    return numWords[Math.floor(num/100)] + 'Hundred' + numToWords(num % 100);
+  }
+  if (num > 0) {
+    const power = Math.ceil(Number(num).toString()/3);
 
+    return numToWords(Math.floor(num/1000)) + mags[power - 1];
+  }
 }
 
 module.exports = numToWords;
