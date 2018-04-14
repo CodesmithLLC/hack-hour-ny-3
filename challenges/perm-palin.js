@@ -18,7 +18,6 @@ function permPalin(str) {
       counter[elem] = 1;
     }
   })
-  console.log(counter);
   const numOdds = Object.values(counter)
     .filter(count => count % 2 !== 0)
     .length;
