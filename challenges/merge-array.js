@@ -1,6 +1,6 @@
 /**
  * We have our lists of orders sorted numerically already, in arrays.
- * Write a functin to merge our arrays of orders into one sorted array.
+ * Write a function to merge our arrays of orders into one sorted array.
  * These may be of different lengths.
  *
  * var my_array = [3,4,6,10,11,15,21];
@@ -14,6 +14,9 @@
  */
 
 function mergeArrays(arr1, arr2) {
+    // concat and sort is cheap
+
+    
 
 }
 
