@@ -10,7 +10,10 @@
  */
 
 function permPalin(str) {
-  return str.split('').filter((x, i, t) => !t.includes(x, i+1)).length % 2 === 0;
+  const set = {};
+  str.split('').forEach(char => set.hasOwnProperty(char) ? set[char]++ : set[char] = 1);
+
+  return Object.keys(set).filter(x => set[x] % 2 !== 0).length < 2;
 }
 
 module.exports = permPalin;
