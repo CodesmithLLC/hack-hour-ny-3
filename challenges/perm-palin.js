@@ -10,7 +10,17 @@
  */
 
 function permPalin(str) {
-	
+    if (str.length === 1) return true;
+    if (str.length === 2 && str[0] === str[1]) return true;
+
+    for (var i = 0; i < Math.floor(str.length / 2); i++) {
+        if (str[i] !== str[str.length - 1 - i]) {
+            return false;
+        };
+
+    }
+
+    return true;
 }
 
 module.exports = permPalin;
