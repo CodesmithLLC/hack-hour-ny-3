@@ -10,7 +10,7 @@
  */
 
 function permPalin(str) {
-	
+  return str.split('').filter((x, i, t) => t.includes(x, i+1)).length % 2 === 0;
 }
 
 module.exports = permPalin;

@@ -24,11 +24,11 @@
 //   return [...mergedArray, ...arr1, ...arr2];
 // }
 
-function mergeArrays(a1, a2, a3 = []) {
-  if (!a1.length || !a2.length) return [...a3, ...a1, ...a2];
-  (a1[0] > a2[0]) ? a3.push(a2.shift()) : a3.push(a1.shift());
+// function mergeArrays(a1, a2, a3 = []) {
+//   if (!a1.length || !a2.length) return [...a3, ...a1, ...a2];
+//   (a1[0] > a2[0]) ? a3.push(a2.shift()) : a3.push(a1.shift());
 
-  return mergeArrays(a1, a2, a3);
-}
+//   return mergeArrays(a1, a2, a3);
+// }
 
 module.exports = mergeArrays;
