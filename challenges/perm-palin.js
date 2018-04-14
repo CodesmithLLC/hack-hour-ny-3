@@ -10,7 +10,19 @@
  */
 
 function permPalin(str) {
-	
-}
+    let count = 0;
+    const letters = str.split("").sort()
+    for (var i = 0; i < letters.length; i += 2) {
+  
+      while (letters[i] !== letters[i+1]) {
+        i++
+        count ++
+      }
+    }
+    if (count < 2) {
+      return true
+    }
+    return false
+  }
 
 module.exports = permPalin;
