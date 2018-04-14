@@ -10,7 +10,13 @@
  */
 
 function permPalin(str) {
-	
+  if (str.length <= 1) return true 
+  let count = str.split('').reduce((a, b) => {
+    if (a[b]) delete a[b];
+    else a[b] = true;
+    return a;
+  }, {});
+  return Object.keys(count).length <= 1;
 }
 
 module.exports = permPalin;
