@@ -12,25 +12,25 @@ function Stack() {
   this.length = 0;
 }
 
-Stack.prototype.push = function(value) {
+Stack.prototype.push = function push(value) {
   this.stack[this.length] = value;
-  this.length++;
+  this.length += 1;
   return this.length;
-}
+};
 
-Stack.prototype.pop = function() {
+Stack.prototype.pop = function pop() {
   const removed = this.stack[this.length - 1];
   delete this.stack[this.length - 1];
-  this.length--;
+  this.length -= 1;
   return removed;
-}
+};
 
-Stack.prototype.getMax = function() {
+Stack.prototype.getMax = function getMax() {
   let max = this.stack[0];
-  for (let key in this.stack) {
+  Object.keys(this.stack).forEach((key) => {
     if (this.stack[key] >= max) max = this.stack[key];
-  }
+  });
   return max;
-}
+};
 
 module.exports = Stack;
