@@ -10,17 +10,19 @@
  */
 
 function permPalin(str) {
-    if (str.length === 1) return true;
-    if (str.length === 2 && str[0] === str[1]) return true;
+  let string = str.split(' ').join('');
+  let count = {};
+  let odd = 0;
+  
+  for (let i = 0; i < string.length; i++) {
+    string[i] in count ? count[string[i]] += 1 : count[string[i]] = 1;
+  }
 
-    for (var i = 0; i < Math.floor(str.length / 2); i++) {
-        if (str[i] !== str[str.length - 1 - i]) {
-            return false;
-        };
-
-    }
-
-    return true;
+  for (let letter in count) {
+    if (count[letter] % 2 !== 0) odd += 1;
+  }
+  
+  return odd > 1 ? false : true;
 }
 
 module.exports = permPalin;
