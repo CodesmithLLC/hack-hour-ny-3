@@ -15,7 +15,7 @@
  *
  * BONUS: Do this in place
  */
-// [1,2,3,4,5,6,7,8,9] => [7,8,9,1,2,3,4,5,6] [7,8,9] [1,2,3] [4,5,6] / [7,4,1] [8,5,2] [9,6,3]
+
 function rotateGrid(grid, n) {
   // Concat each row.
   const concated = grid.reduce((acc, row) => {
@@ -49,3 +49,5 @@ function rotateGrid(grid, n) {
   }
   return results;
 }
+
+module.exports = rotateGrid;
