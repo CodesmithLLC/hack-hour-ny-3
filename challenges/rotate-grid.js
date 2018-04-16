@@ -12,12 +12,28 @@
  *                  sampleGrid after:   [   [7, 4, 1],
  *                                          [8, 5, 2],
  *                                          [9, 6, 3]  ]
+ * 
+ * 0, 0 -> 0, 2
+ * 0,1 -> 1,2
+ * 0, 2 -> 2,2
+ * 1, 0 -> 0,1
+ * 
  *
  * BONUS: Do this in place
  */
 
 function rotateGrid(grid, n) {
-
+    let newGrid = []
+    for (let x = 0; x < grid[0].length; x++) {
+        let row = []
+        for (let y = grid.length - 1; y >= 0; y--) {
+            row.push(grid[y][x])
+        }
+        newGrid.push(row)
+    }
+    return newGrid
 }
+
+
 
 module.exports = rotateGrid;
