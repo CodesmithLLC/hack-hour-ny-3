@@ -24,6 +24,7 @@ function rotateGrid(arr, n) {
             arr[j][i] = store;
         }
     }
+    return arr
 };
 
 module.exports = rotateGrid;
