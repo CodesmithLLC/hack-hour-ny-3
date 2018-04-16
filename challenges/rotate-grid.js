@@ -16,20 +16,50 @@
  * BONUS: Do this in place
  */
 
+// This method only works when the number is contineous:
+// function rotateGrid(grid, n) {
+//     let biggest = grid[grid.length-1];
+//     let i=0;
+//     biggest.forEach(element => {
+//         let j=0;
+//         while(j<n){
+//         grid[i][j] = element-(j*n);
+//         }
+//     });
+// }
+
+// More robust solution. But 0(n3) time complexity.
 function rotateGrid(grid, n) {
-    let biggest = grid[grid.length-1];
     let i=0;
-    biggest.forEach(element => {
-      let j=0;
-      while(j<n){
-        grid[i][j] = element-(j*n);
-        j++;
+    grid.forEach(row => {
+      while(i<n){
+        grid[i].unshift(row[row.length-3+i])
+        i++;
       }
-      i++;
-    });
+      i=0;
+    })
+    grid.forEach(row => {
+      row.splice(n,row.length)
+    })
     return grid
-  }
+}
+  
 
 module.exports = rotateGrid;
 
 
+
+
+
+
+[1,2,3,4]
+[5,6,7,8]
+[9,10,11,12]
+[13,14,15,16]
+
+
+
+[13,9,5,1]
+[14,10,6,2]
+[15,11,7,3]
+[16,12,8,4]
