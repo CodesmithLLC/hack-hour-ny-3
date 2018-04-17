@@ -5,11 +5,13 @@
 
 function Stack() {
     this.stack = {};
+    this.count = 0;
 
 };
 
 Stack.prototype.push = function (value) {
-    this.stack[this.stack.length] = value;
+    this.stack[this.count] = value;
+    this.count++;
     return this.stack.length;
 };
 
@@ -19,30 +21,32 @@ Stack.prototype.pop = function (){
     return lastElement;
 }
 
-Stack.prototype.enqueue = function (){
-    Queue.enqueue(this.stack[this.stack.length - 1]);
-    return 
-}
-
-Stack.prototype.dequeue = function (){
-    Queue.enqueue(this.stack[this.stack.length - 1]);
-    return 
-}
-
 /**
 * Queue Class
 */
 
-
 function Queue() {
     this.queue = [];
+    this.count = 0;
 };
 
 Queue.prototype.enqueue =  function (value) {
-    this.stack[this.stack.length] = value;
-    return this.stack.length;
+    this.queue[this.count] = value;
+    return this.queue.length;
 }
 
-Stack.enqueue(45)
+Queue.prototype.dequeue = function () {
+
+}
+
+// let stack = new Stack();
+
+// stack.push(4)
+// console.log(stack);
+
+// stack.push(5)
+// console.log(stack);
+// // stack.enqueue(45)
+// console.log()
 
 module.exports = {Stack: Stack, Queue: Queue};
