@@ -15,15 +15,25 @@
  */
 
 function rotateGrid(grid, n) {
-var arr = [];
     for (var i = 0; i < grid[0].length; i++) {
         var innerArr = [];
-        for (var j = 0; j < grid.length; j++) {
-            innerArr.push(grid[j][i]);
+        for (var j = 0; j < Math.floor(grid.length / 2); j++) {
+            var first = grid[j][i];
+            var last = grid[grid.length - 1 - j][i];
+            console.log(first, last);
+            grid[j][i] = last;
+            grid[grid.length - 1 - j][i] = first;
         }
-        arr.push(innerArr.reverse());
     }
-    return arr;
+    return grid;
 }
 
+console.log(rotateGrid([[1, 2], [3, 4]]));
+console.log(rotateGrid([[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
 module.exports = rotateGrid;
+
+
+/*
+    [1,2]       [3,1]
+    [3,4]       [4,2]
+*/
