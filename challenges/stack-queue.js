@@ -13,6 +13,7 @@ Stack.prototype.push = function (data) {
 }
 
 Stack.prototype.pop = function () {
+  if (!this.index) return;
   const removed = this.storage[this.index];
   delete this.storage[this.index--];
   return removed;
@@ -32,7 +33,7 @@ Queue.prototype.enqueue = function (data) {
 
 Queue.prototype.dequeue = function () {
   const tempStack = new Stack();
-
+  if (!this.storage.index) return;
   while (this.storage.index > 1) {
     tempStack.push(this.storage.pop());
   }
