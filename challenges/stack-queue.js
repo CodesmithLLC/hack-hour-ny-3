@@ -31,7 +31,7 @@ function Queue(value) {
   this.length = 0;
   this.storage = [];
 
-  this.eneque = function(value){
+  this.enqueque = function(value){
     stack1.push(value);
     this.length = stack1.length + stack2.length;
     this.storage = stack1.storage.concat(stack2.storage);
