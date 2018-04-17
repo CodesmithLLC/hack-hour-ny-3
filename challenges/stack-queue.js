@@ -10,7 +10,7 @@ function Stack() {
 
 Stack.prototype.push = function (value) {
     this.stack[this.stack.length] = value;
-    return this.stack;
+    return this.stack.length;
 };
 
 Stack.prototype.pop = function (){
@@ -19,13 +19,30 @@ Stack.prototype.pop = function (){
     return lastElement;
 }
 
+Stack.prototype.enqueue = function (){
+    Queue.enqueue(this.stack[this.stack.length - 1]);
+    return 
+}
+
+Stack.prototype.dequeue = function (){
+    Queue.enqueue(this.stack[this.stack.length - 1]);
+    return 
+}
+
 /**
 * Queue Class
 */
 
 
 function Queue() {
-
+    this.queue = [];
 };
+
+Queue.prototype.enqueue =  function (value) {
+    this.stack[this.stack.length] = value;
+    return this.stack.length;
+}
+
+Stack.enqueue(45)
 
 module.exports = {Stack: Stack, Queue: Queue};
