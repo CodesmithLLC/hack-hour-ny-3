@@ -9,15 +9,21 @@
  *                  
  *                  rotateGrid(sampleGrid, 3);
  *                  
- *                  sampleGrid after:   [   [7, 4, 1],
- *                                          [8, 5, 2],
- *                                          [9, 6, 3]  ]
+ *                  sampleGrid after:   [   [7, 4, 1], [8, 5, 2], [9, 6, 3]  ]
  *
  * BONUS: Do this in place
  */
 
 function rotateGrid(grid, n) {
-
+var arr = [];
+    for (var i = 0; i < grid[0].length; i++) {
+        var innerArr = [];
+        for (var j = 0; j < grid.length; j++) {
+            innerArr.push(grid[j][i]);
+        }
+        arr.push(innerArr.reverse());
+    }
+    return arr;
 }
 
 module.exports = rotateGrid;

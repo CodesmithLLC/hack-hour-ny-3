@@ -13,7 +13,14 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+    var value = 0;
+    var newArr = stock_prices_yesterday.slice();
+    for (var i = 0; i < newArr.length; i++) {
+        for (var j = i; j < newArr.length; j++) {
+            value = Math.max(value, newArr[j] - newArr[i]);
+        }
+    }
+    return value;
 }
 
 module.exports = bestProfit;

@@ -11,7 +11,27 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+    if(str.length < 1) return true;
+    var regexp = /[a-z_A-Z ()]/gi;
+    var newStr = str.match(regexp).join('').toLowerCase().replace(/[_()]/g," ").split(" ");
+    var newStr1 = [];
+    for (var i = 0; i < newStr.length; i++) {
+        if(newStr[i] !== "") {
+            newStr1.push(newStr[i]);
+        }
+    }
+    
+    var newArr = [];
+    for (var i = 0; i < newStr1.length; i++) {
+        if(newArr[0] === undefined || newArr[newArr.length - 1] !== newStr1[i].split("").reverse().join('')) {
+            // console.log(newArr);
+            newArr.push(newStr1[i]);
+        } else {
+            newArr.pop();
+        }
+    }
 
+    return newArr.length === 0;
 }
 
 module.exports = matchWord;
