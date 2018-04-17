@@ -4,7 +4,8 @@
 
 
 function Stack() {
-
+  this.storage = {};
+  this.index = 0
 }
 
 
@@ -14,7 +15,8 @@ function Stack() {
 
 
 function Queue() {
-
+  this.storage = {};
+  this.index = 0
 }
 
 module.exports = {Stack: Stack, Queue: Queue};
