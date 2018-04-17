@@ -10,7 +10,17 @@
  */
 
 function permPalin(str) {
-	
+    let storage = {};
+
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+
+        if (storage[char]) {
+
+        } else {
+
+        }
+    }
 }
 
 module.exports = permPalin;
