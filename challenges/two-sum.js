@@ -3,7 +3,16 @@
  */
 
 function twoSum(arr, n) {
+    if (arr.length === 0 || !Array.isArray(arr)) return false;
+    for(let i = 0; i < arr.length; i++) {
+        for(let j = i + 1; j < arr.length; j++) {
+            if (i + j === n) {
+                return true;
+            }
+        }
+    }
 
+    return false;
 }
 
 module.exports = twoSum;
