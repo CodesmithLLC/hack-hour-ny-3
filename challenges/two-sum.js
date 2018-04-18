@@ -7,15 +7,16 @@ function twoSum(arr, n) {
     for (let i = 0; i < arr.length; i += 1){
         for (let j = 0; j < arr.length; j += 1){
             if (i !== j) {
+                console.log(arr[i], arr[j])
                 if (arr[i] + arr[j] === n) return true;
             };   
         };
-        return false;
     };
+    return false;
 };
 
 
 
-// console.log(twoSum([1,3,2], 4));
+// console.log(twoSum([1,3,2], 5));
 
 module.exports = twoSum;
