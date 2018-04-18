@@ -8,6 +8,7 @@ function twoSum(arr, n) {
             if (arr[i] + arr[j] === n) { return true }
         }
     }
+    return false
 }
 
 module.exports = twoSum;
