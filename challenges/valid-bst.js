@@ -12,12 +12,15 @@ function BinaryTree(val) {
     this.right = null;
 }
 
-function validBST(tree) {
-    const validLeft = tree.left === null ? true
-        : tree.left.value < tree.value && validBST(tree.left)
+function validBST(tree, previousTests = []) {
+    const leftTests = [...previousTests, n => n < tree.value]
+    const rightTests = [...previousTests, n => n > tree.value]
 
-    const validRight = tree.right === null ? true
-        : tree.right.value > tree.value && validBST(tree.right)
+    const validLeft = tree.left === null ? true :
+        leftTests.every(test => test(tree.left.value)) && validBST(tree.left, leftTests)
+
+    const validRight = tree.right === null ? true :
+        rightTests.every(test => test(tree.right.value)) && validBST(tree.right, rightTests)
 
     return validLeft && validRight
 }
