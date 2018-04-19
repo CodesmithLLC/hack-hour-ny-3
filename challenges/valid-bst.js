@@ -12,13 +12,17 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-if (tree === null) return true
-const val = tree.value;
-if (tree.left && tree.left.value > val) return false;
-if (tree.right && tree.right.value < val) return false;
+  if (tree === null) return true
+  const val = tree.value;
+  // Child cases
+  if (tree.left && tree.left.value > val) return false;
+  if (tree.right && tree.right.value < val) return false;
+  // Grandchild cases
+  if (tree.left && tree.left.right && tree.left.right.value > val) return false;
+  if (tree.right && tree.right.left && tree.right.left.value < val) return false;
 
-return validBST(tree.left) && validBST(tree.right);
-return true;
+  return validBST(tree.left) && validBST(tree.right);
+  return true;
 }
 
 module.exports = { BinaryTree: BinaryTree, validBST: validBST };
