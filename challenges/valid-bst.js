@@ -7,9 +7,9 @@
 
 
 function BinaryTree(val) {
-    this.value = val;
-    this.left = null;
-    this.right = null;
+  this.value = val;
+  this.left = null;
+  this.right = null;
 }
 
 function validBST(tree) {
@@ -27,13 +27,4 @@ function validBST(tree) {
   return true;
 }
 
-// const treething = new BinaryTree(5);
-// treething.left = new BinaryTree(4);
-// treething.left.right = new BinaryTree(6);
-// treething.right = new BinaryTree(9);
-// treething.right.left = new BinaryTree(10);
-
-console.log(treething);
-console.log(validBST(treething));
-
-module.exports = {BinaryTree: BinaryTree, validBST: validBST};
+module.exports = { BinaryTree, validBST };
