@@ -3,13 +3,13 @@
  */
 
 function twoSum(arr, n) {
-  return arr.some((num, i) => {
-    const toCheck = arr.slice(0, i).concat(arr.slice(i + 1));
+  const toCheck = {};
+  return arr.some((num) => {
     const target = n - num;
-    return toCheck.some(num2 => num2 === target);
+    if (toCheck[target] !== undefined) return true;
+    toCheck[num] = true;
   });
 }
 
-const a = [1,2,3,4,5];
-console.log(twoSum(a, 9));
+
 module.exports = twoSum;
