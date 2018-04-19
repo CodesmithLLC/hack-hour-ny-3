@@ -3,10 +3,10 @@
  */
 
 function twoSum(arr, target) {
+  const lookup = {};
   for(let i = 0; i < arr.length - 1; i += 1) {
-    for (let j = i + 1; j < arr.length; j += 1) {
-      if (target === arr[i]+arr[j]) return true;
-    }
+    if(lookup[n - arr[i]]) return true;
+    lookup[arr[i]] = true;
   }
   return false;
 }
