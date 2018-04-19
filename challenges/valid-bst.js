@@ -19,8 +19,6 @@ function validBST(tree) {
     const validRight = tree.right === null ? true
         : tree.right.value > tree.value && validBST(tree.right)
 
-    // console.log(tree.left.value, tree.value, tree.right.val)
-    // console.log(validLeft, validRight)
     return validLeft && validRight
 }
 
