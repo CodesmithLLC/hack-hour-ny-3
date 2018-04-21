@@ -8,7 +8,13 @@
  */
 
 function gcd(a, b) {
+    let greatestComm = 1, endNum;
+    a > b ? endNum = b : endNum = a;
+    for (var i = 1; i <= endNum; i++) {
+        if (a % i === 0 && b % i === 0 && i >= greatestComm) greatestComm = i;
+    }
 
+    return greatestComm;
 }
 
 module.exports = gcd;
