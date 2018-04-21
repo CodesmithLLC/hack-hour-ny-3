@@ -3,6 +3,14 @@
  */
 
 
+ //Stack first in first out 
+//Queue first in first out
+
+// A queue is essential two stacks one is a regular stack and the other is 
+// the a stack for dequeue, will return the value being removed
+
+
+
 function Stack() {
     this.stack = {};
     this.count = 0;
@@ -26,8 +34,10 @@ Stack.prototype.pop = function (){
 */
 
 function Queue() {
-    this.queue = [];
-    this.count = 0;
+    //use two stacks here
+    // this.in = new Stack();
+    // this.out = new Stack();
+    
 };
 
 Queue.prototype.enqueue =  function (value) {
