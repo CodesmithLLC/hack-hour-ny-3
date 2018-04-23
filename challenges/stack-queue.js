@@ -11,6 +11,7 @@ function Stack() {
 Stack.prototype.push = function push(value) {
   this.stack[this.length] = value;
   this.length += 1;
+  return this.length;
 };
 
 Stack.prototype.pop = function pop() {
@@ -25,25 +26,22 @@ Stack.prototype.pop = function pop() {
 * Queue Class
 */
 
-const stack1 = new Stack();
-const stack2 = new Stack();
-
 function Queue() {
-  this.queue = {};
-  this.length = 0;
+  this.enter = new Stack();
+  this.leave = new Stack();
 }
 
 Queue.prototype.enqueue = function enqueue(value) {
-  stack1.push(value);
+  this.enter.push(value);
 };
 
-Queue.prototype.enqueue = function dequeue() {
-  if (stack2.length > 0) {
-    const deq = stack2.pop();
-    return deq;
-  }
-  while (stack1.length > 0) {
-    stack2.push(stack1.pop());
+Queue.prototype.dequeue = function dequeue() {
+  if (this.leave.length !== 0) this.leave.pop();
+  else {
+    while (this.enter.length !== 0) {
+      this.leave.push(this.enter.pop());
+    }
+    this.leave.pop();
   }
 };
 
