@@ -13,18 +13,22 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-  if (!tree.left && !tree.right) return true;
-  if (!tree.left && tree.value < tree.right.value) return validBST(tree.right);
-  if (!tree.right && tree.value > tree.left.value) return validBST(tree.left);
-  if (tree.left && tree.value < tree.left.value) return false;
-  if (tree.right && tree.value > tree.right.value) return false;
-  while (tree.left) {
-    return validBST(tree.left);
-  }
-  while (tree.right) {
-    return validBST(tree.right);
-  }
-  return true;
+  const orderCheck = [];
+  tree.inOrder(val => orderCheck.push(val));
+  let check = 0;
+  return orderCheck.every((el) => {
+    if (el > check) {
+      check = el;
+      return true;
+    }
+    return false;
+  });
 }
+
+BinaryTree.prototype.inOrder = function inOrder(callback) {
+  if (this.left) this.left.inOrder(callback);
+  callback(this.value);
+  if (this.right) this.right.inOrder(callback);
+};
 
 module.exports = { BinaryTree, validBST };
