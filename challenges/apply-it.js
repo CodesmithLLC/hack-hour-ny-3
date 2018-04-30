@@ -26,7 +26,12 @@
  */
 
 function applyIt(func, args) {
-
+  let argsArray = Array.from(arguments);
+  argsArray.shift();
+  let flattened = argsArray.reduce((a, b) => {
+    return a.concat(b)
+  }, [])
+  return func(flattened)
 }
 
 module.exports = applyIt;
