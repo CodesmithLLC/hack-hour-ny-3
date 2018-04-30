@@ -26,7 +26,12 @@
  */
 
 function applyIt(func, args) {
-
+  let a1 = args[0];
+  let a2 = args[1];
+  let a3 = args[2];
+  let a4 = args[3];
+  let a5 = args[4];
+  return func(a1, a2, a3, a4, a5);
 }
 
 module.exports = applyIt;
