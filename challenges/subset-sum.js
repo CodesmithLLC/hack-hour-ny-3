@@ -9,7 +9,8 @@
  */
 
 function subsetSum(array, target) {
-
+    index =0;
+    function recursion(num,total)
 }
 
 module.exports = subsetSum;

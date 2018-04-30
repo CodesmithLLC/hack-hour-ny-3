@@ -13,7 +13,43 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-
-}
+    function recursion(node){
+      console.log('times',node)
+      if(node.left) {
+        if(node.left.value < node.value) recursion(node.left);
+        else return false
+      }
+      if(node.right) {
+        if(node.right.value > node.value) recursion(node.right);
+        else return false
+      }
+    }
+    return (recursion(tree) === false) ? false:true;
+  }
+  
+//   let tree = {value:5,
+//   left:{value:3,
+//     left:{value:1,
+//       left:null,
+//       right:null
+//     },
+//     right:{value:4,
+//       left:null,
+//       right:null,
+//     }
+//   },
+//   right:{value:9,
+//     left:{value: 8,
+//       left:null,
+//       right: null,
+//     },
+//     right:{value:10,
+//       left:null,
+//       right:null,
+//     }
+//   },
+//   }
+  
+//   validBST(tree)
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};

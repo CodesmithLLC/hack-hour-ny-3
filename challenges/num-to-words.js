@@ -13,7 +13,16 @@
  */
 
 function numToWords(num) {
+  let odds = {11:'Eleven',12:'Twelve',13:'Thirteen',14:'Fourteen',15:'Fifteen',16:'Sixteen',17:'Seventeen',18:'Eighteen',19:'Nineteen',
+              10:'Ten',20:'Twenty',30:'Thirty',40:'Fourty',50:'Fifty',60:'Sixty',70:'Seventy',80:'Eighty',90:'Ninety'}
+  let nums = {0:'Zero',1:'One',2:'Two',3:'Three',4:'Four',5:'Five',6:'Six',7:'Seven',8:'Eight',9:'Nine'}  
 
+  if (num<=20) {
+    if(nums.hasOwnProperty(num)) return nums.num;
+    if(odds.hasOwnProperty(num)) return odds.num;
+  }
+
+  let digs = num.split('')
 }
 
 module.exports = numToWords;
