@@ -26,7 +26,23 @@
  */
 
 function applyIt(func, args) {
-
+    let arrayObj = new Array();
+    args.forEach((ele) => {
+      arrayObj[storage].push(ele);
+    });
+    
+    func.arguments = arrayObj;
+    return func(func.arguments);
 }
+
+function Array() {
+  this.storage = {};
+  this.index = 0;
+}
+
+Array.prototype.push = function(value) {
+ this.storage[this.index] = value;
+ this.index += 1;
+};
 
 module.exports = applyIt;
