@@ -5,6 +5,21 @@
 
 function Stack() {
 
+  this.stack = new Array();
+  
+  this.stack.length = 0
+
+  this.pop = function() {
+    this.stack.length -= 1;
+    this.stack.pop();
+  }
+
+  this.push = function(item) {
+    this.stack.push(item);
+    this.stack.length += 1;
+    return this.length;
+  }
+
 }
 
 

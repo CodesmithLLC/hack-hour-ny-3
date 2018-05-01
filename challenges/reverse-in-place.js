@@ -13,8 +13,18 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function reverseInPlace(array) {
+ function reverseInPlace(array) {
+   const arrLength = array.length
+   for (let i = array.length; i >= 0; i -=1){
+     array[i] = array[i - 1];
+   }
+   for (let i = 1; i <=arrLength; i +=2){
+     array.unshift(array[i])
+     array.pop()
+   }
+   return array;
+ }
 
-}
+ console.log(reverseInPlace([undefined, '1','2','3','4','5']));
 
 module.exports = reverseInPlace;
