@@ -17,12 +17,14 @@ function countTwos(num) {
     for (let i = 1; i <= num; i++) {
         // convert each number to string, iterate over that string
         let stringNum = i.toString();
-        let stringNumArray = i.split('');
+        let stringNumArray = stringNum.split('');
 
         stringNumArray.forEach((char) => {
             if (char === '2') count++;
-        })
+            
+        });
     }
+    // console.log(count);
     return count;
 }
 
