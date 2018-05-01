@@ -19,9 +19,7 @@ function countTwos(num) {
 
 function twos(numStr) {
     var count = 0;
-    numStr.split('').forEach((x) => {
-        if(x === '2') count += 1;
-    });
+    numStr.replace(/[2]/g,(x) => count += 1);
     return count;
 }
 
