@@ -14,7 +14,7 @@ function countTwos(num, count = 0) {
     if (lastDigit === 2) count += 1
     let withoutLastDigit = Math.floor(num / 10)
     return withoutLastDigit === 0 ?
-        count : countTwos(nextNum, count)
+        count : countTwos(withoutLastDigit, count)
 }
 
 module.exports = countTwos;
