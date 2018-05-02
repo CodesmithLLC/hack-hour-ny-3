@@ -18,14 +18,14 @@ function countTwos(num) {
   }
   for (let key in numArry) {
     let n = parseInt(key.charAt(key.length - 1))
-    let base = n * Math.pow(10, n - 1)
+    let base = (n * Math.pow(10, n - 1)) * numArry[key]
     if (numArry[key] != 0) {
-      if (numArry[key] < 2) {
-        count += base
+      if (numArry[key] == 2) {
+        count += (base + 1)
       } else if (numArry[key] > 2) {
-        count += base * numArry[key] + Math.pow(10, n)
+        count += (base + Math.pow(10, n))
       } else {
-        count += base * numArry[key] + 1
+        count += base
       }
     }
   }
