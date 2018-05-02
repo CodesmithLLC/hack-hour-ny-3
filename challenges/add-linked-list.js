@@ -21,21 +21,38 @@ function addLinkedList(l1, l2) {
   let current1 = l1;
   let current2 = l2;
   let carryOver = 0;
-
-  let sum = current1.value + current2.value;
-  let output = new Node(sum % 10);
-  if (sum > 9) carryOver = 1;
-  current1 = current1.next;
-  current2 = current2.next;
+  let output = null;
+  let outputHead = output;
 
   while(current1 && current2) {
     let sum = current1.value + current2.value + carryOver;
-    output.next = new Node(sum % 10);
+    if (!output) {
+      output = new Node(sum % 10)
+      outputHead = output;
+    } else {
+      output.next = new Node(sum % 10);
+      output = output.next;
+    }
     if (sum > 9) carryOver = 1;
     current1 = current1.next;
     current2 = current2.next;
   }
-  return output;
+  while(current1) {
+    let sum = current1.value + carryOver;
+    output.next = new Node(sum % 10);
+    output = output.next;
+    if (sum > 9) carryOver = 1;
+    current1 = current1.next;
+  }
+  while(current2) {
+    let sum = current2.value + carryOver;
+    output.next = new Node(sum % 10);
+    output = output.next;
+    if (sum > 9) carryOver = 1;
+    current2 = current2.next;
+  }
+  if (carryOver) output.next = new Node(1);
+  return outputHead;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
