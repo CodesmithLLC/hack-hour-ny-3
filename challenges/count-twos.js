@@ -23,7 +23,7 @@ function countTwos(num) {
       if (numArry[key] < 2) {
         count += base
       } else if (numArry[key] > 2) {
-        count += base * (numArry[key] - 1) + Math.pow(10, n)
+        count += base * numArry[key] + Math.pow(10, n)
       } else {
         count += base * numArry[key] + 1
       }
