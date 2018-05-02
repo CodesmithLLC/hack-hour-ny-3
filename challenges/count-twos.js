@@ -21,7 +21,11 @@ function countTwos(num) {
     let base = (n * Math.pow(10, n - 1)) * numArry[key]
     if (numArry[key] != 0) {
       if (numArry[key] == 2) {
-        count += (base + 1)
+        if (numArry[`1e+${n-1}`]) {
+          count += (base + 1 + numArry[`1e+${n-1}`] * Math.pow(10, n - 1))
+        } else {
+          count += (base + 1)
+        }
       } else if (numArry[key] > 2) {
         count += (base + Math.pow(10, n))
       } else {
