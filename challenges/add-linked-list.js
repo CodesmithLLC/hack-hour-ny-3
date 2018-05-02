@@ -33,7 +33,7 @@ function addLinkedList(l1, l2) {
       output.next = new Node(sum % 10);
       output = output.next;
     }
-    if (sum > 9) carryOver = 1;
+    carryOver = Math.floor(sum/10);
     current1 = current1.next;
     current2 = current2.next;
   }
@@ -41,14 +41,14 @@ function addLinkedList(l1, l2) {
     let sum = current1.value + carryOver;
     output.next = new Node(sum % 10);
     output = output.next;
-    if (sum > 9) carryOver = 1;
+    carryOver = Math.floor(sum/10);
     current1 = current1.next;
   }
   while(current2) {
     let sum = current2.value + carryOver;
     output.next = new Node(sum % 10);
     output = output.next;
-    if (sum > 9) carryOver = 1;
+    carryOver = Math.floor(sum/10);
     current2 = current2.next;
   }
   if (carryOver) output.next = new Node(1);
