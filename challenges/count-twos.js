@@ -10,6 +10,26 @@
 
 
 function countTwos(num) {
+  let places = num.toString()
+  let numArry = {}
+  let count = 0
+  for (let i = 0; i < places.length; i++) {
+    numArry[Math.pow(10, places.length - i - 1).toExponential()] = places[i]
+  }
+  for (let key in numArry) {
+    let n = parseInt(key.charAt(key.length - 1))
+    let base = n * Math.pow(10, n - 1)
+    if (numArry[key] != 0) {
+      if (numArry[key] < 2) {
+        count += base
+      } else if (numArry[key] > 2) {
+        count += base * (numArry[key] - 1) + Math.pow(10, n)
+      } else {
+        count += base + 1
+      }
+    }
+  }
+  return count
 }
 
 module.exports = countTwos;
