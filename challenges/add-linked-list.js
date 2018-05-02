@@ -18,7 +18,21 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  let newList = new Node(firstCurr.value + secondCurr.value);
+  let currNew = newList;
+  let firstCurr = l1;
+  let secondCurr = l2;
+  while (firstCurr || secondCurr) {
+    if (!newList.next) newList.next = firstCurr.value + secondCurr.value;
+    firstCurr = firstCurr.next;
+    secondCurr = secondCurr.next;
 
+    while (currNew) {
+      currNew = currNew.next;
+    }
+  }
+
+  return newList;
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+module.exports = { Node: Node, addLinkedList: addLinkedList };
