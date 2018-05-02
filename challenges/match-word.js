@@ -10,8 +10,69 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-function matchWord(str) {
+class Stack  {
+  constructor () {
+    this.storage = [];
+  }
 
+  last () {
+    return this.storage[this.storage.length - 1];
+  }
 }
 
-module.exports = matchWord;
+const stack = new Stack();
+
+function filterWords(str) {
+  if (!str.length) return stack.storage;
+
+  const last = str[0].toLowerCase();
+  const lastCharCode = last.charCodeAt(0);
+  const currentCode = lastCharCode > 96 && lastCharCode < 123;
+
+  str = str.slice(1);
+
+  let stackLast = stack.last();
+
+  if (currentCode) {
+    if (!stackLast) {
+      if(stackLast === '') stack.storage.pop();
+      stack.storage.push(last);
+    }
+    else {
+      stackLast += last;
+      stack.storage.pop();
+      stack.storage.push(stackLast);
+    }
+  } else if (stackLast) {
+    stack.storage.push('');
+  }
+
+  return filterWords(str);
+}
+
+function matchWord (str) {
+  let filtered = filterWords(str);
+
+  if(!filtered.length) return true;
+  if (filtered[filtered.length - 1] === '') filtered = filtered.slice(0, -1);
+  
+  console.log(filtered);
+  
+  while (filtered) {
+    console.log(filtered[0])
+    let first = filtered[0].split('').reverse().join('');
+
+    if ( filtered.indexOf(first, 1) !== filtered.length - 1 ) {
+      console.log(first, filtered.indexOf(first, 1));
+      return false;
+    }
+    filtered = filtered.slice(1);
+  }
+
+  return true;
+}
+
+console.log(matchWord('__END_DNE-----'));
+
+
+//module.exports = matchWord;

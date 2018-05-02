@@ -9,8 +9,11 @@
 // countTwos(11420);  -> 4483
 
 
-function countTwos(num) {
-
+function countTwos(num, current = 0, total = 0) {
+  if (num === current) return total
+  total += `${current}`.split('').filter((v) => v == "2").length
+  return countTwos(num, current += 1, total)
 }
+
 
 module.exports = countTwos;

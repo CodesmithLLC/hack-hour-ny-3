@@ -16,8 +16,36 @@
  * BONUS: Do this in place
  */
 
-function rotateGrid(grid, n) {
+function rotateGrid(g, n) {
+  let current = g[0][0] //1
+  let next = g[0][1] //2
+  g[0][1] = current //1
 
+  current = next //2
+  next = g[1][1] //4
+  g[1][1] = current //2
+
+  current = next
+  next = g[1][0]
+  g[1][0] = current 
+
+  current = next //2
+  next = g[0][0] //4
+  g[0][0] = current //2
+
+  console.log(g)
 }
+
+
+const test = [
+  [1,2],
+  [3,4]
+]
+
+const output = [
+  [3,1],
+  [4,2]
+]
+console.log(rotateGrid(test, 2))
 
 module.exports = rotateGrid;
