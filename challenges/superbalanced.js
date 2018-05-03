@@ -13,8 +13,21 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
-
+function  minLevels(tree) {
+  if (!tree.right && !tree.left) return 0
+  return 1 + Math.min(minDepth(tree.left), minDepth(tree.right))
 }
+
+function maxLevels(tree) {
+  if (!tree.right && !tree.left) return 0
+  
+  return 1 + Math.max(minDepth(tree.left), minDepth(tree.right))
+}
+
+function superbalanced(tree) {
+  if (maxLevels(tree) + 1 || maxLevels(tree) === minLevel(tree) - 1 || minLevels(tree)) return true
+  return false
+}
+
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};

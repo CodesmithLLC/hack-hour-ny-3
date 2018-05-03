@@ -12,8 +12,50 @@ function BinaryTree(val) {
     this.right = null;
 }
 
-function validBST(tree) {
+BinaryTree.prototype.insert = function (val) {
+    if (val <= this.value) {
+        if (this.left) this.left.insert(val);
+        else this.left = new BinaryTree(val);
+    } else {
+        if (this.right) this.right.insert(val);
+        else this.right = new BinaryTree(val)
+    }
+    return this;
+}
+BinaryTree.prototype.contains = function (val) {
+    if (this.value === val) return true;
+    if(val < this.value) {
+        return !!this.left && this.left.contains(val)
+    }
+    if(val > this.value) {
+        return !!this.right && this.right.contains(val)
+    }
+    return false;
+}
 
+
+
+binaryTree = new BinaryTree(5)
+binaryTree.insert(4)
+binaryTree.insert(7)
+binaryTree.contains(4)
+
+
+function validBST(tree) {
+    var current = tree;
+    while (current.left.value < current .value) {
+        current = current.left
+    }
+    while (current.left.value > current .value) {
+        return false
+    }
+    while (curent.right.value > current.value) {
+        current = current.right
+    }
+    while (curent.right.value < current.value) {
+        return false
+    }
+    return true
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
