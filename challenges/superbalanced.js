@@ -14,20 +14,27 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
-  let currentLeft = 0;
-  let currentRight = 0;
-  function balanced(bin) {
-    if (bin.left) {
-      currentLeft += 1;
-      balanced(bin.left);
-    }
-    if (bin.right) {
-      currentRight += 1;
-      balanced(bin.right);
+  let result = true;
+  function balanced(node, countLeft, countRight) {
+    let countL = countLeft;
+    let countR = countRight;
+    if (Math.abs(countL - countR) > 1) result = false;
+    if (node.left && node.right) {
+      countL += 1;
+      countR += 1;
+      balanced(node.left, countL, countR);
+      balanced(node.right, countL, countR);
+    } else if (node.left) {
+      countL += 1;
+      balanced(node.left, countL, countR);
+    } else if (node.right) {
+      countR += 1;
+      balanced(node.right, countL, countR);
     }
   }
-  balanced(tree);
-  return Math.abs(currentLeft - currentRight) <= 1;
+  balanced(tree, 0, 0);
+  return result;
 }
+
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
