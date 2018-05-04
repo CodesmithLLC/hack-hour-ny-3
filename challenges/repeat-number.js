@@ -14,8 +14,8 @@ function repeatNumbers(array) {
   let sum = array.reduce((a, b) => {
     return a + b
   })
-  let aSum = ((array[array.length-1]) * ((array[array.length-1]) + 1)) / 2
-  (sum - aSum) > 0 ? (sum - aSum) : undefined
+  let aSum = ([array.length-1] * (array.length)) / 2
+  return sum - aSum > 0 ? sum - aSum : undefined
 }
 
 module.exports = repeatNumbers;
