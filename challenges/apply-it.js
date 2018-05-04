@@ -29,16 +29,16 @@ function applyIt(func, args) {
     return func(...args);
 }
 
-var jasmine = function (name, age) {
-    if (!age) {
-        return "We don't know how old " + name + " is!";
-    }
+// var jasmine = function (name, age) {
+//     if (!age) {
+//         return "We don't know how old " + name + " is!";
+//     }
 
-    else {
-        return name + " is " + age + " years old!";
-    }
-};
+//     else {
+//         return name + " is " + age + " years old!";
+//     }
+// };
 
-console.log(applyIt(jasmine, ['Jasmine', 3]));
+// console.log(applyIt(jasmine, ['Jasmine', 3]));
 
 module.exports = applyIt;
