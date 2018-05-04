@@ -9,15 +9,15 @@
  * Do this in O(1) space
  *
  */
-
+//o(n) time o(1)space
 function repeatNumbers(array) {
-  let cache = [];
-  for (let i = 0; i < array.length; i += 1) {
-    if (cache.includes(array[i])) {
-      return array[i];
-    }
-    cache.push(array[i]);
-  }
+  let n = array.length - 1;
+  return (
+    array.reduce(function (acc, val) {
+      return acc + val;
+    }) -
+    0.5 * n * (n + 1)
+  );
 }
 
 module.exports = repeatNumbers;
