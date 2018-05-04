@@ -14,7 +14,7 @@ function repeatNumbers(array) {
   let sum = array.reduce((a, b) => {
     return a + b
   })
-  let aSum = ([array.length-1] * (array.length)) / 2
+  let aSum = ((array.length-1) * array.length) / 2
   return sum - aSum > 0 ? sum - aSum : undefined
 }
 
