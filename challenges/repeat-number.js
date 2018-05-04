@@ -11,10 +11,8 @@
  */
 
 function repeatNumbers(array) {
-    let nums = {};
-    for (let i = 0; i < array.length; i++) {
-        if (!nums[array[i]]) nums[array[i]] = 1;
-        else return array[i];
+    for (let i = 0; i < array.length - 1; i++) {
+        if (array[i] === array[i + 1]) return array[i];
     }
 }
 
