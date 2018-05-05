@@ -16,13 +16,24 @@ function BinaryTree(value) {
 function superbalanced(tree) {
   let root = tree;
   function _balanced(root) {
-    if (!root) return 0;
-    if (!root.left && !root.right) return 1;
-    const left_balance = _balanced(tree.left);
-    const right_balance = _balanced(tree.right); 
-    return right_balance - left_balance;
+    if (root.left) {
+      if (!root.left.left && !root.left.right) return 0;
+      if (!root.left.left && root.left.right) return 1;
+      if (root.left.left && !root.left.right) return -1;
+
+    }
+    if (root.right) {
+      if(!root.right.left && !root.right.right) return 0;
+      if(!root.right.left && root.right.right) return 1;
+      if(root.right.left && !root.right.right) return -1;
+    }
+
+    const right_balance = _balanced(root.right); 
+    const left_balance = -_balanced(root.left);
+    return right_balance + left_balance;
   }
   const balance = _balanced(root);
+  console.log(balance);
   return (-2 < balance) && (balance < 2);
 }
 

@@ -9,6 +9,12 @@
  * Do not assume the ranges are in order
  */
 
+function merge (range1, range2) {
+  // Assumes range1[0] < range2[0]
+  let output = [];
+  if (range1[1] < range2[0]) return [range1, range2];
+  return [range1[0], range2[1]];
+}
 
 function mergeRanges(array) {
 

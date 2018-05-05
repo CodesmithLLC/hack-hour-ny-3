@@ -8,13 +8,8 @@
  */
 
 function gcd(a, b) {
-  if (b > a) {
-    let temp = a;
-    b = a;
-    a = temp;
-  }
   if (b === 0) return a;
-  return gcd(b, a % b);
+  return a < b ? gcd(b, a % b) : gcd(a, b % a);
 }
 
 module.exports = gcd;
