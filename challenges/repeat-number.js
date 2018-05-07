@@ -11,7 +11,14 @@
  */
 
 function repeatNumbers(array) {
-
+    var sum = array.reduce((accumulator, currentValue) => accumulator + currentValue);
+    var min = Math.min(...array)
+    var max = Math.max(...array)       
+    var sumIndi = 0
+    for (var i = min; i <= max; i ++) {
+        sumIndi += i
+    }
+    return sum - sumIndi
 }
 
 module.exports = repeatNumbers;
