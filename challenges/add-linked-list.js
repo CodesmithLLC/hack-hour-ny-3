@@ -17,8 +17,8 @@ function Node(val) {
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
-
+function addLinkedList(l1, l2, l3, carry) {
+  
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

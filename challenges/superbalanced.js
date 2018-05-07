@@ -13,8 +13,25 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
-
+function superbalanced(tree, level = 0, levels = []) {
+  if (!tree) {
+    levels.push(level - 1)
+    console.log(levels)
+    return Math.max(...levels) - Math.min(...levels) <= 1
+  }
+  superbalanced(tree.left, level + 1)
+  superbalanced(tree.right, level + 1)
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+const tree = new BinaryTree(5)
+const left = tree.left = new BinaryTree(4)
+const right = tree.right = new BinaryTree(7)
+
+left.left = new BinaryTree(2)
+left.right = new BinaryTree(3)
+
+right.left = new BinaryTree(6)
+right.right = new BinaryTree(8)
+
+console.log(superbalanced(tree))
+module.exports = { BinaryTree: BinaryTree, superbalanced: superbalanced };

@@ -27,13 +27,16 @@
  *
  */
 
-var Node = function(value) {
+var Node = function (value) {
   this.value = value;
   this.next = null;
 }
 
-function hasCycle(head) {
-
+function hasCycle(head, values = []) {
+  if (!head.next) return false
+  if (values.includes(head.value)) return true
+  else values.push(head.value)
+  return hasCycle(head.next, values)
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = { Node: Node, hasCycle: hasCycle }
