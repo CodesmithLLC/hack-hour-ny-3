@@ -34,7 +34,7 @@ var Node = function (value) {
 
 function hasCycle(head, history = []) {
   if (history.includes(head)) return true
-  if (head.next) return hasCycle(head.next, [...history, head])
+  if (head && head.next) return hasCycle(head.next, [...history, head])
   return false
 }
 
