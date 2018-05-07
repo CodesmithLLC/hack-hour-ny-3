@@ -33,7 +33,19 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
-
+  let isCircular = false;
+  let cache = [];
+  function check(node) {
+    if (node === null) return false;
+    cache.push(node.value);
+    if (cache.includes(node.next.value)) {
+      return true;
+    }
+    
+    check(node.next)
+  }
+  
+   return check(head);
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
