@@ -32,11 +32,23 @@ var Node = function (value) {
   this.next = null;
 }
 
-function hasCycle(head, values = []) {
-  if (!head.next) return false
-  if (values.includes(head.value)) return true
-  else values.push(head.value)
-  return hasCycle(head.next, values)
+// function hasCycle(head, values = []) {
+//   if (!head) return false
+//   if (values.includes(head.value)) return true
+//   else values.push(head.value)
+//   return hasCycle(head.next, values)
+// }
+
+function hasCycle(head) {
+  let fast = slow = head,
+
+  while (slow && fast && fast.next) {
+    slow = slow.next
+    fast = fast.next.next
+
+    if (slow.value === fast.value) return true
+  }
+  return false
 }
 
 module.exports = { Node: Node, hasCycle: hasCycle }
