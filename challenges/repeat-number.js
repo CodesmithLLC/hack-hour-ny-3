@@ -10,8 +10,13 @@
  *
  */
 
-function repeatNumbers(array) {
-
+function repeatNumbers(array, i = 0, current = array[i], set = {}) {
+  if (i === 0 && current === undefined) return
+  else current = array[i++], set[current] = true
+  console.log(current)
+  return set[current] ? current : repeatNumbers(array, i, current, set)
 }
+
+console.log(repeatNumbers([1,2,3,3]))
 
 module.exports = repeatNumbers;

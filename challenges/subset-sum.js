@@ -9,7 +9,51 @@
  */
 
 function subsetSum(array, target) {
+  let l = array.length;
+  let start = 1;
+  let last = array.length;
+  let result;
 
+
+  while(start < last && !result) {
+    let arr = Array(l * start).fill(0);
+
+    arr = arr.map(function(v, i){
+      v = [];
+      v.push(array[i])
+      return v;
+    });
+
+    arr.forEach(function (curr) {
+      let check = curr.reduce((a, b) => a + b);
+      if (check === target) return result = true;
+    });
+
+    start += 1;
+  }
+
+  return result;
 }
+
+console.log(subsetSum([1,2,3], 3));
+
+(`[1,2,3]
+
+3 x 1
+
+[1]
+[2]
+[3]
+
+3 x 2
+
+1 2
+1 3
+2 1
+2 3
+3 1
+3 2
+
+`)
 
 module.exports = subsetSum;

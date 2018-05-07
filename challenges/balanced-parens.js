@@ -24,8 +24,22 @@
  *
  */
 
-function balancedParens(input){
+// const check = ['(', '{', '[', ']', '}', ')'];
 
-}
+// function balancedParens(input){
+//   if(!input) return true;
+
+//   let first = input.slice(0, 1);
+//   let last = input.slice(-1);
+//   let valid = check.includes(first) && check.includes(last);
+//   let current = check.indexOf(first);
+
+//   input = input.slice(1,-1);
+//   console.log(check[current], check[check.length-1-current]);
+//   return (check[current] === check[check.length-1-current]) ? balancedParens(input) : false;
+// }
+// function addAll (arr) {
+//   return arr.reduce((a, v) => a+v);
+// }
 
 module.exports = balancedParens;
