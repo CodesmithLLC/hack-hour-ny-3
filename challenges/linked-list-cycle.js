@@ -33,6 +33,7 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  if (!head) return false;
   let leader = head;
   let trailer = head;
   while (head !== null) {
