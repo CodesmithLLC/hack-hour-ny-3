@@ -7,7 +7,9 @@
 
 function sumMultiples3Or5Below1000() {
   let sum = 0;
-
+  let threes = 999/3;
+  let fives = 995/5;
+  sum = 3*(1+threes)*threes/2 + 5*(1+fives)*fives/2;
   return sum;
 }
 
@@ -16,7 +18,13 @@ function sumMultiples3Or5Below1000() {
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
-
+  for(let i=z; i>0; i--){
+    if(i%3 === 0) let threes = i;
+  }
+  for(let j=z; i>0; i--){
+    if(i%5 === 0) let fives = i;
+  }
+  sum = 3*(1+threes)*threes/2 + 5*(1+fives)*fives/2;
   return sum;
 }
 
