@@ -17,11 +17,10 @@ function sumMultiples3Or5Below1000() {
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
-  let sum = 0;
-  for (let i = 0; i < z; i++) {
-    if (!(i % x) || !(i % y)) sum += i
-  }
-  return sum;
+  let sumX = x * Math.floor((z-1) / x) * (Math.floor((z-1) / x) + 1) / 2
+  let sumY = y * Math.floor((z-1) / y) * (Math.floor((z-1) / y) + 1) / 2
+  let sumXY = (x*y) * Math.floor((z-1) / (x*y)) * (Math.floor((z-1) / (x*y)) + 1) / 2
+  return sumX + sumY - sumXY;
 }
 
 const objectToExport = {
