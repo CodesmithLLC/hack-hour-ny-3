@@ -18,13 +18,15 @@ function sumMultiples3Or5Below1000() {
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
-  for(let i=z; i>0; i--){
-    if(i%3 === 0) let threes = i;
+  let xs, ys;
+  for(let i=z-1; i>(z-x-1); i--){
+    if(i%x === 0) xs = i/x;
   }
-  for(let j=z; i>0; i--){
-    if(i%5 === 0) let fives = i;
-  }
-  sum = 3*(1+threes)*threes/2 + 5*(1+fives)*fives/2;
+  for(let j=z-1; j>(z-y-1); j--){
+    if(j%y === 0) ys = j/y;
+  }  
+  console.log(xs,ys)
+  sum = x*(1+xs)*xs/2 + y*(1+ys)*ys/2;
   return sum;
 }
 
