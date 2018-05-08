@@ -9,8 +9,12 @@
 // countTwos(11420);  -> 4483
 
 
-function countTwos(num) {
-
+function countTwos(num, count = 0) {
+    let lastDigit = num % 10
+    if (lastDigit === 2) count += 1
+    let withoutLastDigit = Math.floor(num / 10)
+    return withoutLastDigit === 0 ?
+        count : countTwos(withoutLastDigit, count)
 }
 
 module.exports = countTwos;

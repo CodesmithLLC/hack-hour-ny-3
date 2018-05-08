@@ -22,7 +22,18 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  return helper(k, head).result
 
+  function helper(k, node){
+    let result
+    if(node.next) {
+      result = helper(k, node.next)
+    } else {
+      result = k
+    }
+    if(typeof result === 'object') return result
+    return result > 1 ? result - 1 : {result: node.value}
+  }
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};

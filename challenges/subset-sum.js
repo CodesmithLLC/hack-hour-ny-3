@@ -8,8 +8,23 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function subsetSum(array, target) {
+function subsetSum(array, target, sum = undefined) {
+    if(sum === target) return true;
+    if(sum > target) return false;
+    return array.reduce(findSum, false)
 
+    function findSum(hasSum, number, index) {
+        if(hasSum) return hasSum
+        let newSum = sum === undefined ? number : sum + number
+        let remainingNumbers = sliceElementAtIndex(index, array)
+        return subsetSum(remainingNumbers, target, newSum)
+    }
 }
+
+
+function sliceElementAtIndex(i, array){
+    return array.slice(0, i).concat(array.slice(i + 1))
+}
+
 
 module.exports = subsetSum;

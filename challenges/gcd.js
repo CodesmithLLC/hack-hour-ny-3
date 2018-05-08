@@ -7,8 +7,12 @@
  *
  */
 
-function gcd(a, b) {
 
+function gcd(a, b, i = 1) {
+    const [smaller, larger] = a < b ? [a, b] : [b, a]
+    const complement = smaller % i === 0 ? (smaller / i) : false
+    if (complement) return larger % complement === 0 ? complement : gcd(a, b, i + 1)
+    else return gcd(a, b, i + 1)
 }
 
 module.exports = gcd;

@@ -17,8 +17,13 @@ function Node(val) {
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
-
+function addLinkedList(l1, l2, carry = 0) {
+  if (!l1 || !l2) return carry ? new Node(carry) : null
+  const sum = l1.value + l2.value
+  const digit = new Node(sum % 10)
+  carry = Math.floor(sum / 10)
+  digit.next = addLinkedList(l1.next, l2.next, carry)
+  return digit
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+module.exports = { Node: Node, addLinkedList: addLinkedList };

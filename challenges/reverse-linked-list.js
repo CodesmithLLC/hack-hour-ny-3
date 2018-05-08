@@ -13,8 +13,10 @@ function Node(value) {
     this.next = null;
 }
 
-function reverseLinkedList(head) {
-
+function reverseLinkedList(head, previous = null) {
+    if(head.next) reverseLinkedList(head.next, head)
+    head.next = previous
+    return head
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
