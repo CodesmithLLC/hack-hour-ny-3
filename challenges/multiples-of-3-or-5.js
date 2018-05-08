@@ -11,8 +11,9 @@ function sumOfXUnderY(x, y) {
 }
 
 function sumMultiples3Or5Below1000() {
-  const sumOfThree = sumOfXUnderY(3, 10);
-  const sumOfFive = sumOfXUnderY(5, 10);
+  const sumOfThree = sumOfXUnderY(3, 1000);
+  const sumOfFive = sumOfXUnderY(5, 1000);
+  const overlap = sumOfXUnderY(15, 1000);
   return sumOfThree + sumOfFive;
 }
 
@@ -21,7 +22,7 @@ function sumMultiples3Or5Below1000() {
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
-  return sumOfXUnderY(x, z) + sumOfXUnderY(y, z);
+  return sumOfXUnderY(x, z) + sumOfXUnderY(y, z) - sumOfXUnderY(x * y, z);
 }
 
 const objectToExport = {
