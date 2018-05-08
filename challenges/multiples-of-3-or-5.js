@@ -6,9 +6,7 @@
 // below 1000 and return that sum.
 
 function sumMultiples3Or5Below1000() {
-  let sum = 0;
-
-  return sum;
+  return sumMultiplesXOrYBelowZ(3, 5, 1000)
 }
 
 
@@ -16,7 +14,20 @@ function sumMultiples3Or5Below1000() {
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
-
+  let smallCount = 0
+  let bigCount = 0
+  let [bigInc, smallInc] = x > y ? [x, y] : [y, x]
+  while (smallCount < z || bigCount < z) {
+    if (smallCount <= bigCount) {
+      smallCount += smallInc
+      sum += smallCount < z ? smallCount : 0
+      if (smallCount % bigInc === 0) bigCount = smallCount
+    }
+    if (bigCount < smallCount) {
+      bigCount += bigInc
+      sum += bigCount < z ? bigCount : 0
+    }
+  }
   return sum;
 }
 
