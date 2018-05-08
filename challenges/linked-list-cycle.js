@@ -27,13 +27,41 @@
  *
  */
 
-var Node = function(value) {
+var Node = function (value) {
   this.value = value;
   this.next = null;
 }
 
-function hasCycle(head) {
+// function hasCycle(head, values = []) {
+//   if (!head) return false
+//   if (values.includes(head.value)) return true
+//   else values.push(head.value)
+//   return hasCycle(head.next, values)
+// }
 
+function hasCycle(head) {
+  let fast = slow = head
+
+  while (slow && fast && fast.next) {
+    console.log(slow.value, fast.value)
+
+    slow = slow.next
+    fast = fast.next.next
+
+    console.log('After the reassignments ', slow.value, fast.value)
+
+    if (slow.value === fast.value) return true
+  }
+  return false
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+var node1 = new Node('1');
+var node2 = node1.next = new Node('2');
+var node3 = node2.next = new Node('3');
+var node4 = node3.next = new Node('4');
+var node5 = node4.next = new Node('5');
+hasCycle(node1); // => false
+node5.next = node2;
+hasCycle(node1); // => true
+
+module.exports = { Node: Node, hasCycle: hasCycle }
