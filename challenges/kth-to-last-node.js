@@ -22,7 +22,20 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-
+  // Send to pointers down the list with one delayed by k positions
+  if (head === undefined) return undefined;
+  let leader = head;
+  let k_node = head;
+  for (let i = 0; i < k; i++) {
+    if (leader === null) return;
+    leader = leader.next;
+  }
+  while(leader) {
+    leader = leader.next;
+    k_node = k_node.next;
+  }
+  return k_node.value;
 }
+
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};

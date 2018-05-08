@@ -10,7 +10,18 @@
  */
 
 function permPalin(str) {
-	
+  let counter = {};
+  str.split('').forEach(elem => {
+    if (counter[elem]) {
+      counter[elem] += 1;
+    } else {
+      counter[elem] = 1;
+    }
+  })
+  const numOdds = Object.values(counter)
+    .filter(count => count % 2 !== 0)
+    .length;
+	return numOdds <= 1;
 }
 
 module.exports = permPalin;

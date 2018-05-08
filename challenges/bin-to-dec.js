@@ -14,7 +14,14 @@
  */
 
 function binToDec(binary) {
-
+  let sanitized = binary.trim();
+  let total = 0; // Accumulator for output
+  let power = 1; // Conversion factor for digit column
+  for (let i = binary.length - 1, j = 1; i >= 0; i -= 1) {
+    total += +binary[i] * power;
+    power *= 2;
+  }
+  return total;
 }
 
 module.exports = binToDec;

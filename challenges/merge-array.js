@@ -14,7 +14,29 @@
  */
 
 function mergeArrays(arr1, arr2) {
-
+  let firstIndex = 0;
+  let secondIndex = 0;
+  const newArr = [];
+  // Merge until we run out of an array.
+  while(firstIndex < arr1.length && secondIndex < arr2.length) {
+    if (arr1[firstIndex] < arr2[secondIndex]) {
+      newArr.push(arr1[firstIndex]);
+      firstIndex += 1;
+    } else {
+      newArr.push(arr2[secondIndex]);
+      secondIndex += 1;
+    }
+  }
+  // Push the rest of the remaining array.
+  while(firstIndex < arr1.length) {
+    newArr.push(arr1[firstIndex]);
+    firstIndex += 1;
+  };
+  while(secondIndex < arr2.length) {
+    newArr.push(arr2[secondIndex]);
+    secondIndex += 1;
+  };
+  return newArr;
 }
 
 module.exports = mergeArrays;

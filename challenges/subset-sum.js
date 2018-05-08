@@ -9,7 +9,15 @@
  */
 
 function subsetSum(array, target) {
-
+  if (target === 0) return true;
+  if (array.length === 0) return false;
+  if (array.length === 1) return target === array[0];
+  let summable = array.map((e, i) => {
+    const newArr = array.slice();
+    newArr.splice(i, 1);
+    return subsetSum(newArr, target - e);
+  });
+  return summable.some(e => e);
 }
 
 module.exports = subsetSum;
