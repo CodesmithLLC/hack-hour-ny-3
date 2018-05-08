@@ -4,13 +4,13 @@
 
 // write a function that will find the sum of all the multiples of 3 or 5
 // below 1000 and return that sum.
-function sumOfXUnderY(x, y) {
-  const count = Math.floor((y-1E-15)/x);
-  const sumOfConsecutive = count*(count + 1)/2;
-  return sumOfCounts = x * sumOfConsecutive;
-}
 
 function sumMultiples3Or5Below1000() {
+  function sumOfXUnderY(x, y) {
+    const count = Math.floor((y-1E-15)/x);
+    const sumOfConsecutive = count*(count + 1)/2;
+    return sumOfCounts = x * sumOfConsecutive;
+  }
   const sumOfThree = sumOfXUnderY(3, 1000);
   const sumOfFive = sumOfXUnderY(5, 1000);
   const overlap = sumOfXUnderY(15, 1000);
@@ -22,6 +22,11 @@ function sumMultiples3Or5Below1000() {
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
+  function sumOfXUnderY(x, y) {
+    const count = Math.floor((y-1E-15)/x);
+    const sumOfConsecutive = count*(count + 1)/2;
+    return sumOfCounts = x * sumOfConsecutive;
+  }
   return sumOfXUnderY(x, z) + sumOfXUnderY(y, z) - sumOfXUnderY(x * y, z);
 }
 
