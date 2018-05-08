@@ -10,7 +10,7 @@
 
 
 function countTwos(num) {
-    return Math.floor(num/2)
+    
 }
 
 module.exports = countTwos;
