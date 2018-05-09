@@ -8,7 +8,17 @@
  */
 
 function maxSubarray(arr) {
-
+  let STORE = [];
+  for (let i = 0; i < arr.length; i += 1) {
+    let SUM = arr[i];
+    let k = 0;
+    while (arr[i + 1 + k] > 0 || arr[i + 1 + k] + arr[i + 2 + k] > 0 && arr[i + 1 + k]) {
+      SUM += arr[i + 1 + k];
+      k += 1;
+    }
+    STORE.push(SUM);
+  }
+  return STORE;
 }
 
 module.exports = maxSubarray;
