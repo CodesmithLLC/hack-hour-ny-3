@@ -8,7 +8,21 @@
  */
 
 function maxSubarray(arr) {
-
+    let subSize = arr.length
+    let subArr = arr
+    let offset = 0
+    let maxSum = -Infinity
+    while (subSize > 0) {
+        let sum = subArr.reduce((a, b) => a + b, 0)
+        if (sum > maxSum) maxSum = sum
+        offset += 1
+        if (subSize + offset > arr.length) {
+            subSize -= 1
+            offset = 0
+        }
+        subArr = arr.slice(offset, subSize + offset)
+    }
+    return maxSum
 }
 
 module.exports = maxSubarray;
