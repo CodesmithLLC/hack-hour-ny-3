@@ -8,7 +8,15 @@
  */
 
 function maxSubarray(arr) {
-
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+        var innerSum = arr[i];
+        for (var j = i + 1; j < arr.length; j++) {
+            innerSum += arr[j];
+            if (innerSum > sum) sum = innerSum;
+        }
+    }
+    return sum;
 }
 
 module.exports = maxSubarray;
