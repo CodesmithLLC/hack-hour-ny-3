@@ -10,18 +10,18 @@
 function maxSubarray(arr) {
   let max = null;
   function maxArray(array) {
-    const currentMax = array.reduce((acc, curr) => {
+    const currentMax = array.slice(1).reduce((acc, curr) => {
       acc += curr
       return acc;
-    }, 0);
+    }, array[0]);
     if (max === null || max <= currentMax) max = currentMax;
     if (array.length !== 0) maxArray(array.slice(1));
   }
   function maxArray2(array) {
-    const currentMax = array.reduce((acc, curr) => {
+    const currentMax = array.slice(1).reduce((acc, curr) => {
       acc += curr
       return acc;
-    }, 0);
+    }, array[0]);
     if (max === null || max <= currentMax) max = currentMax;
     if (array.length !== 0) maxArray(array.slice(0, array.length - 1));
   }
