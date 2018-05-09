@@ -18,7 +18,7 @@ function maxSubarray(arr) {
     }
     STORE.push(SUM);
   }
-  return STORE;
+  return Math.max(...STORE);
 }
 
 module.exports = maxSubarray;
