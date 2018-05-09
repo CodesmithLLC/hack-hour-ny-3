@@ -8,7 +8,21 @@
  */
 
 function maxSubarray(arr) {
-
+  function add(array) { 
+    return array.reduce((a, b) => { return a + b })
+  } 
+  let newArr = {}
+  let subArr = arr
+  while(subArr.length) {
+    if (subArr[0] < subArr[subArr.length - 1]) {
+      subArr = subArr.slice(1, subArr.length)
+      if (subArr.length) newArr[add(subArr)] = subArr
+    } else {
+      subArr = subArr.slice(0, subArr.length - 1)
+      if (subArr.length) newArr[add(subArr)] = subArr
+    }
+  }
+  return newArr[Math.max(...Object.keys(newArr))]
 }
 
 module.exports = maxSubarray;
