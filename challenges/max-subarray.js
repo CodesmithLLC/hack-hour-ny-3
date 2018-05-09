@@ -12,7 +12,7 @@ function maxSubarray(arr) {
     return acc+cur;
   }
   let sum = arr.reduce(reducer, 0);
-  while(arr.length > 2){
+  while(arr.length > 1){
     arr[0] < arr[arr.length-1] ? arr.shift() : arr.pop()
     let newSum = arr.reduce(reducer,0);
     sum < newSum ? sum = newSum : sum = sum;
