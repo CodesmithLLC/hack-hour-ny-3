@@ -15,9 +15,16 @@
  *
  * BONUS: Do this in place
  */
-
-function rotateGrid(grid, n) {
-
-}
+function rotateGrid(arr, n) {
+    arr = arr.reverse();
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < i; j++) {
+            let store = arr[i][j];
+            arr[i][j] = arr[j][i];
+            arr[j][i] = store;
+        }
+    }
+    return arr
+};
 
 module.exports = rotateGrid;

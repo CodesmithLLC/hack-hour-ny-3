@@ -15,10 +15,22 @@
 function Node(val) {
   this.value = val;
   this.next = null;
+  this.previous = null;
 }
 
 function addLinkedList(l1, l2) {
-
+  let currentNode1 = l1;
+  let currentNode2 = l2;
+  while (currentNode1.next) {
+    currentNode1.value += currentNode2.value;
+    if (currentNode1.value >= 10) {
+      currentNode1.value -= 10;
+      currentNode1.previous += 1
+    }
+    currentNode1 = currentNode1.next;
+    currentNode2 = currentNode2.next;
+  }
 }
+
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
