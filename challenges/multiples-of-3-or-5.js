@@ -20,16 +20,21 @@ function sumMultiplesXOrYBelowZ(x, y, z) {
   while (smallCount < z || bigCount < z) {
     if (smallCount <= bigCount) {
       smallCount += smallInc
-      sum += smallCount < z ? smallCount : 0
-      if (smallCount % bigInc === 0) bigCount = smallCount
+      if (smallCount < z && smallCount !== bigCount) {
+        console.log(`${smallInc} multiple `, smallCount)
+        sum += smallCount
+      }
     }
     if (bigCount < smallCount) {
       bigCount += bigInc
+      if (bigCount < z) console.log(`${bigInc} multiple `, bigCount)
       sum += bigCount < z ? bigCount : 0
     }
   }
   return sum;
 }
+
+console.log(sumMultiplesXOrYBelowZ(3, 5, 10))
 
 const objectToExport = {
   sumMultiples3Or5Below1000,
