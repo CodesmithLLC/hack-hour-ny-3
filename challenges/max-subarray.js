@@ -8,7 +8,16 @@
  */
 
 function maxSubarray(arr) {
-
+  let maxSum = Number.NEGATIVE_INFINITY;
+  for (let i = 0; i < arr.length - 1; i ++){
+    console.log('i', i);
+    for (let j = i + 1; j < arr.length; j ++) {
+      console.log('j', j);
+      let currentSum = arr.slice(i, j + 1).reduce((a, b) => a + b);
+      if (currentSum > maxSum) maxSum = currentSum;
+    }
+  }
+  return maxSum;
 }
 
 module.exports = maxSubarray;
