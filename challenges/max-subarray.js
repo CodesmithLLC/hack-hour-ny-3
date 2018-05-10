@@ -8,16 +8,17 @@
  */
 
 function maxSubarray(arr) {
-    var max = 0;
-    var current = 0;
+    var max = -Infinity;
+    var subsetSum = 0;
     for (var i = 0; i < arr.length; i++) {
-        current += arr[i]
-        if (current < 0) {
-            current = 0
+        subsetSum += arr[i]
+
+        if (subsetSum > max) {
+            max = subsetSum
         }
-        console.log(current,"current", arr[i], 'arr[i')
-        if (current > max) {
-            max = current
+
+        if (subsetSum < 0) {
+            subsetSum = 0
         }
     }
     return max
@@ -25,6 +26,6 @@ function maxSubarray(arr) {
 
 // add the numbers together
 
-// console.log(maxSubarray([15,20,-5,10]))  //-> 40
-console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]))// -> 18
+console.log(maxSubarray([-2,-3,-5,-8]))  //-> -2
+// console.log(maxSubarray([20, 10, -1, 20, -1, 30]))// -> 18
 module.exports = maxSubarray;

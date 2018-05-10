@@ -10,7 +10,18 @@
 
 
 function countTwos(num) {
-    
-}
+    var n;
+    if (num % 2 === 1 ) {
+        n = Math.floor(num/2)
+    } else {
+        n = Math.floor((num / 2)) - 1
+    }
+    console.log(n)
 
+    return ((n*(n+1)) / 2)
+}
+//doesn't work for count two but use method for 3 or 5 3+ 5 -15
+
+console.log(countTwos(10))
+console.log(countTwos(3))
 module.exports = countTwos;
