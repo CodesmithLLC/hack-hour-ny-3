@@ -13,7 +13,15 @@
   */
 
 function anagrams(string) {
-
+  if (string.length === 1) return [string];
+  let grams = [];
+  for (let i = 0; i < string.length; i += 1) {
+    const otherChars = string.slice(0, i) + string.slice(i + 1)
+    grams = grams.concat(anagrams(otherChars).map((el) => {
+      return string[i] + el;
+    }));
+  }
+  return grams;
 }
 
 module.exports = anagrams;
