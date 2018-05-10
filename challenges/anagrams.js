@@ -13,13 +13,19 @@
   */
 
 function anagrams(string) {
+  if (string === '') return [string];
   if (string.length === 1) return [string];
+  const charSeen = {};
   let grams = [];
   for (let i = 0; i < string.length; i += 1) {
-    const otherChars = string.slice(0, i) + string.slice(i + 1)
-    grams = grams.concat(anagrams(otherChars).map((el) => {
-      return string[i] + el;
-    }));
+    let char = string[i];
+    if (charSeen[char]) continue;
+    
+    charSeen[char] = true;
+    const otherChars = string.slice(0, i) + string.slice(i + 1);
+    grams = grams.concat(
+      anagrams(otherChars).map((el) => char + el)
+    );
   }
   return grams;
 }
