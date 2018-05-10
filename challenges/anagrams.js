@@ -13,7 +13,26 @@
   */
 
 function anagrams(string) {
-
+  const pairs = elementsAndRemainder(string.split(''))
+  const nested = pairs.map(({ element, remainder }) => {
+    if (remainder.length) {
+      const subAnagrams = anagrams(remainder.join(''))
+      return subAnagrams.map(e => element + e)
+    } else {
+      return [element]
+    }
+  })
+  return nested.reduce((a, b) => a.concat(b))
 }
+
+function elementsAndRemainder(arr) {
+  return arr.map((element, index, arr) =>
+    ({
+      element,
+      remainder: arr.slice(0, index).concat(arr.slice(index + 1))
+    })
+  )
+}
+
 
 module.exports = anagrams;
