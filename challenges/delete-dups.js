@@ -23,8 +23,12 @@ function deleteDups(head) {
   current = head;
   while(current && current.next) {
     seen[current.value] = true;
-    if (current.next.value in seen) deleteNode(current, current.next);
-    current = current.next;
+    // Delete until we no longer see duplicates
+    if (current.next.value in seen) {
+      deleteNode(current, current.next)
+    } else {
+      current = current.next;
+    };
   }
   return head;
 }
