@@ -13,7 +13,15 @@
 
 
 function deleteDups(head) {
-
+  let buffer = []
+  let current = head
+  while (current.next) {
+    if (buffer.includes(current.next)) {
+      current.next = current.next.next
+    }
+    current = current.next
+  }
+  return head
 }
 
 module.exports = deleteDups;
