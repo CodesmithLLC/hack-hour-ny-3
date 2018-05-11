@@ -11,9 +11,22 @@
  */
 
 
-
 function deleteDups(head) {
-
+  const storage = {};
+  let prev = null;
+  let current = head;
+  while (current) {
+    const { value } = current;
+    if (storage[value] === undefined) {
+      storage[value] = true;
+      prev = current;
+      current = current.next;
+    } else {
+      prev.next = current.next;
+      current = current.next;
+    }
+  }
+  return head;
 }
 
 module.exports = deleteDups;
