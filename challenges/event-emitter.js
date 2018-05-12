@@ -22,15 +22,24 @@
  */
 
 function EventEmitter() {
-
+    this.listeners = {};
 }
 
-EventEmitter.prototype.on = function(funcName, func) {
-
+EventEmitter.prototype.on = function (funcName, func) {
+    if (this.listeners[funcName] !== undefined) {
+        this.listeners[funcName].push(func);
+      } else { 
+        this.listeners[funcName] = [func];
+      }
 };
 
-EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+EventEmitter.prototype.trigger = function (funcName, ...args) {
+    if (this.listeners[funcName]) {
+        for (let i = 0; i < funcName.length; i++) {
+            let callback = funcName[i];
+            callback(...args);
+        }
+    }
 };
 
 module.exports = EventEmitter;
