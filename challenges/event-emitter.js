@@ -35,8 +35,8 @@ EventEmitter.prototype.on = function (funcName, func) {
 
 EventEmitter.prototype.trigger = function (funcName, ...args) {
     if (this.listeners[funcName]) {
-        for (let i = 0; i < funcName.length; i++) {
-            let callback = funcName[i];
+        for (let i = 0; i < this.listeners[funcName].length; i++) {
+            let callback = this.listeners[funcName][i];
             callback(...args);
         }
     }
