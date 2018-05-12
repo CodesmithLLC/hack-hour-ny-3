@@ -22,15 +22,18 @@
  */
 
 function EventEmitter() {
-
+    this.listeners = {}
 }
 
-EventEmitter.prototype.on = function(funcName, func) {
-
+EventEmitter.prototype.on = function (funcName, func) {
+    const callbackArray = this.listeners[funcName]
+    if (callbackArray) callbackArray.push(func)
+    else this.listeners[funcName] = [func]
 };
 
-EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+EventEmitter.prototype.trigger = function (funcName, ...args) {
+    const callbackArray = this.listeners[funcName]
+    callbackArray && callbackArray.forEach(func => func(...args))
 };
 
 module.exports = EventEmitter;
