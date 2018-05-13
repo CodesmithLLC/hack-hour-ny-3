@@ -11,23 +11,19 @@
  *
  *  Return 0 if no profit is possible OR if input is invalid.
  */
-// const stocks = [30, 5,10,15,20, 4, 30];
-function bestProfit(stock_prices_yesterday) {
-  if (!Array.isArray(stock_prices_yesterday) || stock_prices_yesterday.length < 2) return 0;
-  if (stock_prices_yesterday.length === 2 && [1] <= stock_prices_yesterday[0]) return 0;
 
-  let max = null;
-
-  for (let i = 0; i < stock_prices_yesterday.length - 1; i++) {
-    let curr = stock_prices_yesterday[i];
-    for (let j = i + 1; j < stock_prices_yesterday.length; j++) {
-      let next = stock_prices_yesterday[j];
-      let difference = next - curr;
-      if (max === null || next - curr >= max) max = difference;
-    }
+function bestProfit(stockPricesYesterday) {
+  let maxProfit = 0;
+  let possibleProfit = 0;
+  let minI = 0;
+  if (stockPricesYesterday) {
+    stockPricesYesterday.forEach((price, i) => {
+      if (price < stockPricesYesterday[minI]) minI = i;
+      possibleProfit = price - stockPricesYesterday[minI];
+      if (possibleProfit > maxProfit) maxProfit = possibleProfit;
+    });
   }
-
-  return max > 0 ? max : 0;
+  return maxProfit;
 }
-// console.log(bestProfit(stocks));
+
 module.exports = bestProfit;
