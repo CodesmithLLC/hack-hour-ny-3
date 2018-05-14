@@ -11,7 +11,7 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
-
+    return arr.includes(target);
 }
 
 
