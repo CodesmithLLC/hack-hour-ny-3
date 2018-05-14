@@ -11,15 +11,18 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
-  let index = Math.floor(arr.length/2)
-  if (arr[index] === target) {
-    return true
-  } else if (arr[index] < target && index) {
-    return findInOrderedSet(arr.slice(index, arr.length), target)
-  } else if (arr[index] > target && index) {
-    return findInOrderedSet(arr.slice(0, index), target)
+  function binSearch(start, end) {
+    let middle = Math.floor((start + end)/2)
+    if (arr[middle] === target) return true
+    if (start === end) return false
+    if (arr[middle] < target) {
+      return binSearch(middle + 1, end)
+    } else {
+      return binSearch(start, middle - 1)
+    } 
+    return false
   }
-  return false
+  return binSearch(0, arr.length)
 }
 
 
