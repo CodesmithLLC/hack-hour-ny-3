@@ -11,8 +11,8 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
-
+  const set = new Set(arr);
+  return set.has(target);
 }
-
 
 module.exports = findInOrderedSet;
