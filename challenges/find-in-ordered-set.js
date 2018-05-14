@@ -11,7 +11,21 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
-
+  let left = 0;
+  let right = arr.length - 1;
+  let midPoint = Math.floor(arr.length / 2);
+  counter = 0;
+  while(left !== right) {
+    if (arr[midPoint] === target) return true;
+    if (arr[midPoint] < target) {
+      left = midPoint + 1;
+      midPoint = left + Math.floor((right - left)/2);
+    } else {
+      right = midPoint;
+      midPoint = left + Math.floor((right - left)/2);
+    }
+  }
+  return false;
 }
 
 
