@@ -9,17 +9,17 @@ function insertionSort(array) {
     let eleToSort;
 
     while (i < array.length) {
-      if (eleToSort) {
-        if (i === 0 || eleToSort > array[i - 1]) {
-          array.splice(i, 0, eleToSort);
-          eleToSort = undefined;
-        } else { i -= 1 }
-      } else {
-        if (array[i] < array[i - 1]) {
-          eleToSort = array[i];
-          array.splice(i, 1);
-        } else { i += 1 }
-      }
+        if (eleToSort) {
+            if (i === 0 || eleToSort > array[i - 1]) {
+                array.splice(i, 0, eleToSort);
+                eleToSort = undefined;
+            } else { i -= 1 }
+        } else {
+            if (array[i] < array[i - 1]) {
+                eleToSort = array[i];
+                array.splice(i, 1);
+            } else { i += 1 }
+        }
     }
 
     return array;
