@@ -25,12 +25,27 @@ function EventEmitter() {
 
 }
 
-EventEmitter.prototype.on = function(funcName, func) {
-
+EventEmitter.prototype.on = function (funcName, func) {
+  if (!this.hasOwnProperty(funcName)) this[funcName] = []
+  this[funcName].push(func)
 };
 
-EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+EventEmitter.prototype.trigger = function (funcName, ...args) {
+  if (!this.hasOwnProperty(funcName)) return
+  else {
+    console.log('here')
+    this[funcName].reduce((acc, func) => console.log(func))
+  }
 };
+
+var instance = new EventEmitter();
+var counter = 0;
+instance.on('increment', function () {
+  counter++
+}); // counter should be 0
+instance.trigger('increment'); // counter should be 1
+instance.trigger('increment'); // counter should be 2
+
+console.log(counter)
 
 module.exports = EventEmitter;

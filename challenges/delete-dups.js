@@ -12,7 +12,14 @@
 
 
 
-function deleteDups(head) {
+function deleteDups(head, hash = {}) {
+  
+  while (head) {
+    if (hash[head.value]) {
+      
+    }
+    head = head.next
+  }
 
 }
 
