@@ -8,7 +8,7 @@ function insertionSort(array) {
     let i = 1;
     let eleToSort;
 
-    while (i < array.length) {
+    while (i <= array.length) {
         if (eleToSort) {
             if (i === 0 || eleToSort > array[i - 1]) {
                 array.splice(i, 0, eleToSort);
