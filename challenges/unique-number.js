@@ -10,7 +10,14 @@
  *
  */
 function uniqueNumber(array) {
+    if (array.length < 1) return [];
+    if (array.length < 2) return array[0];
 
+    for(var i = 0; i < array.length; i++) {
+        if(array.lastIndexOf(array[i]) === i && array.indexOf(array[i]) === i) {
+            return array[i];
+        }
+    }
 }
 
 module.exports = uniqueNumber;
