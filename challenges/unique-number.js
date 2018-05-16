@@ -10,7 +10,12 @@
  *
  */
 function uniqueNumber(array) {
-
+  const s = array.reduce((acc, num) => {
+    if (acc[num] === undefined) acc[num] = true;
+    else delete acc[num];
+    return acc;
+  }, {});
+  return Object.keys(s)[0];
 }
 
 module.exports = uniqueNumber;
