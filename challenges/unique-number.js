@@ -9,8 +9,17 @@
  * Complete the challenge in O(1) space
  *
  */
-function uniqueNumber(array) {
 
+// O(n) time
+function uniqueNumber(array) {
+    const cache = {}
+    for (let num of array) {
+        if (cache[num]) delete cache[num]
+        else cache[num] = true
+    }
+    const num = Object.keys(cache)[0]
+    return parseInt(num, 10)
 }
+
 
 module.exports = uniqueNumber;
