@@ -10,7 +10,17 @@
  *
  */
 function uniqueNumber(array) {
-
+  const counts = {};
+  // Collect counts
+  array.forEach((elem) => {
+    if (counts[elem]) counts[elem] += 1;
+    else counts[elem] = 1;
+  });
+  // Find element that only appears once
+  const singular = Object
+    .entries(counts)
+    .filter( ([key, count]) => count === 1);
+  return +singular[0][0]
 }
 
 module.exports = uniqueNumber;
