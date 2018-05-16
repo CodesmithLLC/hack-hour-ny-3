@@ -10,7 +10,15 @@
  *
  */
 function uniqueNumber(array) {
+    let tracker = {};
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] in tracker) delete tracker[array[i]];
+        else tracker[array[i]] = true;
+    }
 
+    for (let int in tracker) {
+        return int;
+    }
 }
 
 module.exports = uniqueNumber;
