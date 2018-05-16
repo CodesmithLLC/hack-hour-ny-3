@@ -10,13 +10,11 @@
  *
  */
 function uniqueNumber(array) {
-  let sum = array.reduce((a, b) => {
-    return a + b
-  }, 0)
-  let sum2 = array.filter((v, i, self) => { return self.indexOf(v) === i }).reduce((a, b) => {
-    return a + b
-  }, 0)
-  return (sum2 * 2) - sum
+  for(let i = 0; i < array.length; i++) {
+    if(array.lastIndexOf(array[i]) === array.indexOf(array[i])) {
+      return array[i];
+    }
+  }
 }
 
 module.exports = uniqueNumber;
