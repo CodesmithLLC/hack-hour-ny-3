@@ -10,6 +10,7 @@
  */
 
 function getAllProducts(array) {
+  if (array.length === 0) return [0];
   // Naive solution by casting out elements
   const products = [];
   for (let i = 0; i < array.length; i += 1) {
@@ -18,7 +19,7 @@ function getAllProducts(array) {
           ...array.slice(0, i), 
           ...array.slice(i + 1)
         ].reduce((curr, acc) => curr * acc)
-      )
+      );
   }
   return products;
 }
