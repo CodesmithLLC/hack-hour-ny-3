@@ -10,7 +10,13 @@
  */
 
 function getAllProducts(array) {
-
+  return array.map((num, i) => {
+    const toMulti = array.slice(0, i).concat(array.slice(i + 1));
+    return toMulti.reduce((acc, curr) => {
+      acc *= curr;
+      return acc;
+    }, 1);
+  });
 }
 
 module.exports = getAllProducts;
