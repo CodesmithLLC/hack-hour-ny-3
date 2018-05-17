@@ -10,7 +10,17 @@
  */
 
 function getAllProducts(array) {
-
+  // Naive solution by casting out elements
+  const products = [];
+  for (let i = 0; i < array.length; i += 1) {
+    products.push(
+        [
+          ...array.slice(0, i), 
+          ...array.slice(i + 1)
+        ].reduce((curr, acc) => curr * acc)
+      )
+  }
+  return products;
 }
 
 module.exports = getAllProducts;
