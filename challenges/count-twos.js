@@ -10,7 +10,17 @@
 
 
 function countTwos(num) {
+    var count = 0;
+    for (var i = 0; i <= num; i++) {
+        count += twos(i.toString());
+    }
+    return count;
+}
 
+function twos(numStr) {
+    var count = 0;
+    numStr.replace(/[2]/g,(x) => count += 1);
+    return count;
 }
 
 module.exports = countTwos;

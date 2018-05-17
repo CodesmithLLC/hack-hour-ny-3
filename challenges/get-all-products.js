@@ -10,7 +10,9 @@
  */
 
 function getAllProducts(array) {
-
+    return array.map((x, idx) => {
+        return array.slice(0,idx).concat(array.slice(idx + 1)).reduce((ele1, ele2) => {return ele1 * ele2});
+    });
 }
 
 module.exports = getAllProducts;

@@ -14,7 +14,47 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  var count1 = 0;
+  var count2 = 0;
 
+  function checkLeft(tree) {
+    var innerCount = 0
+
+    if (tree.left) {
+      count1 += 1;
+      innerCount += 1;
+      return checkLeft(tree.left);
+    }
+
+    if (tree.right) {
+      return checkLeft(tree.right);
+    }
+
+    innerCount === 0 ? count1 += 1 : count1;
+    return;
+  }
+
+
+  function checkRight(tree) {
+    var innerCount1 = 0
+
+    if (tree.left) {
+      count2 += 1;
+      innerCount1 += 1;
+      return checkRight(tree.left);
+    }
+
+    if (tree.right) {
+      return checkRight(tree.right);
+    }
+
+    return innerCount1 === 0 ? count2 += 1 : count2;
+  }
+
+  checkLeft(tree.left);
+  checkRight(tree.right);
+
+  return [count1, count2];
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+module.exports = { BinaryTree: BinaryTree, superbalanced: superbalanced };
