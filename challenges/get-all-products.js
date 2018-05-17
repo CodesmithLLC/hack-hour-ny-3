@@ -10,7 +10,13 @@
  */
 
 function getAllProducts(array) {
-
+  let product = array.reduce((a, b) => {
+    return a * b;
+  }, 1);
+  for (let i = 0; i < array.length; i += 1) {
+    array[i] = product / array[i];
+  }
+  return array;
 }
 
 module.exports = getAllProducts;

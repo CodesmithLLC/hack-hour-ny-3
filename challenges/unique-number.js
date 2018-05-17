@@ -9,8 +9,23 @@
  * Complete the challenge in O(1) space
  *
  */
+// O(n) time & O(n) space
 function uniqueNumber(array) {
-
+  let store = [];
+  for (let i = 0; i < array.length; i += 1) {
+    if (store.includes(array[i])) {
+      store.splice(store.indexOf(array[i]), 1)
+    }
+    else {
+      store.push(array[i])
+    }
+  }
+  return store.reduce((a, b) => { return a + b })
 }
+
+
+
+
+
 
 module.exports = uniqueNumber;
