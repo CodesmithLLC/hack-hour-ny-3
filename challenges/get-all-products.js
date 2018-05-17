@@ -10,7 +10,7 @@
  */
 
 function getAllProducts(array) {
-  if (!array) return [0]
+  if (!array.length) return [0]
   let outputArr = []
   for (let i = 0; i < array.length; i++) {
     let product = 1
