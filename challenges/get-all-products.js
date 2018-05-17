@@ -10,6 +10,7 @@
  */
 
 function getAllProducts(array) {
+  if (array.length === 0) return [0];
   return array.map((num, i) => {
     const toMulti = array.slice(0, i).concat(array.slice(i + 1));
     return toMulti.reduce((acc, curr) => {
