@@ -10,7 +10,16 @@
  */
 
 function getAllProducts(array) {
+    const productList = []
+    for (let i = 0; i < array.length; i++) {
+        let product = remove(i, array).reduce((a, b) => a * b)
+        productList.push(product)
+    }
+    return productList
+}
 
+function remove(index, array) {
+    return array.slice(0, index).concat(array.slice(index + 1))
 }
 
 module.exports = getAllProducts;
