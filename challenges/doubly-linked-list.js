@@ -8,7 +8,7 @@ function LinkedList() {
 }
 
 function Node(val) {
-  this.value = val;
+  this.val = val;
   this.next = null;
   this.prev = null;
 }
@@ -16,7 +16,7 @@ function Node(val) {
 /*
 Adds a node to the end of the list
  */
-LinkedList.prototype.add = function (val) {
+LinkedList.prototype.add = function(val) {
   if (!this.head) this.head = new Node(val);
   else {
     let curr = this.head;
@@ -32,19 +32,19 @@ LinkedList.prototype.add = function (val) {
 /*
 Removes the first node with the inputted value
  */
-LinkedList.prototype.remove = function (val) {
-  if (this.head.value === val) {
+LinkedList.prototype.remove = function(val) {
+  if (this.head.val === val) {
     this.head = this.head.next;
     this.head.prev = null;
   } else {
     let curr = this.head;
-    while (curr.next && curr.value !== val) {
+    while (curr.next && curr.val !== val) {
       curr = curr.next;
     }
-    if (!curr.next && curr.value === val) {
+    if (!curr.next && curr.val === val) {
       this.tail = curr.prev;
       curr.prev.next = null;
-    } else if (!curr.next && curr.value !== val) {
+    } else if (!curr.next && curr.val !== val) {
       return undefined;
     } else {
       curr.next.prev = curr.prev;
