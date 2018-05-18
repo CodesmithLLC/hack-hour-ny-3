@@ -10,10 +10,16 @@
  */
 
 function getAllProducts(array) {
+  if (array === null) {
+    return [0]
+  }
   let product = array.reduce((a, b) => {
     return a * b;
   }, 1);
   for (let i = 0; i < array.length; i += 1) {
+    if (array[i] === 0) {
+      array[i] = 1
+    }
     array[i] = product / array[i];
   }
   return array;
