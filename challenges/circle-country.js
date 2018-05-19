@@ -23,7 +23,17 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-
+  function isInside(startX, startY, x, y, r) {
+    let distance = (startX - x)*(startX - x) + (startY - y)*(startY - y)
+    if (distance < (r * r)) return true
+    return false
+  }
+  return x.reduce((a, b, i) => {
+    let inside1 = isInside(x[i], y[i], r[i], start_x, start_y)
+    let inside2 = isInside(x[i], y[i], r[i], end_x, end_y)
+    if (inside1 || inside2) a++
+    return a
+  }, 0)
 }
 
 module.exports = circleCountry;
