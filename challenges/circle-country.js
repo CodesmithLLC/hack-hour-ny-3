@@ -28,12 +28,22 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
     if (distance < (r * r)) return true
     return false
   }
-  return x.reduce((a, b, i) => {
-    let inside1 = isInside(x[i], y[i], r[i], start_x, start_y)
-    let inside2 = isInside(x[i], y[i], r[i], end_x, end_y)
-    if (inside1 || inside2) a++
-    return a
-  }, 0)
+  let districts = 0
+  let startCircle = []
+  let endCircle = []
+  for (let i = 0; i < x.length; i++) {
+    let insideS = isInside(x[i], y[i], r[i], start_x, start_y)
+    let insideE = isInside(x[i], y[i], r[i], end_x, end_y)
+    if (insideS && insideE) {
+      return 0
+    } else if (insideS) {
+      startCircle.push([x[i], y[i], r[i]])
+    } else if (insideE) {
+      endCircle.push([x[i], y[i], r[i]])
+    }
+  }
+  return startCircle.length + endCircle.length
 }
+
 
 module.exports = circleCountry;
