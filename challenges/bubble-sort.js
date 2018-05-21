@@ -15,7 +15,7 @@ function bubbleSort(array) {
     }
     i++;
   }
-  flag ? bubbleSort(array) : array;
+  return flag ? bubbleSort(array) : array;
 }
 
 module.exports = bubbleSort;
