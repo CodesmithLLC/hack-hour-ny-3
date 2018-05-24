@@ -39,23 +39,20 @@ function findName(jazbook, name) {
 
 // return an object literal representing the jazbook
 function makePhoneBookObject(jazbook) {
-  const phoneBook = {};
-
   jazbook.forEach((person) => {
     const [name, number] = person;
-    phoneBook[name] = number;
+    this[name] = number;
   });
 
-  const add = (name, number) => {
-    phoneBook[name] = number;
-  };
-
-  const remove = (name) => {
-    if (phoneBook[name] !== undefined) delete phoneBook[name];
-  };
-
-  return { phoneBook, add, remove };
+  return this;
 }
+makePhoneBookObject.prototype.add = function add(name, number) {
+  this[name] = number;
+};
+
+makePhoneBookObject.prototype.remove = function remove(name) {
+  if (this[name] !== undefined) delete this[name];
+};
 
 const objectToExport = {
   findName,
