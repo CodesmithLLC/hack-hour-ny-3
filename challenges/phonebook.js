@@ -18,20 +18,43 @@
 *
 * How efficient can you make this?
 
-* Part 2: 
+* Part 2:
 * Why are we storing names and phone numbers in an array?
-* develop a function that takes in the poorly constructed jazbook and returns a proper phonebook 
+* develop a function that takes in the poorly constructed jazbook and returns a proper phonebook
 * complete with methods to add new names and look up and remove existing entries
 */
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
-
+  let number = false;
+  jazbook.some((person) => {
+    if (person[0] === name) {
+      [, number] = person;
+      return true;
+    }
+    return false;
+  });
+  return number;
 }
 
 // return an object literal representing the jazbook
-function makePhoneBookObject(jazbook){
+function makePhoneBookObject(jazbook) {
+  const phoneBook = {};
 
+  jazbook.forEach((person) => {
+    const [name, number] = person;
+    phoneBook[name] = number;
+  });
+
+  const add = (name, number) => {
+    phoneBook[name] = number;
+  };
+
+  const remove = (name) => {
+    if (phoneBook[name] !== undefined) delete phoneBook[name];
+  };
+
+  return { phoneBook, add, remove };
 }
 
 const objectToExport = {
