@@ -24,19 +24,44 @@
 * complete with methods to add new names and look up and remove existing entries
 */
 
-//  return the number associated with the name in the jazbook
-function findName(jazbook, name) {
 
+function findName(jazbook, name) {
+  for (let i = 0; i < jazbook.length; i += 1) {
+    if (jazbook[i][0] === name) {
+      return jazbook[i][1];
+    }
+  }
+  return false;
 }
 
-// return an object literal representing the jazbook
-function makePhoneBookObject(jazbook){
+function makePhoneBookObject(jazbook) {
+  let obj = {};
+  for (let el in jazbook) {
+    obj[jazbook[el][0]] = jazbook[el][1];
+  }
+  return obj;
+  this.findName = findName;
+}
 
+function addName(jazbook, name, phoneNumber) {
+  jazbook[jazbook.length] = [name, phoneNumber];
+}
+
+function removeName(jazbook, name) {
+  for (let i = 0; i < jazbook.length; i += 1) {
+    if (jazbook[i][0] === name) {
+      let store = jazbook[i];
+      jazbook.splice(i, 1);
+      return store;
+    } else return undefined;
+  }
 }
 
 const objectToExport = {
   findName,
   makePhoneBookObject,
+  removeName,
+  addName
 };
 
 module.exports = objectToExport;
