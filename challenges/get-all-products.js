@@ -10,7 +10,26 @@
  */
 
 function getAllProducts(array) {
-
+    var result = []
+    for (var i = 0; i < array.length; i++) {
+        var product = array[i]
+        product *= array[]
+        for (var j = i + 1; j < array.length; j++) {
+            console.log(array.length % j)
+        }
+        result.push(product)
+    }
+    return result
 }
+
+1*2 0,1
+3%1
+2*3 1,2
+3%2
+3%3
+3*1 2, 0
+
+console.log(getAllProducts([1,2,3]))
+// all possible products * but one n
 
 module.exports = getAllProducts;
