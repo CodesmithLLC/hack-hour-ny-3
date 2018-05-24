@@ -15,7 +15,13 @@
  */
 
 function countStairs(n) {
+    let array = [1, 2]
+    if (n < 3) return array[n - 1];
+    for (let i = 2; i <= n; i++) {
+        arr.push(arr[i - 1] + arr[i - 2]);
+    }
 
+    return arr[n - 1];
 }
 
 module.exports = countStairs;
