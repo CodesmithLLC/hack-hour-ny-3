@@ -26,8 +26,9 @@
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
-  let result = jazbook.filter(contactInfo => contactInfo[0] === name)
-  return result[0][1]
+  let result = jazbook.filter(contactInfo => contactInfo[0] === name);
+  if (result[0][1]) return result[0][1];
+  else return false;
 }
 
 // return an object literal representing the jazbook
