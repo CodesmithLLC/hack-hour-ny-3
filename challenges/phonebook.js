@@ -26,12 +26,24 @@
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
-
+  let result = jazbook.filter(contactInfo => contactInfo[0] === name)
+  return result[0][1]
 }
 
 // return an object literal representing the jazbook
 function makePhoneBookObject(jazbook){
-
+  let phoneBook = {}
+  jazbook.forEach(person => phoneBook[person[0]] = person[1])
+  phoneBook.add = function (person, number) {
+    this[person] = number
+    }
+  phoneBook.find = function (person) {
+    return this[person]
+  }
+  phoneBook.remove = function (person) {
+    delete this[person]
+  }
+  return phoneBook
 }
 
 const objectToExport = {
