@@ -16,9 +16,26 @@
  *   - if a new point is bounded by old points and lands on an old point, then count it
  * 	 
  */
-
 function newIntersections(x, y){
-
+  let xStore = x.reduce((a, b) => {
+    if (a[b]) a[b] = true
+    else a[b] = 1
+    return a
+  }, {})
+  let yStore = y.reduce((a, b) => {
+    if (a[b]) a[b] = true
+    else a[b] = 1
+    return a
+  }, {})
+  let xCount = 0
+  let yCount = 0
+  for (key in xStore) {
+    if (xStore[key] === true) xCount++
+  }
+  for (key in yStore) {
+    if (yStore[key] === true) yCount++
+  }
+  return xCount * yCount
 }
 
 module.exports = newIntersections;
