@@ -17,8 +17,24 @@
  * 	 
  */
 
-function newIntersections(x, y){
-
+function newIntersections(x, y) {
+  if (x.length < 4) return 0;
+  let count = 0;
+  for (let i = 0; i < x.length - 3; i += 1) {
+    for (let j = 1; j < x.length - 2; j += 1) {
+      for (let k = 2; k < x.length - 1; k += 1) {
+        for (let l = 3; l < x.length; l += 1) {
+          if (x[i] === x[j] && y[k] === y[l]) count +=1;
+          if (x[i] === x[k] && y[j] === y[l]) count +=1;
+          if (x[i] === x[l] && y[j] === y[k]) count +=1;
+          if (x[j] === x[k] && y[i] === y[l]) count +=1;
+          if (x[j] === x[l] && y[i] === y[k]) count +=1;
+          if (x[k] === x[l] && y[i] === y[j]) count +=1;
+        }
+      }
+    }
+  }
+  return count;
 }
 
 module.exports = newIntersections;
