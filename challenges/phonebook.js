@@ -26,7 +26,11 @@
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
-
+  const newBook = {}
+  jazzbook.forEach(([key, value]) => {
+    newBook[key] = value;
+  });
+  return jazzbook[name] || false;
 }
 
 // return an object literal representing the jazbook
