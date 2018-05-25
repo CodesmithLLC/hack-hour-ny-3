@@ -19,23 +19,30 @@
 
 function newIntersections(x, y){
   let xStorage = {}, yStorage = {}, xVals=[], yVals=[], counter = 0;
-  x.forEach((el) => {x_storage[el] ? x_storage[el]++ : x_storage[el] = 1})
-  y.forEach((el) => {y_storage[el] ? y_storage[el]++ : y_storage[el] = 1})
+  x.forEach((el) => {xStorage[el] ? xStorage[el]++ : xStorage[el] = 1})
+  y.forEach((el) => {yStorage[el] ? yStorage[el]++ : yStorage[el] = 1})
   for(let xKey in xStorage) {
-    if(xStrorage[xKey] !== 1){
+    if(xStorage[xKey] !== 1){
+      console.log('xKey:',xKey)
       let xIndex = [], yValsAtX = [], yIndex = [], xValsAtY = []
       for(let i=0; i<x.length; i++){
-        if(x[i] === xKey) xIndex.push(i);
+        if(x[i] == xKey) xIndex.push(i);
       }
+      console.log('xIndex',xIndex)
       xIndex.forEach((el) => yValsAtX.push(y[el]))
-      let yMin = Math.min(yValsAtX), yMax = Math.max(yValsAtX)
+      console.log('yValsAtX',yValsAtX)
+      let yMin = Math.min(... yValsAtX), yMax = Math.max(... yValsAtX)
+      console.log('yMin',yMin,'yMax',yMax)
       for(let yKey in yStorage) {
-        if(yMin <= yKey && yMax >= yKey) {
-          for(let j=0; i<y.length; j++){
-            if(y[j] === yKey) yIndex.push(j);
+        if(yStorage[yKey] !== 1 && yMin <= yKey && yMax >= yKey) {
+          for(let j=0; j<y.length; j++){
+            if(y[j] == yKey) yIndex.push(j);
           }
+          console.log('yIndex',yIndex)
           yIndex.forEach((el) => xValsAtY.push(x[el]))
-          let xMin = Math.min(xValsAtY), xMax = Math.max(xValsAtY)
+          console.log('xValsAtY',xValsAtY)
+          let xMin = Math.min(... xValsAtY), xMax = Math.max(... xValsAtY)
+          console.log('xMin',xMin,'xMax',xMax)
           if(xMin <= xKey && xMax >= xKey) counter ++;
         }
       }
