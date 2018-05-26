@@ -31,16 +31,12 @@ function balancedParens(input) {
     '(': ')',
   };
   const stack = [];
-  const parens = input.split('');
-  parens.forEach((paren) => {
-    const lastEl = stack[stack.length - 1];
-    if (pairs[paren] !== undefined) {
-      stack.push(paren);
-    } else if (paren === '}' && lastEl === '{') stack.pop();
-    else if (paren === ']' && lastEl === '[') stack.pop();
-    else if (paren === ')' && lastEl === '(') stack.pop();
-  });
-  return stack.length === 0;
+  for (let i = 0; i < input.length; i += 1) {
+    const char = input[i];
+    if (char in pairs) stack.push(char);
+    else if (char === ']' || char === ')' || char === '}') if (pairs[stack.pop()] !== char) return false;
+  }
+  return !stack.length;
 }
 
 module.exports = balancedParens;
