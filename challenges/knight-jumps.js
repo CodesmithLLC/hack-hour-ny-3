@@ -11,7 +11,17 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+  let strs = str.split("").filter((a) => { return typeof(parseInt(a)) === 'number' && !isNaN(parseInt(a)) })
+  let x = parseInt(strs[0])
+  let y = parseInt(strs[1])
+  function isOnBoard(x, y) {
+    return x >= 1 && x <= 8 && y >= 1 && y <= 8 ? true : false
+  }
+  let possibleMoves = [[x + 2, y - 1], [x + 2, y + 1], [x - 2, y - 1], [x - 2, y + 1], [x + 1, y - 2], [x + 1, y + 2], [x - 1, y - 2], [x - 1, y + 2]]
+  return possibleMoves.reduce((a, b) => {
+    if (isOnBoard(b[0], b[1])) a++
+    return a
+  }, 0)
 }
 
 module.exports = knightjumps;
