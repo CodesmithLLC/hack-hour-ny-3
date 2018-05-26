@@ -5,9 +5,8 @@
 
 
 function bubbleSort(array) {
-  let l = array.length;
-  for (let i = 0; i < array.length; i += 1) {
-    for (let j = 0; j < l; j += 1) {
+  for (let i = array.length; i > 0; i -= 1) {
+    for (let j = 0; j < i; j += 1) {
       const num = array[j];
       const next = array[j + 1];
       if (num > next) {
@@ -15,7 +14,6 @@ function bubbleSort(array) {
         array[j] = next;
       }
     }
-    l -= 1;
   }
   return array;
 }
