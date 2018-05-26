@@ -7,7 +7,7 @@
  *   balancedParens('()'); // true
  *   balancedParens(')(');  // false
  *   balancedParens('(())');  // true
- *
+ *x
  * Step 2:
  *   make your solution work for all types of brackets
  *
@@ -24,29 +24,23 @@
  *
  */
 
-function balancedParens(input){
-  let lastOpening = '';
-  let openings = '{[(';
-  let closings = '}])';
-  let openIdx = null;
-  let openingsArr = [];
-  let sliced = input.split('').filter((char) =>'[{()}]'.includes(char) ? true : false).join('');
-
-  for (let i = 0; i < sliced.length; i++) {
-    let curr = sliced[i];
-    if (openings.includes(curr)) {
-      openingsArr.push(curr);
-      openIdx = openings.indexOf(openingsArr[openingsArr.length - 1]);
-    }
-    if (closings.includes(curr)) {
-      if (closings.indexOf(curr) !== openIdx) {
-        return false;
-      }
-      openingsArr.pop();
-      openIdx = openings.indexOf(openingsArr[openingsArr.length - 1]);
-    }
-  }
-  return !openingsArr.length;
+function balancedParens(input) {
+  const pairs = {
+    '{': '}',
+    '[': ']',
+    '(': ')',
+  };
+  const stack = [];
+  const parens = input.split('');
+  parens.forEach((paren) => {
+    const lastEl = stack[stack.length - 1];
+    if (pairs[paren] !== undefined) {
+      stack.push(paren);
+    } else if (paren === '}' && lastEl === '{') stack.pop();
+    else if (paren === ']' && lastEl === '[') stack.pop();
+    else if (paren === ')' && lastEl === '(') stack.pop();
+  });
+  return stack.length === 0;
 }
 
-module.exports = balancedParens
+module.exports = balancedParens;
