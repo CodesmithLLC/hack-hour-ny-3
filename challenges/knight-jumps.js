@@ -10,8 +10,29 @@
 //  example input:
 // var str = "(4 5)"
 
-function knightjumps(str) {
 
+
+function knightjumps(str) {
+  const xs = +str.substr(1, 1);
+  const ys = +str.substr(3, 1);
+  const moves = [
+    { x: 2, y: -1 },
+    { x: 2, y: 1 },
+    { x: -2, y: 1 },
+    { x: -2, y: -1 },
+    { x: -1, y: 2 },
+    { x: 1, y: 2 },
+    { x: 1, y: -2 },
+    { x: -1, y: -2 },
+  ];
+  let possibleMoves = moves
+    .map(({ x, y }) => { return { x: x + xs, y: y + ys } })
+    .filter(({ x, y }) => {
+      const xInBounds = 0 <= x && x <= 8;
+      const yInBounds = 0 <= y && y <= 8;
+      return xInBounds && yInBounds;
+    });
+  return possibleMoves.length;
 }
 
 module.exports = knightjumps;
