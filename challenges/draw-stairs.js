@@ -16,39 +16,13 @@
 function drawStairs(n) {
   let result = '';
 
-  for (let i = 1; i <= n; i++) {
+  for (let i = 1; i <= n; i += 1) {
     result += ' '.repeat(n - i);
     result += '*'.repeat(i);
-    console.log(result);
-    result = '';
+    if (i !== n) result += '\n';
   }
-  // let result = '';
-  // let spaces = '';
-  // for (let i = 0; i < n; i++) {
-  //   spaces += ' ';
-  // }
-  //
-  // for (let j = 0; j < n; j++) {
-  //   result += spaces;
-  //   spaces = spaces.slice(1);
-  //   let stars = '';
-  //   stars = addStars(j + 1);
-  //   result += stars;
-  //   if (j !== n - 1) {
-  //     result += '\n';
-  //   }
-  // }
-  //
-  // return result;
+
+  console.log(result);
 }
 
-// function addStars(n) {
-//   let result = '';
-//
-//   for (let i = 0; i < n; i++) {
-//     result += '*';
-//   }
-//
-//   return result;
-// }
 module.exports = drawStairs;
