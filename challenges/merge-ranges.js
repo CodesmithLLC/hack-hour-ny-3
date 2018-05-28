@@ -11,25 +11,13 @@
 
 
 function mergeRanges(array) {
-  const result = [];
-  array.forEach((pair) => {
-    const oldResult = result.slice();
-    let flag = true;
-    result.forEach((times, j) => {
-      if (pair[0] >= times[0] && pair[0] <= times[1]) {
-        const newTime = [times[0], pair[1]];
-        result.splice(j, 1, newTime);
-      } else if (pair[1] >= times[0] && pair[1] <= times[1]) {
-        const newTime = [pair[0], times[1]];
-        result.splice(j, 1, newTime);
-      }
-    });
-    oldResult.forEach((oldPair, i) => {
-      if (oldPair[0] !== result[i][0] || oldPair[1] !== result[i][1]) flag = false;
-    });
-    if (flag) result.push(pair);
-  });
-  return result;
+  const sortArr = array.sort((a, b) => a[0] - b[0]);
+  return sortArr.reduce((acc, curr) => {
+    let lastRange = acc[acc.length - 1];
+    if (lastRange[1] >= curr[0] && lastRange[1] <= curr[1]) lastRange = [lastRange[0], curr[1]];
+    else if (lastRange[1] < curr[0]) acc.push(curr);
+    return acc;
+  }, [sortArr[0]]);
 }
 
 module.exports = mergeRanges;

@@ -14,12 +14,23 @@
  */
 
 function mergeArrays(arr1, arr2) {
-  return arr1.concat(arr2).sort((a, b) => {
-    if (a - b < 0) return -1;
-    if (a -b > 0) return 1;
-    if (a - b === 0) return 0;
-  });
-}
+  const result = [];
+  let j = 0;
+  let k = 0;
 
+  while (result.length !== arr1.length + arr2.length) {
+    const el1 = arr1[j];
+    const el2 = arr2[k];
+    if (el1 > el2) {
+      result.push(el2);
+      k += 1;
+    } else if (el1 < el2) {
+      result.push(el1);
+      j += 1;
+    } else result.push(el1 || el2);
+  }
+
+  return result;
+}
 
 module.exports = mergeArrays;
