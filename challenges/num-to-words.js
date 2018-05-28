@@ -42,58 +42,123 @@ function numToWords(num) {
     70: 'Seventy',
     80: 'Eighty',
     90: 'Ninety',
-  }
-  if (dict[num] !== undefined) {
-    return dict[num];
-  }
+  };
   let result = '';
-  let stringed = String(num);
-  while (stringed.length > 0) {
-    if (dict[stringed] !== undefined && stringed[0] !== '0') {
-      result += dict[stringed];
-      return result;
-    }
-    if (stringed[0] === '0') {
-      stringed = stringed.slice(1);
-      numToWords(Number(stringed));
-    }
-    // if (stringed.length === 7) {
-    //   result += numToWords(Number(stringed[0])) + 'Million';
-    //   if (stringed[1] === '0') {
-    //     stringed = stringed.slice(2);
-    //   }
-    //
-    // }
-    if (stringed.length === 6) {
-      result += numToWords(stringed.slice(0, 3)) + 'Thousand';
-      stringed = stringed.slice(3);
-    }
-    if (stringed.length === 5) {
-      result += numToWords(stringed.slice(0, 2)) + 'Thousand';
-      stringed = stringed.slice(2);
-    }
-    if (stringed.length === 4) {
-      result += dict[stringed[0]] + 'Thousand';
-    }
-    if (stringed.length === 3) {
-      result += numToWords(stringed[0]) + 'Hundred' + numToWords(Number(stringed.slice(1)));
+  let str = String(num);
 
+  while (str.length !== 0) {
+    if (str.length === 18) {
+      result += numToWords(str.slice(0, 3));
+      result += 'Quadrillion';
+      if (str.slice(3) !== '000000000000000') result += numToWords(String(Number(str.slice(3))));
+      str = str.slice(18);
     }
-
-    if (stringed.length < 3) {
-      let first = Number(stringed.slice(-1));
-      let second = Number(stringed) - first;
-      if (first === 0) {
-        result += dict[second];
+    if (str.length === 17) {
+      result += numToWords(str.slice(0, 2));
+      result += 'Quadrillion';
+      if (str.slice(2) !== '000000000000000') result += numToWords(String(Number(str.slice(2))));
+      str = str.slice(17);
+    }
+    if (str.length === 16) {
+      result += dict[Number(str[0])];
+      result += 'Quadrillion';
+      if (str.slice(1) === '000000000000000') str = str.slice(16);
+      else str = String(Number(str.slice(1)));
+    }
+    if (str.length === 15) {
+      result += numToWords(str.slice(0, 3));
+      result += 'Trillion';
+      if (str.slice(3) !== '000000000000') result += numToWords(String(Number(str.slice(3))));
+      str = str.slice(15);
+    }
+    if (str.length === 14) {
+      result += numToWords(str.slice(0, 2));
+      result += 'Trillion';
+      if (str.slice(2) !== '000000000000') result += numToWords(String(Number(str.slice(2))));
+      str = str.slice(14);
+    }
+    if (str.length === 13) {
+      result += dict[Number(str[0])];
+      result += 'Trillion';
+      if (str.slice(1) === '000000000000') str = str.slice(13);
+      else str = String(Number(str.slice(1)));
+    }
+    if (str.length === 12) {
+      result += numToWords(str.slice(0, 3));
+      result += 'Billion';
+      if (str.slice(3) !== '000000000') result += numToWords(String(Number(str.slice(3))));
+      str = str.slice(12);
+    }
+    if (str.length === 11) {
+      result += numToWords(str.slice(0, 2));
+      result += 'Billion';
+      if (str.slice(2) !== '000000000') result += numToWords(String(Number(str.slice(2))));
+      str = str.slice(11);
+    }
+    if (str.length === 10) {
+      result += dict[Number(str[0])];
+      result += 'Billion';
+      if (str.slice(1) === '000000000') str = str.slice(10);
+      else str = String(Number(str.slice(1)));
+    }
+    if (str.length === 9) {
+      result += numToWords(str.slice(0, 3));
+      result += 'Million';
+      if (str.slice(3) !== '000000') result += numToWords(String(Number(str.slice(3))));
+      str = str.slice(9);
+    }
+    if (str.length === 8) {
+      result += numToWords(str.slice(0, 2));
+      result += 'Million';
+      if (str.slice(2) !== '000000') result += numToWords(String(Number(str.slice(2))));
+      str = str.slice(8);
+    }
+    if (str.length === 7) {
+      result += dict[Number(str[0])];
+      result += 'Million';
+      if (str.slice(1) === '000000') str = str.slice(7);
+      else str = String(Number(str.slice(1)));
+    }
+    if (str.length === 6) {
+      result += numToWords(str.slice(0, 3));
+      result += 'Thousand';
+      if (str.slice(3) !== '000') result += numToWords(String(Number(str.slice(3))));
+      str = str.slice(6);
+    }
+    if (str.length === 5) {
+      result += numToWords(str.slice(0, 2));
+      result += 'Thousand';
+      if (str.slice(2) !== '000') result += numToWords(String(Number(str.slice(2))));
+      str = str.slice(5);
+    }
+    if (str.length === 4) {
+      result += dict[Number(str[0])];
+      result += 'Thousand';
+      if (str.slice(1) === '000') str = str.slice(4);
+      else str = String(Number(str.slice(1)));
+    }
+    if (str.length === 3) {
+      result += dict[Number(str[0])];
+      result += 'Hundred';
+      if (str.slice(1) === '00') str = str.slice(3);
+      else str = String(Number(str.slice(1)));
+    }
+    if (str.length === 2) {
+      if (Number(str[0]) >= 2) {
+        result += dict[Number(str) - Number(str[1])];
+        if (str[1] === '0') str = str.slice(2);
+        else str = str.slice(1);
       } else {
-        result += dict[second] + dict[first];
+        result += dict[str];
+        str = str.slice(2);
       }
-      return result;
     }
-    stringed = stringed.slice(1);
+    if (str.length === 1) {
+      result += dict[str];
+      str = str.slice(1);
+    }
   }
   return result;
 }
 
-console.log(numToWords(901));
 module.exports = numToWords;
