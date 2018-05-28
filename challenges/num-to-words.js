@@ -36,12 +36,12 @@ function numToWords(num) {
     19: 'Nineteen',
     20: 'Twenty',
     30: 'Thirty',
-    40: 'Fourty',
+    40: 'Forty',
     50: 'Fifty',
     60: 'Sixty',
     70: 'Seventy',
     80: 'Eighty',
-    90: 'Ninety',
+    90: 'Ninty',
   };
   let result = '';
   let str = String(num);
