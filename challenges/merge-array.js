@@ -27,7 +27,11 @@ function mergeArrays(arr1, arr2) {
     } else if (el1 < el2) {
       result.push(el1);
       j += 1;
-    } else result.push(el1 || el2);
+    } else {
+      result.push(el1 || el2);
+      k += 1;
+      j += 1;
+    }
   }
 
   return result;
