@@ -10,16 +10,16 @@
  */
 
 function permPalin(inputArr) {
-  const stack = [];
   const arr = inputArr.split('');
+  const cache = arr.reduce((acc, char) => {
+    if (acc[char] === undefined) acc[char] = true;
+    else delete acc[char];
+    return acc;
+  }, {});
+  const cacheLength = Object.keys(cache).length;
 
-  arr.forEach((ch) => {
-    if (stack.indexOf(ch) >= 0) stack.splice(stack.indexOf(ch), 1);
-    else stack.push(ch);
-  });
-
-  if (inputArr.length % 2 === 0 && stack.length === 0) return true;
-  if (inputArr.length % 2 === 1 && stack.length === 1) return true;
+  if (inputArr.length % 2 === 0 && cacheLength === 0) return true;
+  if (inputArr.length % 2 === 1 && cacheLength === 1) return true;
   return false;
 }
 
