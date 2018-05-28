@@ -36,13 +36,11 @@ Queue.prototype.enqueue = function enqueue(value) {
 };
 
 Queue.prototype.dequeue = function dequeue() {
-  if (this.leave.length !== 0) this.leave.pop();
-  else {
-    while (this.enter.length !== 0) {
-      this.leave.push(this.enter.pop());
-    }
-    this.leave.pop();
+  if (this.leave.length !== 0) return this.leave.pop();
+  while (this.enter.length !== 0) {
+    this.leave.push(this.enter.pop());
   }
+  return this.leave.pop();
 };
 
 module.exports = { Stack, Queue };
