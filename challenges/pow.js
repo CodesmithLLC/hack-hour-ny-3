@@ -12,7 +12,7 @@ function pow(base, power) {
   }
   
   if (Math.floor(power) !== power) {
-    return "can't compute fractions yet"
+    return "dont' know what to do about nth root yet"
   }
   
   if (power < 0) {

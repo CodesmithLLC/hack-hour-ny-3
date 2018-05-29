@@ -32,10 +32,21 @@ var Node = function(value) {
   this.next = null;
 }
 
-
 function hasCycle(head) {
   try { console.log(JSON.stringify(head)) }
   catch(error) { if (error instanceof TypeError) return true }
+  return false
+}
+
+function hasCycle2(head) {
+  if (!head || !head.next) return false
+  let turtle = head
+  let rabbit = head.next
+  while (rabbit && rabbit.next) {
+    if (turtle === rabbit) return true
+    turtle = turtle.next
+    rabbit = rabbit.next.next
+  }
   return false
 }
 

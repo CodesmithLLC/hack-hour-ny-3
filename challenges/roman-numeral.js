@@ -38,8 +38,27 @@
 
 function romanNumeral(n) {
   let num = n
-  var numArr = []
+  let numArr = []
+  let mappings = {
+    1000: "M",
+    500: "D",
+    100: "C",
+    50: "L",
+    10: "X",
+    5: "V",
+    1: "I"
+  }
+
+  function loop(num, letter, lim) {
+    while (num >= lim) {
+      numArr.push(letter);
+      num = num - lim
+    }
+  }
   
+  for (var key in mappings) {
+    loop(num, mappings[key], key)
+  } 
   while (num >= 1000) {
     numArr.push("M");
     num = num - 1000

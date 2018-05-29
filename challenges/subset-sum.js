@@ -15,7 +15,7 @@ function subsetSum(array, target) {
         if (combo.length > 0) {
           all[all.length] = combo
         }
-        return;
+        return;subsetSum([8, -2, 1, -3], 6)
       }
       
       for (let j = 0; j < remaining.length; j++) {

@@ -22,4 +22,6 @@ function getAllProducts(array) {
   return outputArr
 }
 
+
+
 module.exports = getAllProducts;

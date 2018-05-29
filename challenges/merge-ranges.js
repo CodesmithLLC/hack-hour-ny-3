@@ -16,7 +16,7 @@ function mergeRanges(array) {
   })
   return sortArr.reduce((a, b) => {
     if (a[a.length-1][1] >= b[0] && a[a.length-1][1] <= b[1]) {
-      a[a.length-1] = ([a[a.length-1][0], b[1]])
+      a[a.length-1] = [a[a.length-1][0], b[1]]
     } else if (a[a.length-1][1] < b[0]) {
       a.push(b)
     }
