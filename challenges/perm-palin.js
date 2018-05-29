@@ -1,5 +1,6 @@
 /**
- * Given a string, determine if any of the permutations of that string is a palindrome
+ * Given a string, determine if any of the 
+ * permutations of that string is a palindrome
  *
  * Example:
  * 	- permPalin('abab') => true
@@ -10,7 +11,6 @@
  */
 
 function permPalin(str) {
-  if (str.length <= 1) return true 
   let count = str.split('').reduce((a, b) => {
     if (a[b]) delete a[b];
     else a[b] = true;

@@ -21,7 +21,6 @@ function drawStairs(n) {
     }
   s = s + '\n' + '*/'
   console.log(s)
-  return s;
 }
 
 

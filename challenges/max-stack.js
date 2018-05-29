@@ -7,9 +7,8 @@
  */
 
 function Stack() {
-  this.contents = []
+  this.contents = {}
   this.length = 0
-  this.min = 0
   this.max = 0
 }
 
@@ -21,7 +20,6 @@ Stack.prototype.push = (a) => {
   } else if (a < this.min) {
     this.min = a
   }
-
   return this.length
 }
 

@@ -38,6 +38,8 @@ function kthToLastNode(k, head) {
     if (v.next) {
       count--
       v = v.next
+    } else {
+      return undefined
     }
   }
   return v.value
