@@ -43,7 +43,7 @@ function newIntersections(x, y){
           console.log('xValsAtY',xValsAtY)
           let xMin = Math.min(... xValsAtY), xMax = Math.max(... xValsAtY)
           console.log('xMin',xMin,'xMax',xMax)
-          if(xMin <= xKey && xMax >= xKey) counter ++;
+          if(xMin < xKey && xMax > xKey) counter ++;
         }
       }
     }
