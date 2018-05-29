@@ -33,7 +33,7 @@
 */
 
 function pascalTriangle(numRows) {
-  let array = []
+  let array = [];
   if (numRows >= 1) {
     array.push([1])
   }
