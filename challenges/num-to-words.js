@@ -158,6 +158,7 @@ function numToWords(num) {
       str = str.slice(1);
     }
   }
+  // here we go
   return result;
 }
 
