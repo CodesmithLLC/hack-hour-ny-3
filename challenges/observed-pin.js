@@ -43,7 +43,35 @@ expectations = {
 
 
 function getPINs(observed) {
-
+  let lock = [[1,2,3],[4,5,6],[7,8,9],[null, 0, null]]
+  let result = []
+  let currentArray, currentIndex
+  for (var i = 0; i < lock.length; i++) {
+    if (lock[i].indexOf(observed) >= 0) {
+      currentArray = i
+      currentIndex = lock[i].indexOf(observed)
+      break
+      } 
+  }
+  result.push(observed)
+  if (currentArray - 1 > - 1) {
+    //up
+    result.push(lock[currentArray - 1][currentIndex])
+  } 
+  if (currentArray + 1 < lock.length && lock[currentArray + 1][currentIndex]) {
+    //below
+    console.log(currentArray + 1 )
+    result.push(lock[currentArray + 1][currentIndex])
+  }
+  if (currentIndex - 1 > -1 && lock[currentArray][currentIndex - 1]) {
+    //left
+    result.push(lock[currentArray][currentIndex - 1])
+  }
+   if (currentIndex + 1 < lock[currentArray].length && lock[currentArray][currentIndex + 1]) {
+    //right
+    result.push(lock[currentArray][currentIndex + 1])
+  }
+  return result
 }
 
 
