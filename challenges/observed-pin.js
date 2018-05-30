@@ -38,37 +38,30 @@ expectations = {
 }
 
 */
+const keys = { 
+  0: ['0', '8'], 
+  1: ['1', '2', '4'], 
+  2: ['1', '2', '3', '5'], 
+  3: ['2', '3', '6'],
+  4: ['1', '4', '5', '7'], 
+  5: ['2', '4', '5', '6', '8'], 
+  6: ['3', '5', '6', '9'], 
+  7: ['4', '7', '8'], 
+  8: ['5', '7', '8', '9', '0'], 
+  9: ['6', '8', '9'] }
 
 function getPINs(observed) {
-  let keys = { 
-    0: ['0', '8'], 
-    1: ['1', '2', '4'], 
-    2: ['1', '2', '3', '5'], 
-    3: ['2', '3', '6'],
-    4: ['1', '4', '5', '7'], 
-    5: ['2', '4', '5', '6', '8'], 
-    6: ['3', '5', '6', '9'], 
-    7: ['4', '7', '8'], 
-    8: ['5', '7', '8', '9', '0'], 
-    9: ['6', '8', '9'] }
   let possibleArr = []
-  let keyCombinations = []
-  
-  for (let i = 0; i < observed.length; i++) {
-    keyCombinations.push(keys[observed[i]])
-  }
-
-  for (let j = 0; j < keyCombinations.length; j++) {
+  for (let j = 0; j < observed.length; j++) {
     let newCombo = []
-    if (j === 0) newCombo = keyCombinations[0]
+    if (j === 0) newCombo = keys[observed[0]]
     for (let l = 0; l < possibleArr.length; l++) {
-      for (let k = 0; k < keyCombinations[j].length; k++) {
-        newCombo.push(possibleArr[l] + keyCombinations[j][k])
+      for (let k = 0; k < keys[observed[j]].length; k++) {
+        newCombo.push(possibleArr[l] + keys[observed[j]][k])
       }
     }
     possibleArr = newCombo
   }
-  
   return possibleArr
 }
 
