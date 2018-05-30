@@ -53,17 +53,9 @@ function getPINs(observed) {
     7: [7, 4, 8],
     8: [8, 5, 7, 9, 0],
     9: [9, 6, 8],
+    0: [0, 8],
   };
-  if (observed.length === 1) return numbers[observed];
-  let firstTwo = [];
-  const firstArr = numbers[observed[0]];
-  const secondArr = numbers[observed[1]];
-  firstArr.forEach((num) => {
-    secondArr.forEach((innerNum) => {
-      firstTwo.push(`${num}${innerNum}`);
-    });
-  });
-  const remaining = observed.slice(2);
+
   function getCombo(arr, str) {
     if (str.length === 0) return arr;
     const currentArr = numbers[str[0]];
@@ -75,8 +67,8 @@ function getPINs(observed) {
     });
     return getCombo(newArr, str.slice(1));
   }
-  firstTwo = getCombo(firstTwo, remaining);
-  return firstTwo;
+  const result = getCombo(numbers[observed[0]], observed.slice(1));
+  return result;
 }
 
 module.exports = getPINs
