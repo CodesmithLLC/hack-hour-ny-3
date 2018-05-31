@@ -68,8 +68,8 @@ function poker(hand1, hand2) {
   const result1 = findValue(countArr1, count1);
   const result2 = findValue(countArr2, count2);
 
-  if (result1 < result2) return 'Player1 wins';
-  else if (result1 > result2) return 'Player2 wins';
+  if (result1 < result2) return 'Player 1 wins';
+  else if (result1 > result2) return 'Player 2 wins';
   else if (result1 === result2) {
     let max1 = null;
     let max2 = null;
