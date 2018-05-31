@@ -15,12 +15,72 @@
  *
  * Clearly real-world poker has more complex rules for tied ranks, but we want you
  * to focus on overall architecture rather than edge cases. Have fun!
- * 
+ *
  * BONUS: Account for suits and add in Flush & Straight Flush/Royal Flush.
  * BONUS2: Create a deck of cards function that generates two random hands for you.
  */
 function poker(hand1, hand2) {
+  const handValue = {
+    four: 0,
+    full: 1,
+    straight: 2,
+    three: 3,
+    two: 4,
+    one: 5,
+    high: 6,
+  };
 
+  const count1 = hand1.reduce((acc, curr) => {
+    if (acc[curr] === undefined) acc[curr] = 1;
+    else acc[curr] += 1;
+    return acc;
+  }, {});
+  const count2 = hand2.reduce((acc, curr) => {
+    if (acc[curr] === undefined) acc[curr] = 1;
+    else acc[curr] += 1;
+    return acc;
+  }, {});
+
+  const countArr1 = Object.values(count1);
+  const countArr2 = Object.values(count2);
+
+  function findValue(arr, obj) {
+    let result = null;
+    if (arr.includes(4)) result = handValue.four;
+    else if (arr.includes(3) && arr.includes(2)) result = handValue.full;
+    else if (arr.length === 5) {
+      const sorted = Object.keys(obj).map(key => Number(key)).sort();
+      const first = sorted[0];
+      if (
+        sorted[1] === first + 1 &&
+        sorted[2] === first + 2 &&
+        sorted[3] === first + 3 &&
+        sorted[4] === first + 4
+      ) result = handValue.straight;
+      else result = handValue.high;
+    } else if (arr.includes(3)) result = handValue.three;
+    else if (arr.indexOf(2) !== arr.lastIndexOf(2)) result = handValue.two;
+    else if (arr.includes(2)) result = handValue.one;
+    else result = handValue.high;
+    return result;
+  }
+
+  const result1 = findValue(countArr1, count1);
+  const result2 = findValue(countArr2, count2);
+
+  if (result1 < result2) return 'Player1 wins';
+  else if (result1 > result2) return 'Player2 wins';
+  else if (result1 === result2) {
+    let max1 = null;
+    let max2 = null;
+    hand1.forEach((el, i) => {
+      if (max1 === null || max1 <= el) max1 = el;
+      if (max2 === null || max2 <= hand2[i]) max2 = hand2[i];
+    });
+    if (max1 > max2) return 'Player1 wins';
+    if (max1 < max2) return 'Player2 wins';
+    return 'Draw';
+  }
 }
 
 module.exports = poker;
