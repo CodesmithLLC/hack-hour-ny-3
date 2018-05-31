@@ -49,7 +49,7 @@ function poker(hand1, hand2) {
     if (arr.includes(4)) result = handValue.four;
     else if (arr.includes(3) && arr.includes(2)) result = handValue.full;
     else if (arr.length === 5) {
-      const sorted = Object.keys(obj).map(key => Number(key)).sort();
+      const sorted = Object.keys(obj).map(key => Number(key)).sort((a, b) => a - b);
       const first = sorted[0];
       if (
         sorted[1] === first + 1 &&
@@ -77,10 +77,21 @@ function poker(hand1, hand2) {
       if (max1 === null || max1 <= el) max1 = el;
       if (max2 === null || max2 <= hand2[i]) max2 = hand2[i];
     });
-    if (max1 > max2) return 'Player1 wins';
-    if (max1 < max2) return 'Player2 wins';
+    if (max1 > max2) return 'Player 1 wins';
+    if (max1 < max2) return 'Player 2 wins';
     return 'Draw';
   }
 }
 
+// console.log(poker([3,5,5,5,2], [4,6,7,8,8]));
+// console.log(poker([2,4,5,9,14],[2,4,5,9,10]));
+// console.log(poker([2,2,11,13,14],[14,13,12,11,4]));
+// console.log(poker([2,3,13,13,13],[4,14,5,14,7]));
+// console.log(poker([3,5,3,5,2], [5,2,3,3,5]));
+// console.log(poker([3,4,5,6,7], [3,4,5,6,7]));
+//
+// console.log(poker([10,11,11,10,11], [5,7,7,7,7]));
+// console.log(poker([2,2,3,3,4], [2,2,3,3,12]));
+// console.log(poker([2,4,5,9,10], [2,4,5,9,14]));
+// console.log(poker([12,12,11,11,6], [7,8,9,10,11]));
 module.exports = poker;
