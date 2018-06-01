@@ -43,7 +43,30 @@ expectations = {
 
 
 function getPINs(observed) {
-
+  const potentials = {
+    '1': ['1', '2', '4'],
+    '2': ['2', '1', '3', '4'],
+    '3': ['3', '2', '6'],
+    '4': ['4', '1', '5', '7'],
+    '5': ['5', '2', '4', '6', '8'],
+    '6': ['6', '3', '5', '9'],
+    '7': ['7', '4', '8'],
+    '8': ['8', '7', '5', '9', '0'],
+    '9': ['9', '8', '6'],
+    '0': ['0', '8']
+  };
+  let expectations = [];
+  for (let i = 0; i < observed.length; i += 1) {
+    const newExpectations = [];
+    const potential = potentials[observed[i]]
+    for (let j = 0; j < potential.length; j += 1) {
+      for (let k = 0; k < expectations.length; k += 1) {
+        newExpectations.push(expectations[k] + potential[j]);
+        expectations = newExpectations;
+      }
+    }
+  }
+  return expectations;
 }
 
 
