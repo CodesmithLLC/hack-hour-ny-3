@@ -25,14 +25,11 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(array) {
+function missingNum(Array) {
   let sum = 0;
-  let wholeSum = 0;
-  for (let j = 0; j <= array[array.length - 1]; j++) {
-    wholeSum += j;
-  }
-  for (let i = 0; i < array.length; i++) {
-    sum += array[i];
+  let wholeSum = ((Array.length + 1) * (Array.length + 2)) / 2;
+  for (let i = 0; i < Array.length; i++) {
+    sum += Array[i];
   }
 
   return wholeSum - sum;
