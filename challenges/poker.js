@@ -83,15 +83,15 @@ function poker(hand1, hand2) {
   }
 }
 
-console.log(poker([3,5,5,5,2], [4,6,7,8,8]));
-console.log(poker([2,4,5,9,14],[2,4,5,9,10]));
-console.log(poker([2,2,11,13,14],[14,13,12,11,4]));
-console.log(poker([2,3,13,13,13],[4,14,5,14,7]));
-console.log(poker([3,5,3,5,2], [5,2,3,3,5]));
-console.log(poker([3,4,5,6,7], [3,4,5,6,7]));
-
-console.log(poker([10,11,11,10,11], [5,7,7,7,7]));
-console.log(poker([2,2,3,3,4], [2,2,3,3,12]));
-console.log(poker([2,4,5,9,10], [2,4,5,9,14]));
-console.log(poker([12,12,11,11,6], [7,8,9,10,11]));
+// console.log(poker([3,5,5,5,2], [4,6,7,8,8]));
+// console.log(poker([2,4,5,9,14],[2,4,5,9,10]));
+// console.log(poker([2,2,11,13,14],[14,13,12,11,4]));
+// console.log(poker([2,3,13,13,13],[4,14,5,14,7]));
+// console.log(poker([3,5,3,5,2], [5,2,3,3,5]));
+// console.log(poker([3,4,5,6,7], [3,4,5,6,7]));
+//
+// console.log(poker([10,11,11,10,11], [5,7,7,7,7]));
+// console.log(poker([2,2,3,3,4], [2,2,3,3,12]));
+// console.log(poker([2,4,5,9,10], [2,4,5,9,14]));
+// console.log(poker([12,12,11,11,6], [7,8,9,10,11]));
 module.exports = poker;
