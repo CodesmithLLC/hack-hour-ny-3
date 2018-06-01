@@ -27,10 +27,7 @@ Challange:
 */
 function missingNum(Array) {
   let sum = 0;
-  let wholeSum = 0;
-  for (let j = 0; j <= Array[Array.length - 1]; j++) {
-    wholeSum += j;
-  }
+  let wholeSum = ((Array.length + 1) * (Array.length + 2)) / 2;
   for (let i = 0; i < Array.length; i++) {
     sum += Array[i];
   }
