@@ -25,7 +25,13 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
+function missingNum(array) {
+  const n = array.length
+  const SUM_OF_1_TO_N_PLUS_1 = (n + 1) * (n + 2) / 2
+  let sum = 0
+  for (let n of array) sum += n
+  return SUM_OF_1_TO_N_PLUS_1 - sum
 }
+
 
 module.exports = missingNum;
