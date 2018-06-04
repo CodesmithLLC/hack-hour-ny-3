@@ -10,7 +10,42 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
+  const highestValues = [];
 
-};
+  const canFit = items.filter(item => item.weight <= weightAvailable);
+
+  function highestValue(bag, weightLeft, itemValue) {
+    if (weightLeft === 0) return itemValue;
+    let result = null;
+    let index = -1;
+    bag.forEach((item, i) => {
+      const { weight, value } = item;
+      if (weight <= weightLeft && (result === null || result <= value)) {
+        result = value;
+        index = i;
+      }
+    });
+    if (result === null) return itemValue;
+    itemValue += result;
+    weightLeft -= bag[index].weight;
+    bag.splice(index, 1);
+    return highestValue(bag, weightLeft, itemValue);
+  }
+  canFit.forEach((item, i) => {
+    const copyItems = canFit.slice();
+    let result = 0;
+    const { weight } = item;
+    const copyWeight = weightAvailable - weight;
+    copyItems.splice(i, 1);
+    if (copyItems.length !== 0) result += highestValue(copyItems, copyWeight, result + item.value);
+    highestValues.push(result);
+  });
+  let max = null;
+  highestValues.forEach((value) => {
+    if (max === null || max <= value) max = value;
+  });
+
+  return max;
+}
 
 module.exports = solveKnapsack;
