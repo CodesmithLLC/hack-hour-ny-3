@@ -10,7 +10,11 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
-
+//start by getting the ratio value/space for each item
+//order items by ratio in a list
+//iterate over list
+//if smaller constraint add to bag
+//if bigger than constraint pass
 };
 
 module.exports = solveKnapsack;

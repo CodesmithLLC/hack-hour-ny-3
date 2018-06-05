@@ -14,7 +14,19 @@
  */
 
 function binToDec(binary) {
-
+    let arr = binary.split('');
+    while (arr[0] === "0") {
+        arr.shift();
+    }
+    for (let i = 0; i < arr.length; i += 1) {
+        console.log(arr[i]);
+        arr[i] = parseInt(arr[i]);
+        arr[i] = i * Math.pow(2, arr[i]);
+    }
+    return arr.reduce((acc, el) => {
+        return (acc += el);
+    });
 }
+
 
 module.exports = binToDec;
