@@ -29,7 +29,7 @@ function commonElements(array1, array2, array3, array4){
     if (commonObj2[b]) a[b] = true
     return a
   }, {})
-  return Object.keys(commonObj3)
+  return Object.keys(commonObj3).length > 0 ? Object.keys(commonObj3) : "Nothing in Common!"
 }
 
 module.exports = commonElements;
