@@ -12,8 +12,13 @@
 
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
-function commonElements(array1, array2, array3, array4){
-
+function commonElements(array1, array2, array3, array4) {
+  const uniq1 = new Set(array1);
+  const result = [];
+  uniq1.forEach((el) => {
+    if (array2.includes(el) && array3.includes(el) && array4.includes(el)) result.push(el);
+  });
+  return result;
 }
 
 module.exports = commonElements;
