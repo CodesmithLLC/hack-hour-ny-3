@@ -18,7 +18,7 @@ function commonElements(array1, array2, array3, array4) {
   uniq1.forEach((el) => {
     if (array2.includes(el) && array3.includes(el) && array4.includes(el)) result.push(el);
   });
-  return result;
+  return result.length === 0 ? 'Nothing in Common!' : result.reverse();
 }
 
 module.exports = commonElements;
