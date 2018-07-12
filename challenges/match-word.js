@@ -10,56 +10,25 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-// function matchWord(str) {
-//     if (str === '') return true
-//     let matches = [];
-//     let words = [];
-//     let recording = false;
-//     for(let i=0; i< str.length; i++){
-//       char = str[i];
-//       if (char.match(/[a-z]/i)){
-//         if(recording === false){
-//           recording = true;
-//           words.push(char);
-//         }
-//         else words.push(char)
-//       }
-//       else {
-//         if(recording === true){
-//             recording = false;
-//             matches.push(words.join(''));
-//             words = [];
-//         }    
-//       }
-//     }
-//     return findMatches(matches);
-//   }
-  
-  
-  
-//   function findMatches(arr){
-//     for(let i=0; i<arr.length-1; i++){
-//       if(arr[i].toLowerCase() === arr[i+1].toLowerCase().split('').reverse().join('')){
-//         return true
-//       }
-//     }
-//     return false;
-//   }
+function matchWord(str){
+  if (typeof str !== 'string') return 'bad input';
+  if (str === '') return true;
 
-// solution with stack (push / pop)
-function matchWord(str) {
-  let stack = [];
-  let temp = str.toLowerCase().split(/[^a-zA-Z]/);
-  let wordArr = temp.filter( word => (word.length) );
-
-  wordArr.forEach( word => {
-    let reversed = word.split('').reverse().join('');
-    if (!stack.length) stack.push(word);
-    else if (reversed === stack[stack.length-1]) stack.pop();
-    else stack.push(word);
-  });
-  return !stack.length;
+  let stack =[];
+  let wordArr = str.split(/[^a-z]/gi).filter(el=>el.length)
+  if(wordArr % 2) return false
+  console.log('here')
+  wordArr.forEach((word)=>{
+    word.split('').reverse().join('') === stack[stack.length-1] ? stack.pop() : stack.push(word)
+  })
+  return !stack.length
 }
+
+
+
+
+
+
 
 console.log(matchWord('__END_DNE-----'), '    should be:  true');  //-> true
 console.log(matchWord('__ENDDNE__'), '    should be:  false');  //-> false       (not separated by a space)
@@ -67,41 +36,17 @@ console.log(matchWord('IF()()fi[]'), '    should be:  true');  //-> true        
 console.log(matchWord('for__if__rof__fi'), '    should be:  false');  //-> false     not properly closed. like ( [) ] 
 console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'), '    should be:  true');  //-> true
 console.log(matchWord(''), '    should be:  true');  //-> true
-
-/*
-// solution with stack (shift / unshift)
-function matchWord(str) {
-  var keywords = str.match(/[a-zA-Z]+/g) || [];
-  var wordStack = [];
-  for (var word of keywords) {
-    if (
-      word.split('').reverse().join('').toLowerCase() === 
-      (wordStack[0] || '').toLowerCase()
-    )
-      wordStack.shift();
-    else
-      wordStack.unshift(word);
-  }
-  return !wordStack.length;
-}
-*/
-
+console.log(matchWord('asd,dsa,asd'), '    should be:  true');  //-> true
 module.exports = matchWord;
 
 
-
-// function balancedParens(input){
-//     var matches = {'[':']', '{':'}', '(':')'};
-//     var brackets = [];
-//     for (var i = 0; i < input.length; i++) {
-//       char = input[i];
-//       if (char in matches) {
-//         brackets.push(char);
-//       } else if (char === ']' || char === ')' || char === '}'){
-//         if (matches[brackets.pop()] !== char){
-//           return false;
-//         }
-//       }
-//     }
-//     return !brackets.length;
-//   }
+// solution with stack (push / pop)
+// function matchWord(str){
+//   let stack = [];
+//   let wordArr = str.toLowerCase().split(/[^a-zA-Z]/).filter(word => word.length)
+//   wordArr.forEach((word) => {
+//     console.log(word,word.split('').reverse().join(''),stack[stack.length-1])
+//     word.split('').reverse().join('') === stack[stack.length-1] ? stack.pop() : stack.push(word)
+//   })
+//   return !stack.legnth
+// }

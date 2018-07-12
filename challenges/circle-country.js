@@ -23,29 +23,58 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-    let startDis = [], endDis = [], startCircle = [], endCircle = [], commonCircle = [], counter = 0;
-    for(let i=0; i<x.length; i++){
-      startDis.push(Math.sqrt(Math.pow((x[i]-start_x),2) + Math.pow((y[i]-start_y),2)));
-      endDis.push(Math.sqrt(Math.pow((x[i]-end_x),2) + Math.pow((y[i]-end_y),2)));
-    }
-    for(let j=0; j<r.length; j++){
-      if(startDis[j]<r[j]) startCircle.push(j);
-      if(endDis[j]<r[j]) endCircle.push(j);
-    }
-    if(!startCircle.length || !endCircle.length) return startCircle.length + endCircle.length;
-    startCircle.forEach((sCircle) =>{
-      endCircle.forEach((eCircle) => {
-        if(sCircle === eCircle) commonCircle.push(sCircle)
-      })
-    })
-    let smallestCommonCircle = commonCircle.reduce(function(prev,cur){
-      return r[prev] < r[cur] ? prev : cur;
-    });
-    let allCircles = startCircle.concat(endCircle)
-    for(let k = 0; k<allCircles.length; k++){
-      if(r[allCircles[k]] < r[smallestCommonCircle]) counter ++;
-    }
-    return counter;
-  }
+  r.reduce((acc, rad, i) => {
+    let startDistance = Math.sqrt(Math.pow(x[i]-start_x,2) + Math.pow(y[i]-start_y,2))
+    let endDistance = Math.sqrt(Math.pow(x[i]-end_x,2) + Math.pow(y[i]-end_y,2))
+    return (startDistance < r && endDistance > r) || (startDistance > r && endDistance < r) ? acc++ : acc
+  },0)
+}
+
+
+
+
 
 module.exports = circleCountry;
+
+
+
+
+
+
+function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  let startDis = [], endDis = [], startCircle = [], endCircle = [], commonCircle = [], counter = 0;
+  for(let i=0; i<x.length; i++){
+    startDis.push(Math.sqrt(Math.pow((x[i]-start_x),2) + Math.pow((y[i]-start_y),2)));
+    endDis.push(Math.sqrt(Math.pow((x[i]-end_x),2) + Math.pow((y[i]-end_y),2)));
+  }
+  for(let j=0; j<r.length; j++){
+    if(startDis[j]<r[j]) startCircle.push(j);
+    if(endDis[j]<r[j]) endCircle.push(j);
+  }
+  if(!startCircle.length || !endCircle.length) return startCircle.length + endCircle.length;
+  startCircle.forEach((sCircle) =>{
+    endCircle.forEach((eCircle) => {
+      if(sCircle === eCircle) commonCircle.push(sCircle)
+    })
+  })
+  let smallestCommonCircle = commonCircle.reduce(function(prev,cur){
+    return r[prev] < r[cur] ? prev : cur;
+  });
+  let allCircles = startCircle.concat(endCircle)
+  for(let k = 0; k<allCircles.length; k++){
+    if(r[allCircles[k]] < r[smallestCommonCircle]) counter ++;
+  }
+  return counter;
+}
+
+
+
+
+
+// function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+//   return r.reduce((acc, rad, i) => {
+//     const startDistance = Math.sqrt(Math.pow(x[i]-start_x, 2) + Math.pow(y[i]-start_y,2));
+//     const endDistance = Math.sqrt(Math.pow(x[i]-end_x, 2) + Math.pow(y[i]-end_y,2));
+//     return (startDistance < rad && endDistance > rad) || (startDistance > rad && endDistance < rad) ? acc++ : acc
+//   },0)
+// }
