@@ -168,7 +168,7 @@ var PLACES = ['', 'Thousand', 'Million', 'Billion', 'Trillion', 'Quadrillion'];
 
 function numToWords(num) {
   if (!num) return 'Zero';
-  str = String(num);
+  let str = String(num);
   // make sure the length is divisible by 3
   while (str.length % 3) {
     str = '0' + str;
@@ -209,6 +209,5 @@ function parseThree(digits) {
   }
   return words;
 }
-
 
 module.exports = numToWords;
