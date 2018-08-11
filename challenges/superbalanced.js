@@ -7,31 +7,19 @@
 example: http://www.geeksforgeeks.org/wp-content/uploads/balanced_tree.GIF
  */
 
-function BinaryTree(value) {
-  this.value = value;
-  this.left = null;
-  this.right = null;
+
+function height(tree) {
+  if (tree === null) {
+      return 0;
+  }
+  return 1 + Math.max(height(tree.left), height(tree.right));
 }
 
 function superbalanced(tree) {
-  if(!tree) return true
-  let height = [0,0]
-  function recursion(node,indicator){
-    if(node.left) {
-      if(!indicator) indicator = 'left';
-      if(node.left.value < node.value) {
-        recursion(node.left);
-      } 
-    }
-    if(node.right) {
-      if(!indicator) indicator = 'right';
-      if(node.right.value > node.value) {
-        recursion(node.right);
-      }
-    }
-    return height;
-  }
- recursion(tree)
+  if (tree === null) return true;
+  return Math.abs(height(tree.left) - height(tree.right)) <= 1 
+  && superbalanced(tree.left) 
+  && superbalanced(tree.right);
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};

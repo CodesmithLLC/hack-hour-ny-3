@@ -17,8 +17,7 @@ function commonElements(array1, array2, array3, array4){
   for(let i = 0; i < array1.length; i++){
     const el = array1[i];
     if(output.indexOf(el) == -1 && array2.indexOf(el) > -1 && array3.indexOf(el) > -1 && array4.indexOf(el) > -1) {
-      if(isNaN(el)) output.push(el)
-      else output.unshift(el)
+      output.push(el)
     }
   }
   return output

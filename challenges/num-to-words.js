@@ -13,16 +13,76 @@
  */
 
 function numToWords(num) {
-  let odds = {11:'Eleven',12:'Twelve',13:'Thirteen',14:'Fourteen',15:'Fifteen',16:'Sixteen',17:'Seventeen',18:'Eighteen',19:'Nineteen',
-              10:'Ten',20:'Twenty',30:'Thirty',40:'Fourty',50:'Fifty',60:'Sixty',70:'Seventy',80:'Eighty',90:'Ninety'}
-  let nums = {0:'Zero',1:'One',2:'Two',3:'Three',4:'Four',5:'Five',6:'Six',7:'Seven',8:'Eight',9:'Nine'}  
-
-  if (num<=20) {
-    if(nums.hasOwnProperty(num)) return nums.num;
-    if(odds.hasOwnProperty(num)) return odds.num;
+  if (!num || num === 0) return 'Zero';
+  const keyObj = {
+    1000000000000000: 'Quadrillion',
+    1000000000000: 'Trillion',
+    1000000000: 'Billion',
+    1000000: 'Million',
+    1000: 'Thousand',
+    100: 'Hundred',
+    90: 'Ninety',
+    80: 'Eighty',
+    70: 'Seventy',
+    60: 'Sixty',
+    50: 'Fifty',
+    40: 'Forty',
+    30: 'Thirty',
+    20: 'Twenty',
+    19: 'Nineteen',
+    18: 'Eighteen',
+    17: 'Seventeen',
+    16: 'Sixteen',
+    15: 'Fifteen',
+    14: 'Fourteen',
+    13: 'Thirteen',
+    12: 'Twelve',
+    11: 'Eleven',
+    10: 'Ten',
+    9: 'Nine',
+    8: 'Eight',
+    7: 'Seven',
+    6: 'Six',
+    5: 'Five',
+    4: 'Four',
+    3: 'Three',
+    2: 'Two',
+    1: 'One',
   }
-
-  let digs = num.split('')
+  let words = '';
+  let keyArr = Object.keys(keyObj).sort((a,b)=>b-a);
+  for (let i = 0, n = num; n > 0; i++) {
+    if (n >= keyArr[i]) {
+      const count = Math.floor(n / keyArr[i]);
+      words = count > 1 || i <= 5
+        ? words + numToWords(count) + keyObj[keyArr[i]]
+        : words + keyObj[keyArr[i]];
+      n -= count * keyArr[i];
+    }
+  }
+  return words;
 }
+
+
+
+12,345 - 12,000 = 345
+
+
+TwelveThousand 
+
+
+
+
+
+
+
+
+console.log(numToWords(0))// -> 'Zero'
+console.log(numToWords(43))// -> 'FortyThree'
+console.log(numToWords(2999))// -> 'TwoThousandNineHundredNintyNine'
+console.log(numToWords(15))// -> 'Fifteen'
+console.log(numToWords(2483579411))// -> 'TwoBillionFourHundredEightyThreeMillionFiveHundredSeventyNineThousandFourHundredEleven'
+console.log(numToWords(300525151340440))// -> 'ThreeHundredTrillionFiveHundredTwentyFiveBillionOneHundredFiftyOneMillionThreeHundredFortyThousandFourHundredForty'
+console.log(numToWords(92120000000000000))// -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
 
 module.exports = numToWords;

@@ -13,14 +13,46 @@
 
 */
 
-function drawStairs(n) {
-    let prints = "";
-    for (let i=0; i<n; i++){
-        prints += "*";
-        console.log(prints.padStart(n));
-    }
-}
- 
 
+// function drawStairs(n) {
+//   let spaces = ''; // string of spaces
+//   let splats = ''; // string of asterisks
+
+//   for (let i = 1; i <= n; i++) {
+//     spaces = ' '.repeat(n - i);
+//     splats = '*'.repeat(i);
+//     console.log(spaces + splats);
+//   }
+// }
+
+// function drawStairs(n) {
+//   for (let i =1; i <= n; i += 1) {
+//     console.log(' '.repeat(n - i) + '*'.repeat(i));
+//   }
+// }
+
+// // Using padStart
+// function drawStairs(n) {
+//   for (let i=1; i<=n; i++){
+//     let prints = "*".repeat(i);
+//     console.log(prints.padStart(n));
+//   }
+// }
+ 
+function drawStairs(n){
+  for(let i = 1; i <= n; i++){
+    console.log(' '.repeat(n-i) + '*'.repeat(i))
+  }
+}
+
+function drawStairs(n) {
+  for(let i = 1; i <= n; i++) {
+    console.log('*'.repeat(i).padStart(n))
+  }
+}
+
+
+
+drawStairs(5)
 
 module.exports = drawStairs;

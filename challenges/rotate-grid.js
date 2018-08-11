@@ -16,36 +16,6 @@
  * BONUS: Do this in place
  */
 
-// This method only works when the number is contineous:
-// function rotateGrid(grid, n) {
-//     let biggest = grid[grid.length-1];
-//     let i=0;
-//     biggest.forEach(element => {
-//         let j=0;
-//         while(j<n){
-//         grid[i][j] = element-(j*n);
-//         }
-//     });
-// }
-
-// More robust solution. But 0(n3) time complexity.
-// function rotateGrid(grid, n) {
-//     let i=0;
-//     grid.forEach(row => {
-//       while(i<n){
-//         grid[i].unshift(row[row.length-3+i])
-//         i++;
-//       }
-//       i=0;
-//     })
-//     grid.forEach(row => {
-//       row.splice(n,row.length)
-//     })
-//     return grid
-// }
-  
-
-
 // O(n ^ 2) time, O(n) space
 function rotateGrid(grid, n){
   let output = [];
@@ -54,7 +24,6 @@ function rotateGrid(grid, n){
     for(let j = 0; j < n; j++){
       inner.push(grid[n-1-j][i])
     }
-    console.log(inner)
     output.push(inner);
   }
   return output;
@@ -67,15 +36,16 @@ function rotateGrid(grid, n){
     let first = i;
     let last = n - 1 - i;
     for(let j = first; j < last; j++){
+      console.log(grid)
       let adjust = j - first;
       // save your first spot in a temporary variable
       var tempTop = grid[first][j];
       //left column to top (since top is saved)
-      grid[first][j] = grid[last-adjust][first];
+      grid[first][j] = grid[last][first];
       //right column to bottom row
-      grid[last-adjust][first] = grid[last][last-adjust];
+      grid[last][first] = grid[last][last];
       //bottom row to left column
-      grid[last][last-adjust] = grid[j][last];
+      grid[last][last] = grid[j][last];
       //tempTop row to right column
       grid[j][last] = tempTop;
     }
@@ -87,4 +57,8 @@ function rotateGrid(grid, n){
 
 module.exports = rotateGrid;
 
-
+sampleGrid =[   [1, 2, 3, 4],
+                [5, 6, 7, 8],
+                [9, 10, 11, 12],
+                [13,14,15,16]  ]           
+console.log(rotateGrid(sampleGrid, 4));
