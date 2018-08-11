@@ -39,18 +39,48 @@ expectations = {
 
 */
 
-
-
-
 function getPINs(observed) {
-  const posNum = {1:[1,2,4], 2:[1,2,3,5], 3:[2,3,6], 
-    4:[1,4,5,7], 5:[2,4,5,6,8], 6:[3,5,6,9],
-    7: [4,7,8], 8:[5,7,8,9,0], 9:[6,8,9], 0:[8,0]}
-  let combo = [], result = [];
-  for(let i=0; i<observed.length; i++) {
-    combo.push(posNum[observed[i]])
+  // Object mapping out possibilities based on observed digit.
+  let possibilities = [''];
+  const pad = {
+    0: ['8', '0'],
+    1: ['1', '2', '4'],
+    2: ['1', '2', '3', '5'],
+    3: ['2', '3', '6'],
+    4: ['1', '4', '5', '7'],
+    5: ['2', '4', '5', '6', '8'],
+    6: ['3', '5', '6', '9'],
+    7: ['4', '7', '8'],
+    8: ['5', '7', '8', '9', '0'],
+    9: ['6', '8', '9']
   }
+  while(observed){
+    let adjacent = pad[observed[0]];
+    let newPoss = []
+    for(let i = 0; i<adjacent.length; i++){
+      for(let j = 0; j < possibilities; j++){
+        newPoss.push(possibilities[j]+adjacent[i])
+      }
+    }
+    observed = observed.slice(1)
+    possibilities = newPoss;
+  }
+  // while(observed){
+  //   let adjacent = pad[observed[0]];
+  //   let newPossibs = [];
+  //   for(let i = 0; i < adjacent.length; i++){
+  //     for(let j = 0; j < possibilites.length; j++){
+  //       newPossibs.push(possibilities[j] + adjacent[i])
+  //     }
+  //   }
+  //   observed = observed.slice(1);
+  //   possibilities = newPossibs;
+  // }
+  return possibilities
+
 }
 
+
+console.log(getPINs('369'))
 
 module.exports = getPINs
